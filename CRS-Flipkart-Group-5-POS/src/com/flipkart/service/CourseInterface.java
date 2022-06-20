@@ -4,8 +4,6 @@ import com.flipkart.bean.Course;
 
 import java.util.List;
 
-public class CourseInterface {
-
-    public List<Course>  getCourseDetails();
-
+public interface CourseInterface {
+    List<Course> getCourseDetails();
 }

@@ -1,15 +1,13 @@
 package com.flipkart.service;
 
-public class AdminInterface {
-    public void approveStudent();
+public interface AdminInterface {
+    void approveStudent();
 
-    public void generateReportCard();
+    void generateReportCard();
 
-    public void addProfessor();
+    void addProfessor();
 
-    public void updateCatalogue();
+    void updateCatalogue();
 
-    public void assignCourseToStudent();
-
-//    public void assignCourseToProfessor();
+    void assignCourseToStudent();
 }

@@ -1,10 +1,9 @@
 package com.flipkart.service;
 
-public class ProfessorInterface {
-    public void chooseCourse();
+public interface ProfessorInterface {
+    void chooseCourse();
 
-    public void viewStudentsList();
+    void viewStudentsList();
 
-    public void assignGrade();
-
+    void assignGrade();
 }

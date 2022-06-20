@@ -4,15 +4,14 @@ import com.flipkart.bean.RegisteredCourse;
 
 import java.util.List;
 
-public class RegistrationInterface {
-    public List<RegisteredCourse> registeredCourses();
+public interface RegistrationInterface {
+    List<RegisteredCourse> registeredCourses();
 
-    public void addCourses();
+    void addCourses();
 
-    public void dropCourses();
+    void dropCourses();
 
-    public void feePayment();
+    void feePayment();
 
-    public void viewCourses();
+    void viewCourses();
 }
-
