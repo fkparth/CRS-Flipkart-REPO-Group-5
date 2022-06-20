@@ -7,5 +7,5 @@ public interface StudentInterface {
     void viewGradesheet();
 
     //same goes with this function we show the grades print it not return it
-    void viewGradeCatalogue();
+    void viewCourseCatalogue();
 }
