@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec2a3f4d-1113-4238-9ab8-ace89e1c1959" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/flipkart/service/CourseImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/flipkart/service/GradeCardImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/flipkart/service/NotificationImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/flipkart/service/ProfessorImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/flipkart/service/RegisterationImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/flipkart/service/StudentImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/StudentInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/GradeCardInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/GradeCardInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -24,7 +32,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Apfavr32SulFl7oRogXJKGblca" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -51,7 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1655711514479</updated>
-      <workItem from="1655711516411" duration="4314000" />
+      <workItem from="1655711516411" duration="7145000" />
     </task>
     <servers />
   </component>
