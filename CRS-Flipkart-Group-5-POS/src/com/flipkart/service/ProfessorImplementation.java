@@ -44,17 +44,17 @@ public class ProfessorImplementation implements ProfessorInterface{
         int choice = sc.nextInt();
         Professor prof=new Professor();
 
-        courseList.get(choice-1).setStatus(0);
+        courseList.get(choice-1).setStatus("Deactive");
         prof.setCourse(courseList.get(choice-1));
-        courseList.get(choice-1).setStatus(0);
 
 
-        for(int i=0;i<courseList.size();i++){
-            System.out.print(courseList.get(i).getCourseId());
-            System.out.print("-");
-            System.out.print(courseList.get(i).getCourseName()+" ");
-            System.out.println(courseList.get(i).getStatus());
-        }
+
+//        for(int i=0;i<courseList.size();i++){
+//            System.out.print(courseList.get(i).getCourseId());
+//            System.out.print("-");
+//            System.out.print(courseList.get(i).getCourseName()+" ");
+//            System.out.println(courseList.get(i).getStatus());
+//        }
 
 
 

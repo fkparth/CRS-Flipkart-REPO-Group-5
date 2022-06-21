@@ -3,7 +3,7 @@ package com.flipkart.bean;
 public class Course {
     public int courseId;
     public String courseName;
-    public int status;
+    public String status;
     public int strength;
     public Professor professor;
 
@@ -23,11 +23,11 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31945c9c-0f15-4fda-9932-9f8495a4d972" name="Changes" comment="" />
+    <list default="true" id="31945c9c-0f15-4fda-9932-9f8495a4d972" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/bean/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/bean/Course.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/CourseCatalogImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/CourseCatalogImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/ProfessorImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/ProfessorImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/bean/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/bean/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/ProfessorImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/ProfessorImplementation.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
