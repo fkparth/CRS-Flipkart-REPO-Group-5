@@ -52,6 +52,21 @@ public class StudentImplementation implements StudentInterface {
 
     @Override
     public void feePayment() {
+        System.out.println("Choose :");
+        System.out.println("1.Online Payment");
+        System.out.println("2.Offline Payment");
+        Scanner sc=new Scanner(System.in);
+        int choice = sc.nextInt();
+        if(choice ==1){
+            System.out.println("1.Net Banking :");
+            System.out.println("2.Card Payment");
+            System.out.println("3.UPI");
+            //External Payment GateWay
+            System.out.println("Choose :");
+            int c = sc.nextInt();
+            System.out.println("Enter Credentials");
+        }
+        System.out.println("PAYMENT SUCCESSFUL");
 
     }
 
