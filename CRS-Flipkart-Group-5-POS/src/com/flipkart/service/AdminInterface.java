@@ -8,7 +8,7 @@ public interface AdminInterface {
 
     void addProfessor();
 
-    void updateCatalogue(Course course);
+    void updateCatalogue(Course course,int addOrDrop);
 
     void assignCourseToStudent();
 }

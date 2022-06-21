@@ -1,15 +1,13 @@
 package com.flipkart.service;
 
+import com.flipkart.Dao.MockData;
 import com.flipkart.bean.*;
 
 public class AdminImplementation implements AdminInterface{
     @Override
     public Admin fetchAdminData(int id) {
-        Admin ad = new Admin();
-        ad.setUserId(301);
-        ad.setName("SS");
-        ad.setRole(3);
-        return ad;
+        MockData data = MockData.getInstance();
+        return data.admin.get(id);
     }
 
     @Override
@@ -27,9 +25,14 @@ public class AdminImplementation implements AdminInterface{
     }
 
     @Override
-    public void updateCatalogue(Course course) {
-
-
+    public void updateCatalogue(Course course,int addOrdrop) {
+        MockData data = MockData.getInstance();
+        if(addOrdrop == 1){
+            data.course.put(course.getCourseId(),course);
+        }
+        else{
+            data.course.remove(course.getCourseId());
+        }
     }
 
     @Override
