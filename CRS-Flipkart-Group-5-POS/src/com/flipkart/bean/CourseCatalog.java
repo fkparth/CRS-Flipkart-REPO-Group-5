@@ -6,4 +6,5 @@ public class CourseCatalog {
     public List<Course> courses;
 
 
+
 }

@@ -38,13 +38,13 @@ public class StudentImplementation implements StudentInterface {
     @Override
     public Student FetchUserData(int id) {
 
-          HashMap<Integer,Student>      stuData = new HashMap<Integer,Student>();
+          HashMap<Integer,Student>     stuData = new HashMap<Integer,Student>();
           Student s1 = new Student();
           s1.setStudentId(101);
           s1.setName("Datta");
           s1.setRole(1);
           s1.setUserId(101);
-          stuData.put(1,s1);
+          stuData.put(101,s1);
         Student s2 = new Student();
         s2.setStudentId(102);
         s2.setName("Rohit");

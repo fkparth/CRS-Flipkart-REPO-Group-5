@@ -2,7 +2,9 @@ package com.flipkart.service;
 
 import com.flipkart.bean.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ProfessorImplementation implements ProfessorInterface{
     @Override
@@ -25,6 +27,8 @@ public class ProfessorImplementation implements ProfessorInterface{
     }
     @Override
     public void chooseCourse() {
+        List<Course> courseList = new ArrayList<Course>();
+
 
     }
 

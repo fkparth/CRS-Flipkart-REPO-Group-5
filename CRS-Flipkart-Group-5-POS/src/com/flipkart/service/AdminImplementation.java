@@ -1,20 +1,19 @@
 package com.flipkart.service;
 
-import com.flipkart.bean.Admin;
+import com.flipkart.bean.*;
 
 public class AdminImplementation implements AdminInterface{
     @Override
     public Admin fetchUserData(int id) {
         Admin ad = new Admin();
         ad.setUserId(301);
-        ad.setName("sruthi");
+        ad.setName("SS");
         ad.setRole(3);
         return ad;
     }
 
     @Override
     public void approveStudent() {
-
     }
 
     @Override
@@ -28,7 +27,8 @@ public class AdminImplementation implements AdminInterface{
     }
 
     @Override
-    public void updateCatalogue() {
+    public void updateCatalogue(Course course) {
+
 
     }
 
