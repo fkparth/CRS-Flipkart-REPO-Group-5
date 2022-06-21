@@ -55,15 +55,15 @@ public class MockData {
         Course course1 = new Course();
         course1.setCourseId(1);
         course1.setCourseName("POIS");
-        course1.setStatus(1);
+        course1.setStatus(0);
         Course course2 = new Course();
-        course1.setCourseId(2);
-        course1.setCourseName("OS");
-        course1.setStatus(1);
+        course2.setCourseId(2);
+        course2.setCourseName("OS");
+        course2.setStatus(0);
         Course course3 = new Course();
-        course1.setCourseId(3);
-        course1.setCourseName("DSA");
-        course1.setStatus(1);
+        course3.setCourseId(3);
+        course3.setCourseName("DSA");
+        course3.setStatus(0);
 
         this.course = new HashMap<Integer,Course>();
         this.course.put(1,course1);

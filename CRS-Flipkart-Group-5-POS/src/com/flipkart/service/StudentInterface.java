@@ -12,8 +12,7 @@ public interface StudentInterface {
     void viewGradesheet();
 
     //same goes with this function we show the grades print it not return it
-    void viewGradeCatalogue();
-    List<RegisteredCourse> registeredCourses();
+    void viewCourseCatalogue();
 
     void addCourses();
 

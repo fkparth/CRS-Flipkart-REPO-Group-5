@@ -3,17 +3,12 @@ import java.util.*;
 
 import com.flipkart.Dao.MockData;
 import com.flipkart.bean.RegisteredCourse;
-import com.flipkart.bean.Student;
+import com.flipkart.bean.*;
 public class StudentImplementation implements StudentInterface {
 
     @Override
     public void register() {
 
-    }
-
-    @Override
-    public List<RegisteredCourse> registeredCourses() {
-        return null;
     }
 
     @Override
@@ -41,21 +36,22 @@ public class StudentImplementation implements StudentInterface {
 
         MockData data = MockData.getInstance();
         return data.student.get(id);
-
-
-
-
-
-
     }
 
     @Override
     public void viewGradesheet() {
+        return ;
 
     }
 
     @Override
-    public void viewGradeCatalogue() {
-
+    public void viewCourseCatalogue() {
+        MockData data = MockData.getInstance();
+        System.out.println("CourseID : CourseName");
+        for (Course iter: data.course.values()){
+            System.out.print(iter.getCourseId()+" ");
+            System.out.println(iter.getCourseName());
+        }
+        return ;
     }
 }

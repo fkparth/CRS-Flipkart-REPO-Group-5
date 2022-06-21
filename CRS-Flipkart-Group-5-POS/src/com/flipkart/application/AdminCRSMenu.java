@@ -20,14 +20,12 @@ public class AdminCRSMenu {
         int choice = sc.nextInt();
         switch(choice){
             case 1:
-                AI.approveStudent();
                 break;
             case 2:
                 AI.generateReportCard();
                 break;
             case 3:
                 AI.addProfessor();
-                System.out.println();
                 break;
             case 4:
                 System.out.println("Enter 1 to Add course");
