@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31945c9c-0f15-4fda-9932-9f8495a4d972" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/CRSApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/CRSApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/StudentCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/StudentCRSMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/StudentImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/StudentImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/StudentInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/StudentInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/StudentCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/StudentCRSMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/StudentImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/StudentImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/StudentInterface.java" afterDir="false" />
-    </list>
+    <list default="true" id="31945c9c-0f15-4fda-9932-9f8495a4d972" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
