@@ -4,7 +4,12 @@ import com.flipkart.service.*;
 import com.flipkart.bean.*;
 public class StudentCRSMenu {
     public static void showChoices(Student student) {
-        StudentInterface si = new StudentImplementation();
+        StudentInterface si = new StudentImplementation() {
+            @Override
+            public void viewCourseCatalogue() {
+
+            }
+        };
         System.out.println("Hello "+student.getName());
         System.out.println("1. View grades");
         System.out.println("2. Make payment");

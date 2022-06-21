@@ -12,9 +12,9 @@ public interface StudentInterface {
     void viewGradesheet();
 
     //same goes with this function we show the grades print it not return it
-<<<<<<< HEAD
+
     void viewCourseCatalogue();
-=======
+
     void viewGradeCatalogue();
     List<RegisteredCourse> registeredCourses();
 
@@ -25,7 +25,7 @@ public interface StudentInterface {
     void feePayment();
 
     void viewCourses();
->>>>>>> origin/new-branch
+
 }
 
 

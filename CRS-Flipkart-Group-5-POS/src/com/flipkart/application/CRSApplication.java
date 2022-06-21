@@ -5,9 +5,9 @@ import com.flipkart.bean.*;
 //import com.flipkart.service.StudentInterface.StudentFunction;
 public class CRSApplication {
     public static void main(String[] args) {
-<<<<<<< HEAD
+
         System.out.println("Hello World!");
-=======
+
         Scanner sc = new Scanner(System.in);
         System.out.println("--------------------------------------------------------------");
         System.out.println("\t \t Welcome to CRS Application");
@@ -18,14 +18,19 @@ public class CRSApplication {
         System.out.println("Enter Here:");
         int menuClick = sc.nextInt();
         if(menuClick==1){
-            System.out.println("Please enter userName");
+            System.out.println("Please enter userId");
             int userName = sc.nextInt();
             System.out.println("Please Enter Password");
             String password = sc.next();
             //fetching role from db
             int reqRole = userName/100;
             if(reqRole==1){
-                StudentInterface SI = new StudentImplementation();
+                StudentInterface SI = new StudentImplementation() {
+                    @Override
+                    public void viewCourseCatalogue() {
+
+                    }
+                };
                 Student s = SI.FetchUserData(userName);
                 StudentCRSMenu stucrs = new StudentCRSMenu();
                 stucrs.showChoices(s);
@@ -62,6 +67,6 @@ public class CRSApplication {
 
 
 
->>>>>>> origin/new-branch
+
     }
 }

@@ -3,7 +3,7 @@ import java.util.*;
 
 import com.flipkart.bean.RegisteredCourse;
 import com.flipkart.bean.Student;
-public class StudentImplementation implements StudentInterface {
+public abstract class StudentImplementation implements StudentInterface {
 
     @Override
     public void register() {
@@ -44,7 +44,7 @@ public class StudentImplementation implements StudentInterface {
           s1.setName("Datta");
           s1.setRole(1);
           s1.setUserId(101);
-          stuData.put(1,s1);
+          stuData.put(101,s1);
         Student s2 = new Student();
         s2.setStudentId(102);
         s2.setName("Rohit");
