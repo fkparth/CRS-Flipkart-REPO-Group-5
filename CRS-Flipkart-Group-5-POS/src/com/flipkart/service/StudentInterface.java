@@ -14,9 +14,9 @@ public interface StudentInterface {
     //same goes with this function we show the grades print it not return it
     void viewCourseCatalogue();
 
-    void addCourses();
+    void addCourses(Student stud);
 
-    void dropCourses();
+    void dropCourses(Student stud);
 
     void feePayment();
 

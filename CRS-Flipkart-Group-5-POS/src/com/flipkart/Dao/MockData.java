@@ -68,12 +68,16 @@ public class MockData {
         course3.setCourseId(3);
         course3.setCourseName("DSA");
         course3.setStatus(0);
+        Course course4 = new Course();
+        course4.setCourseId(4);
+        course4.setCourseName("Java Basics");
+        course4.setStatus(0);
 
         this.course = new HashMap<Integer,Course>();
         this.course.put(1,course1);
         this.course.put(2,course2);
         this.course.put(3,course3);
-
+        this.course.put(4,course4);
 
     }
 

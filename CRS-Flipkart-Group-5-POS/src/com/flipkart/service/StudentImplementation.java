@@ -2,15 +2,11 @@ package com.flipkart.service;
 import java.util.*;
 
 import com.flipkart.Dao.MockData;
-<<<<<<< HEAD
-=======
-import com.flipkart.bean.RegisteredCourse;
->>>>>>> cbd1dfd0472877570fc3494eacfdb696d853d28f
 import com.flipkart.bean.*;
 public class StudentImplementation implements StudentInterface {
 
     @Override
-<<<<<<< HEAD
+
     public void register(Student stud) {
         System.out.println("Give you primary preferences");
         Scanner sc=new Scanner(System.in);
@@ -30,20 +26,28 @@ public class StudentImplementation implements StudentInterface {
         }
         data.registeredCourses.put(stud,courses);
         System.out.println("REGISTRATION SUCCESSFUL");
-=======
-    public void register() {
-
->>>>>>> cbd1dfd0472877570fc3494eacfdb696d853d28f
     }
 
     @Override
-    public void addCourses() {
-
+    public void addCourses(Student stud) {
+        MockData data = MockData.getInstance();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the course ID to be added");
+        int cor=sc.nextInt();
+        //Get Registered student list and add in that
+        data.registeredCourses.get(stud).add(data.course.get(cor));
+        System.out.println("Course added");
     }
 
     @Override
-    public void dropCourses() {
-
+    public void dropCourses(Student stud) {
+        MockData data = MockData.getInstance();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the course ID to be dropped");
+        int cor=sc.nextInt();
+        //Get Registered student list and remove from that
+        data.registeredCourses.get(stud).remove(data.course.get(cor).getCourseId());
+        System.out.println("Course removed");
     }
 
     @Override
@@ -57,7 +61,8 @@ public class StudentImplementation implements StudentInterface {
         List<Course> name=new ArrayList<Course>();
         name=data.registeredCourses.get(stud);
         for(int i =0;i<name.size();i++){
-            System.out.println(name.get(i).getCourseId());
+            System.out.print(name.get(i).getCourseId()+"-");
+            System.out.println(name.get(i).getCourseName());
         }
     }
 
@@ -76,9 +81,6 @@ public class StudentImplementation implements StudentInterface {
 
     @Override
     public void viewCourseCatalogue() {
-<<<<<<< HEAD
-
-=======
         MockData data = MockData.getInstance();
         System.out.println("CourseID : CourseName");
         for (Course iter: data.course.values()){
@@ -86,6 +88,5 @@ public class StudentImplementation implements StudentInterface {
             System.out.println(iter.getCourseName());
         }
         return ;
->>>>>>> cbd1dfd0472877570fc3494eacfdb696d853d28f
     }
 }

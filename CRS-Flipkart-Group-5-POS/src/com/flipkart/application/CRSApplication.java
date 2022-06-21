@@ -19,7 +19,7 @@ public class CRSApplication {
         if(menuClick==1){
 //            MockData data = MockData.getInstance();
 //            System.out.println(data.student.get(101).getName());
-            System.out.println("Please enter userName");
+            System.out.println("Please enter userID");
             int userName = sc.nextInt();
             System.out.println("Please Enter Password");
             String password = sc.next();
