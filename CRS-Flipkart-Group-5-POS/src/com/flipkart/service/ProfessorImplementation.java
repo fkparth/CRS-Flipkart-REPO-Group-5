@@ -2,7 +2,10 @@ package com.flipkart.service;
 
 import com.flipkart.bean.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
 
 public class ProfessorImplementation implements ProfessorInterface{
     @Override
@@ -25,6 +28,35 @@ public class ProfessorImplementation implements ProfessorInterface{
     }
     @Override
     public void chooseCourse() {
+        List<Course> courseList = new ArrayList<Course>();
+        CourseCatalogInterface obj=new CourseCatalogImplementation();
+        courseList=obj.fetchCoursesList();
+
+        for(int i=0;i<courseList.size();i++){
+            System.out.print(courseList.get(i).getCourseId());
+            System.out.print("-");
+            System.out.print(courseList.get(i).getCourseName()+" ");
+            System.out.println(courseList.get(i).getStatus());
+        }
+
+        System.out.println("Enter your choice:");
+        Scanner sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+        Professor prof=new Professor();
+
+        courseList.get(choice-1).setStatus(0);
+        prof.setCourse(courseList.get(choice-1));
+        courseList.get(choice-1).setStatus(0);
+
+
+        for(int i=0;i<courseList.size();i++){
+            System.out.print(courseList.get(i).getCourseId());
+            System.out.print("-");
+            System.out.print(courseList.get(i).getCourseName()+" ");
+            System.out.println(courseList.get(i).getStatus());
+        }
+
+
 
     }
 

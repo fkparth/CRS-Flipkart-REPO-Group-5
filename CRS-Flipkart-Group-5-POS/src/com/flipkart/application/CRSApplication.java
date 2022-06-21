@@ -56,6 +56,12 @@ public class CRSApplication {
 
         }
         else if(menuClick==2){
+            AdminInterface adm=new AdminImplementation();
+            System.out.println("Enter Your Name");
+            String name=sc.next();
+            System.out.println("Enter your password");
+            String password=sc.next();
+
 
         }
         else if(menuClick==3){

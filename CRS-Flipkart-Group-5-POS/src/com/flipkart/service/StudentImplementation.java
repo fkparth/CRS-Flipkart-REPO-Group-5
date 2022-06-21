@@ -38,7 +38,7 @@ public abstract class StudentImplementation implements StudentInterface {
     @Override
     public Student FetchUserData(int id) {
 
-          HashMap<Integer,Student>      stuData = new HashMap<Integer,Student>();
+          HashMap<Integer,Student>     stuData = new HashMap<Integer,Student>();
           Student s1 = new Student();
           s1.setStudentId(101);
           s1.setName("Datta");

@@ -5,10 +5,11 @@ import java.util.*;
 public class AdminCRSMenu {
     public static void showChoices(Admin ad)
     {
+
         System.out.println("Hello "+ad.getName());
         AdminInterface AI = new AdminImplementation();
         System.out.println("Enter 1 to approve Student");
-
+        Course course = new Course();
         System.out.println("Enter 2 to generate report card of a student");
         System.out.println("Enter 3 to add professor");
         System.out.println("Enter 4 to update course catalogue");
@@ -28,13 +29,16 @@ public class AdminCRSMenu {
                 AI.addProfessor();
                 break;
             case 4:
-                AI.updateCatalogue();
+                System.out.println("Enter 1 to Add course,Enter 2 to delete Course");
+                System.out.println("Enter here:");
+
+                AI.updateCatalogue(course);
                 break;
             case 5:
                 AI.assignCourseToStudent();
                 break;
             default:
-                System.out.println("Number choosen is not part of Menu");
+                System.out.println("Number chosen is not part of Menu");
 
 
         }
