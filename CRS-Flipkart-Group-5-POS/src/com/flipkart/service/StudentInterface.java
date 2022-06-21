@@ -6,7 +6,7 @@ import com.flipkart.bean.*;
 public interface StudentInterface {
     void register();
 
-    public Student FetchUserData(int id);
+    public Student fetchStudentData(int id);
 
     //show gradesheet(print inside the function not return it)
     void viewGradesheet();

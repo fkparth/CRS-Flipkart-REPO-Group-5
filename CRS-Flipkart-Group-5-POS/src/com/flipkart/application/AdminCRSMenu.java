@@ -29,8 +29,28 @@ public class AdminCRSMenu {
                 AI.addProfessor();
                 break;
             case 4:
-                System.out.println("Enter 1 to Add course,Enter 2 to delete Course");
-                System.out.println("Enter here:");
+                System.out.println("Enter 1 to Add course");
+                System.out.println("Enter 2 to Drop course");
+                System.out.println("Enter your choice:");
+                int adchoice = sc.nextInt();
+                switch(choice){
+                    case 1:
+                        CourseCatalogInterface cci = new CourseCatalogImplementation();
+                        System.out.println("Enter Course Details for adding course");
+                        System.out.println("Enter Course ID");
+                        int cid = sc.nextInt();
+                        System.out.println("Enter Course Name");
+//                        String cname = sc.next();
+//                        Course newcourse = new Course();
+//                        newcourse.setCourseId(cid);
+//                        newcourse.setCourseName(cname);
+//                        //List <Course> = cci.fetchCoursesList();
+
+                    case 2:
+
+
+
+                }
 
                 AI.updateCatalogue(course);
                 break;

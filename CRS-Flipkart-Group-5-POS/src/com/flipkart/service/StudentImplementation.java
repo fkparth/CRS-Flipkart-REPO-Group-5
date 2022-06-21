@@ -36,7 +36,7 @@ public class StudentImplementation implements StudentInterface {
     }
 
     @Override
-    public Student FetchUserData(int id) {
+    public Student fetchStudentData(int id) {
 
           HashMap<Integer,Student>     stuData = new HashMap<Integer,Student>();
           Student s1 = new Student();

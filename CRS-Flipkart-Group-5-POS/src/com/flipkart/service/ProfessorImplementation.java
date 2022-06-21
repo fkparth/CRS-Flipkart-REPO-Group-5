@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ProfessorImplementation implements ProfessorInterface{
     @Override
-    public Professor FetchUserData(int id) {
+    public Professor fetchProfessorData(int id) {
 
         HashMap<Integer,Professor> stuData = new HashMap<Integer,Professor>();
         Professor s1 = new Professor();

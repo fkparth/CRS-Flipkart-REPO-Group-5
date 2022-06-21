@@ -4,7 +4,7 @@ import com.flipkart.bean.*;
 
 public class AdminImplementation implements AdminInterface{
     @Override
-    public Admin fetchUserData(int id) {
+    public Admin fetchAdminData(int id) {
         Admin ad = new Admin();
         ad.setUserId(301);
         ad.setName("SS");
