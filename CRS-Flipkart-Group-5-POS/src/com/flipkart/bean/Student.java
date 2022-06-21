@@ -1,11 +1,12 @@
 package com.flipkart.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Student extends User {
     public int studentId;
 
-    public List<RegisteredCourse> registeredCourses;
+    public List<RegisteredCourse> registeredCourses = new ArrayList<RegisteredCourse>();
 
     public int getStudentId() {
         return studentId;
@@ -19,7 +20,7 @@ public class Student extends User {
         return registeredCourses;
     }
 
-    public void setRegisteredCourses(List<RegisteredCourse> registeredCourses) {
-        this.registeredCourses = registeredCourses;
+    public void addRegisteredCourses(RegisteredCourse regcourse) {
+        this.registeredCourses.add(regcourse);
     }
 }

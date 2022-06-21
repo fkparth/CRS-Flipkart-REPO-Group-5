@@ -1,6 +1,6 @@
 package com.flipkart.bean;
 
-public class SemesterRegistration {
+public class Registration {
     public int studentID;
     public String dateOfRegistration;
 
