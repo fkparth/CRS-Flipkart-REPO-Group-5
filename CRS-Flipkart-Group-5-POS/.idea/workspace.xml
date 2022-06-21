@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31945c9c-0f15-4fda-9932-9f8495a4d972" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/CourseCatalog.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/CourseCatalogImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogImplementation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/AdminCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/AdminCRSMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/CRSApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/CRSApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/AdminImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/AdminImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/AdminInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/AdminInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/ProfessorImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/ProfessorImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/bean/CourseCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/bean/CourseCatalog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/AdminImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/AdminInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/ProfessorImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/ProfessorImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/StudentImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/StudentImplementation.java" afterDir="false" />
-    </list>
+    <list default="true" id="31945c9c-0f15-4fda-9932-9f8495a4d972" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
