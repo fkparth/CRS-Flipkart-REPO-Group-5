@@ -4,7 +4,7 @@ import com.sun.org.apache.xpath.internal.objects.XString;
 import java.util.List;
 import com.flipkart.bean.*;
 public interface StudentInterface {
-    void register();
+    void register(Student stud);
 
     public Student fetchStudentData(int id);
 
@@ -12,8 +12,7 @@ public interface StudentInterface {
     void viewGradesheet();
 
     //same goes with this function we show the grades print it not return it
-    void viewGradeCatalogue();
-    List<RegisteredCourse> registeredCourses();
+    void viewCourseCatalogue();
 
     void addCourses();
 
@@ -21,7 +20,7 @@ public interface StudentInterface {
 
     void feePayment();
 
-    void viewCourses();
+    void viewCourses(Student stud);
 }
 
 

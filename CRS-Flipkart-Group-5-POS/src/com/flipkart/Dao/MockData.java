@@ -9,7 +9,11 @@ public class MockData {
     public HashMap<Integer,Admin> admin;
 
     public HashMap<Integer,Course> course;
+
+    public HashMap<Student,List<Course>> registeredCourses;
     private MockData(){
+        this.registeredCourses = new HashMap<Student,List<Course>>();
+
         this.student = new HashMap<Integer,Student>();
         Student s1 = new Student();
         s1.setStudentId(101);
@@ -71,10 +75,9 @@ public class MockData {
         this.course.put(3,course3);
 
 
-
-
-
     }
+
+
     public static MockData getInstance(){
         if(single_instance == null) {
             single_instance = new MockData();
