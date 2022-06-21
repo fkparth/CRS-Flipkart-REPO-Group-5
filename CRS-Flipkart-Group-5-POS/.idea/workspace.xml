@@ -5,28 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31945c9c-0f15-4fda-9932-9f8495a4d972" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/Dao/MockData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/Dao/MockData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/Dao/MockData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/Dao/MockData.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/AdminCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/AdminCRSMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/CRSApplication$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/CRSApplication$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/CRSApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/CRSApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/AdminImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/AdminImplementation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/AdminInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/AdminInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/CourseCatalog.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/CourseCatalogImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/CourseCatalogImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/CourseCatalogInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/CourseCatalogInterface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/ProfessorImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/ProfessorImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/ProfessorInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/ProfessorInterface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/StudentImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/StudentImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/StudentInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/StudentInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/Dao/MockData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/Dao/MockData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/AdminImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/AdminInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/CourseCatalogInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/ProfessorImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/ProfessorImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/ProfessorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/ProfessorInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/StudentImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/StudentImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/StudentInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,5 +117,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

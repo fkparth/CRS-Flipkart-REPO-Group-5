@@ -32,7 +32,7 @@ public class CRSApplication {
 
            MockData data = MockData.getInstance();
             //System.out.println(data.student.get(101).getName());
-            System.out.println("Please enter userName");
+//            System.out.println("Please enter userName");
 
             int userName = sc.nextInt();
             System.out.println("Please Enter Password");
