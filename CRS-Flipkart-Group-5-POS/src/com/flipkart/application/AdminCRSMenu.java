@@ -1,20 +1,45 @@
 package com.flipkart.application;
-
+import com.flipkart.bean.*;
+import com.flipkart.service.*;
+import java.util.*;
 public class AdminCRSMenu {
-    public static void showChoices()
+    public static void showChoices(Admin ad)
     {
-        System.out.println("Enter 1 to generate report card of a student");
-        System.out.println("Enter 2 to add professor");
-        System.out.println("Enter 3 to remove professor");
-        System.out.println("Enter 4 to remove student");
-        System.out.println("Enter 5 to add course");
-        System.out.println("Enter 6 to remove course");
-        System.out.println("Enter 7 to approve students");
-        System.out.println("Enter 8 to view professors");
-        System.out.println("Enter 9 to view students");
-        System.out.println("Enter 10 to view courses");
-        System.out.println("Enter 11 to approve student request");
+        System.out.println("Hello "+ad.getName());
+        AdminInterface AI = new AdminImplementation();
+        System.out.println("Enter 1 to approve Student");
+
+        System.out.println("Enter 2 to generate report card of a student");
+        System.out.println("Enter 3 to add professor");
+        System.out.println("Enter 4 to update course catalogue");
+        System.out.println("Enter 5 to assignCourse to student");
         System.out.println("Enter -1 to logout");
+        System.out.println("Enter your choice:");
+        Scanner sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+        switch(choice){
+            case 1:
+                AI.approveStudent();
+                break;
+            case 2:
+                AI.generateReportCard();
+                break;
+            case 3:
+                AI.addProfessor();
+                break;
+            case 4:
+                AI.updateCatalogue();
+                break;
+            case 5:
+                AI.assignCourseToStudent();
+                break;
+            default:
+                System.out.println("Number choosen is not part of Menu");
+
+
+        }
+
+
     }
 
 }

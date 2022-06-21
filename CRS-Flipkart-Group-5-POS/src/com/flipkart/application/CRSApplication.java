@@ -1,5 +1,8 @@
 package com.flipkart.application;
-import java.util.Scanner;
+import java.util.*;
+import com.flipkart.service.*;
+import com.flipkart.bean.*;
+//import com.flipkart.service.StudentInterface.StudentFunction;
 public class CRSApplication {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -13,27 +16,34 @@ public class CRSApplication {
         int menuClick = sc.nextInt();
         if(menuClick==1){
             System.out.println("Please enter userName");
-            String userName = sc.next();
+            int userName = sc.nextInt();
             System.out.println("Please Enter Password");
             String password = sc.next();
             //fetching role from db
+            int reqRole = userName/100;
+            if(reqRole==1){
+                StudentInterface SI = new StudentImplementation();
+                Student s = SI.FetchUserData(userName);
+                StudentCRSMenu stucrs = new StudentCRSMenu();
+                stucrs.showChoices(s);
 
-            int roleId = sc.nextInt();
-            if(roleId==1){
-                StudentCRSMenu studentMenu = new StudentCRSMenu();
-                studentMenu.showChoices();
-
-            }
-            else if(roleId==2){
-                ProfessorCRSMenu profMenu = new ProfessorCRSMenu();
-                profMenu.showChoices();
 
             }
-            else{
-                AdminCRSMenu adminMenu = new AdminCRSMenu();
-                adminMenu.showChoices();
+            else if(reqRole==2){
+                ProfessorInterface SI = new ProfessorImplementation();
+                Professor p = SI.FetchUserData(userName);
+                ProfessorCRSMenu procrs = new ProfessorCRSMenu();
+                procrs.showChoices(p);
 
             }
+            else if(reqRole==3){
+                AdminInterface SI = new AdminImplementation();
+                Admin ad = SI.fetchUserData(userName);
+                AdminCRSMenu adcrs = new AdminCRSMenu();
+                adcrs.showChoices(ad);
+
+            }
+
 
 
         }
