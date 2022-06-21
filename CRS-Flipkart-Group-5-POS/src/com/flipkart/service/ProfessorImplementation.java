@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class ProfessorImplementation implements ProfessorInterface{
     @Override
-    public Professor FetchUserData(int id) {
+    public Professor fetchProfessorData(int id) {
 
         HashMap<Integer,Professor> stuData = new HashMap<Integer,Professor>();
         Professor s1 = new Professor();
@@ -49,12 +49,12 @@ public class ProfessorImplementation implements ProfessorInterface{
 
 
 
-//        for(int i=0;i<courseList.size();i++){
-//            System.out.print(courseList.get(i).getCourseId());
-//            System.out.print("-");
-//            System.out.print(courseList.get(i).getCourseName()+" ");
-//            System.out.println(courseList.get(i).getStatus());
-//        }
+        for(int i=0;i<courseList.size();i++){
+            System.out.print(courseList.get(i).getCourseId());
+            System.out.print("-");
+            System.out.print(courseList.get(i).getCourseName()+" ");
+            System.out.println(courseList.get(i).getStatus());
+        }
 
 
 

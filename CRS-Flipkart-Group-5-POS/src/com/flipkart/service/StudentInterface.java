@@ -1,12 +1,13 @@
 package com.flipkart.service;
-import com.sun.org.apache.xpath.internal.objects.XString;
+
+import com.flipkart.bean.RegisteredCourse;
+import com.flipkart.bean.Student;
 
 import java.util.List;
-import com.flipkart.bean.*;
 public interface StudentInterface {
     void register();
 
-    public Student FetchUserData(int id);
+    public Student fetchStudentData(int id);
 
     //show gradesheet(print inside the function not return it)
     void viewGradesheet();
