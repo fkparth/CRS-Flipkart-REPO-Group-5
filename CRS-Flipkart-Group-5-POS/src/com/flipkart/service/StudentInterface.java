@@ -5,7 +5,7 @@ import com.flipkart.bean.Student;
 
 import java.util.List;
 public interface StudentInterface {
-    void register();
+    void register(Student stud);
 
     public Student fetchStudentData(int id);
 
@@ -14,19 +14,24 @@ public interface StudentInterface {
 
     //same goes with this function we show the grades print it not return it
 
+
     void viewCourseCatalogue();
 
-    void viewGradeCatalogue();
-    List<RegisteredCourse> registeredCourses();
 
-    void addCourses();
 
-    void dropCourses();
+
+
+
+    void addCourses(Student stud);
+
+    void dropCourses(Student stud);
 
     void feePayment();
 
-    void viewCourses();
 
+
+
+    void viewCourses(Student stud);
 }
 
 

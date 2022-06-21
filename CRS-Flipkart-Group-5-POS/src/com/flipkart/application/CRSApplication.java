@@ -20,7 +20,7 @@ public class CRSApplication {
         System.out.println("--------------------------------------------------------------");
         System.out.println("\t \t Welcome to CRS Application");
         System.out.println("Enter 1 Login");
-        System.out.println("Enter 2 for Registration Of the Student");
+        System.out.println("Enter 2 for Register");
         System.out.println("Enter 3 to Update Password");
         System.out.println("Enter 4 to Exit");
         System.out.println("Enter Here:");
@@ -28,12 +28,12 @@ public class CRSApplication {
         int menuClick = sc.nextInt();
         if(menuClick==1){
 
-            System.out.println("Please enter userId");
+
+
 
            MockData data = MockData.getInstance();
-            //System.out.println(data.student.get(101).getName());
-//            System.out.println("Please enter userName");
 
+            System.out.println("Please enter userId");
             int userName = sc.nextInt();
             System.out.println("Please Enter Password");
             String password = sc.next();
@@ -76,11 +76,8 @@ public class CRSApplication {
 
         }
         else if(menuClick==2){
-            AdminInterface adm=new AdminImplementation();
-            System.out.println("Enter Your Name");
-            String name=sc.next();
-            System.out.println("Enter your password");
-            String password=sc.next();
+            AdminInterface adm = new AdminImplementation();
+            adm.approveStudent();
 
 
         }
@@ -90,6 +87,8 @@ public class CRSApplication {
         else{
             System.out.println("Thank you");
         }
+//        MockData data = MockData.getInstance();
+//        System.out.println(data.professor.get(201).getName());
 
 
 
