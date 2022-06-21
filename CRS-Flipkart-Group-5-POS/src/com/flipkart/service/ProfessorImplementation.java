@@ -17,7 +17,7 @@ public class ProfessorImplementation implements ProfessorInterface{
     }
     @Override
     public void chooseCourse() {
-        List<Course> courseList = new ArrayList<Course>();
+
 
 
     }
