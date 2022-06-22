@@ -12,7 +12,7 @@ public interface AdminDAO {
 
     void addProfessor() throws SQLException;
 
-    void updateCatalogue(int addOrDrop);
+    void updateCatalogue(int addOrDrop) throws SQLException;
 
     void assignCourseToStudent();
 }

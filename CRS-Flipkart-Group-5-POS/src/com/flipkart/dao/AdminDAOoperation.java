@@ -100,8 +100,40 @@ public class AdminDAOoperation implements AdminDAO {
     }
 
     @Override
-    public void updateCatalogue(int addOrDrop) {
+    public void updateCatalogue(int addOrdrop) throws SQLException {
+        Scanner sc = new Scanner(System.in);
+        switch (addOrdrop) {
+            case 1:
+                System.out.println("Enter Course Details for adding course");
+                System.out.println("Enter Course ID");
+                int cida = sc.nextInt();
+                System.out.println("Enter Course Name");
+                String cnamea = sc.next();
+                Connection connection = DBConnection.getConnection();
+                String sql = SQLQueriesConstants.ADD_COURSE_ADMIN;
 
+                PreparedStatement stmt=connection.prepareStatement(sql);
+                stmt.setInt(1,cida);
+                stmt.setString(2,cnamea);
+
+                stmt.execute();
+
+                break;
+            case 2:
+                System.out.println("Enter Course Details for dropping course");
+                System.out.println("Enter Course ID");
+                int cidd = sc.nextInt();
+                connection = DBConnection.getConnection();
+                sql = SQLQueriesConstants.DELETE_COURSE_ADMIN;
+
+                stmt=connection.prepareStatement(sql);
+                stmt.setInt(1,cidd);
+
+
+                stmt.execute();
+
+                break;
+        }
     }
 
     @Override
