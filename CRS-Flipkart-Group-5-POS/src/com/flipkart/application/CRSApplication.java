@@ -6,13 +6,14 @@ import com.flipkart.bean.Student;
 import com.flipkart.dao.*;
 import com.flipkart.service.*;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 
 
 
 public class CRSApplication {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         int menuClick = -1;
         while (menuClick != 4) {
             Scanner sc = new Scanner(System.in);
@@ -60,7 +61,7 @@ public class CRSApplication {
                     procrs.showChoices(p);
 
                 } else if (reqRole == 3) {
-                    AdminInterface SI = new AdminImplementation();
+                    AdminDAO SI = new AdminDAOoperations();
                     Admin ad = SI.fetchAdminData(userName);
                     AdminCRSMenu adcrs = new AdminCRSMenu();
                     adcrs.showChoices(ad);

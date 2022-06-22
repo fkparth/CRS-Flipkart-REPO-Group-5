@@ -1,15 +1,20 @@
 package com.flipkart.application;
-import com.flipkart.bean.*;
-import com.flipkart.service.*;
-import java.util.*;
+
+import com.flipkart.bean.Admin;
+import com.flipkart.bean.Course;
+import com.flipkart.dao.AdminDAO;
+import com.flipkart.dao.AdminDAOoperations;
+
+import java.sql.SQLException;
+import java.util.Scanner;
 public class AdminCRSMenu {
-    public static void showChoices(Admin ad) {
+    public static void showChoices(Admin ad) throws SQLException {
         int choice = 0;
 
         System.out.println("Hello " + ad.getName());
         while (choice != -1) {
 
-            AdminInterface AI = new AdminImplementation();
+            AdminDAO AI = new AdminDAOoperations();
             System.out.println("Enter 1 to approve Student");
             Course course = new Course();
             System.out.println("Enter 2 to generate report card of a student");
@@ -22,6 +27,7 @@ public class AdminCRSMenu {
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
+                    AI.approveStudent();
                     break;
                 case 2:
                     AI.generateReportCard();

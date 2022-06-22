@@ -1,11 +1,12 @@
 package com.flipkart.dao;
 
 import com.flipkart.bean.Admin;
-import com.flipkart.bean.*;
+
+import java.sql.SQLException;
 
 public interface AdminDAO {
-    Admin fetchAdminData(int id);
-    void approveStudent();
+    Admin fetchAdminData(int id) throws SQLException;
+    void approveStudent() throws SQLException;
 
     void generateReportCard();
 

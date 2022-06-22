@@ -29,7 +29,7 @@ public class AdminImplementation implements AdminInterface{
         Student studreg = new Student();
         studreg.setUserId(currentSize+101);
         studreg.setName(newstudname);
-        studreg.setRole(1);
+        studreg.setType(1);
         studreg.setStudentId(currentSize+101);
         data.student.put(studreg.getUserId(), studreg);
         System.out.println("Your UserID is "+studreg.getUserId());
@@ -52,7 +52,7 @@ public class AdminImplementation implements AdminInterface{
         String profname = sc.next();
         prof.setName(profname);
         int profrole = 2;
-        prof.setRole(profrole);
+        prof.setType(profrole);
         MockData data = MockData.getInstance();
         data.professor.put(prof.getUserId(),prof);
     }

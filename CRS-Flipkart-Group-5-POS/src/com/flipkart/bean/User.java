@@ -3,7 +3,17 @@ package com.flipkart.bean;
 public class User {
     public int userId;
     public String name;
-    public int role;
+    public int type;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String password;
 
     public int getUserId() {
         return userId;
@@ -21,11 +31,12 @@ public class User {
         this.name = name;
     }
 
-    public int getRole() {
-        return role;
+    public int getType() {
+        return type;
     }
 
-    public void setRole(int role) {
-        this.role = role;
+    public void setType(int type) {
+        this.type = type;
     }
+
 }
