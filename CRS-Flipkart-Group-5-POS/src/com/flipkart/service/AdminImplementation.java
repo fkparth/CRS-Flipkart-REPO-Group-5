@@ -27,7 +27,8 @@ public class AdminImplementation implements AdminInterface{
         studreg.setRole(1);
         studreg.setStudentId(currentSize+101);
         data.student.put(studreg.getUserId(), studreg);
-
+        System.out.println("Your UserID is "+studreg.getUserId());
+        System.out.println("Your StudentId is "+studreg.getStudentId());
     }
 
     @Override
