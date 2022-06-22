@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31945c9c-0f15-4fda-9932-9f8495a4d972" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/AdminImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/AdminInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_29.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRS-Flipkart-Group-5-POS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CRS-Flipkart-Group-5-POS.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,15 +39,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/CRS-Flipkart-Group-5-POS&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/CRS-Flipkart-Group-5-POS",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.flipkart.application" />
