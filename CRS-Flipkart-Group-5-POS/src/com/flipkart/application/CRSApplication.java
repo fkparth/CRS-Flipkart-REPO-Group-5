@@ -39,10 +39,9 @@ public class CRSApplication {
                 int reqRole = userName / 100;
                 if (reqRole == 1) {
 
-                    StudentInterface SI = new StudentImplementation() {
+                    StudentDAO SI = new StudentDAOoperation() {
                         @Override
                         public void viewCourseCatalogue() {
-
                         }
                     };
                     Student s = SI.fetchStudentData((userName));
@@ -55,14 +54,14 @@ public class CRSApplication {
 
 
                 } else if (reqRole == 2) {
-                    ProfessorInterface SI = new ProfessorImplementation();
-                    Professor p = SI.fetchProfessorData(userName);
+                    ProfessorDAO PI = new ProfessorDAOoperation();
+                    Professor p = PI.fetchProfessorData(userName);
                     ProfessorCRSMenu procrs = new ProfessorCRSMenu();
                     procrs.showChoices(p);
 
                 } else if (reqRole == 3) {
-                    AdminDAO SI = new AdminDAOoperations();
-                    Admin ad = SI.fetchAdminData(userName);
+                    AdminDAO AI = new AdminDAOoperation();
+                    Admin ad = AI.fetchAdminData(userName);
                     AdminCRSMenu adcrs = new AdminCRSMenu();
                     adcrs.showChoices(ad);
 

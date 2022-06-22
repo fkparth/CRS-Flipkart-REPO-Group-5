@@ -3,7 +3,7 @@ package com.flipkart.application;
 import com.flipkart.bean.Admin;
 import com.flipkart.bean.Course;
 import com.flipkart.dao.AdminDAO;
-import com.flipkart.dao.AdminDAOoperations;
+import com.flipkart.dao.AdminDAOoperation;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -14,7 +14,7 @@ public class AdminCRSMenu {
         System.out.println("Hello " + ad.getName());
         while (choice != -1) {
 
-            AdminDAO AI = new AdminDAOoperations();
+            AdminDAO AI = new AdminDAOoperation();
             System.out.println("Enter 1 to approve Student");
             Course course = new Course();
             System.out.println("Enter 2 to generate report card of a student");

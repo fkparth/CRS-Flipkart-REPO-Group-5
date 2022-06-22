@@ -2,10 +2,12 @@ package com.flipkart.dao;
 
 import com.flipkart.bean.*;
 
+import java.sql.SQLException;
+
 public interface StudentDAO {
     void register(Student stud);
 
-    public Student fetchStudentData(int id);
+    public Student fetchStudentData(int id) throws SQLException;
 
     //show gradesheet(print inside the function not return it)
     void viewGradesheet();

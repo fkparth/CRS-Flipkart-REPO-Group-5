@@ -10,7 +10,7 @@ public interface AdminDAO {
 
     void generateReportCard();
 
-    void addProfessor();
+    void addProfessor() throws SQLException;
 
     void updateCatalogue(int addOrDrop);
 
