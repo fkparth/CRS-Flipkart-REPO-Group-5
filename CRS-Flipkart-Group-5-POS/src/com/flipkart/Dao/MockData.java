@@ -118,7 +118,7 @@ public class MockData {
 
         Course course6 = new Course();
         course6.setCourseId(6);
-        course6.setCourseName("Python BAdvanced");
+        course6.setCourseName("Python Advanced");
         course6.setStatus(0);
 
         this.course = new HashMap<Integer,Course>();

@@ -14,8 +14,7 @@ public class ProfessorCRSMenu {
             System.out.println("1. Choose Course");
             System.out.println("2. View Student List ");
             System.out.println("3. Assign Grade");
-
-            System.out.println("-1. exit");
+            System.out.println("-1. Logout");
             System.out.println("Enter a choice :");
             choice = sc.nextInt();
             switch (choice) {
@@ -28,8 +27,8 @@ public class ProfessorCRSMenu {
                 case 3:
                     PI.assignGrade();
                     break;
-
-
+                case -1:
+                    break;
             }
 
         }

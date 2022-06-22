@@ -52,13 +52,31 @@ public class AdminImplementation implements AdminInterface{
     }
 
     @Override
-    public void updateCatalogue(Course course,int addOrdrop) {
+    public void updateCatalogue(int addOrdrop) {
         MockData data = MockData.getInstance();
-        if(addOrdrop == 1){
-            data.course.put(course.getCourseId(),course);
-        }
-        else{
-            data.course.remove(course.getCourseId());
+        Scanner sc = new Scanner(System.in);
+        switch (addOrdrop) {
+            case 1:
+                System.out.println("Enter Course Details for adding course");
+                System.out.println("Enter Course ID");
+                int cida = sc.nextInt();
+                System.out.println("Enter Course Name");
+                String cnamea = sc.next();
+                Course newcoursea = new Course();
+                newcoursea.setCourseId(cida);
+                newcoursea.setCourseName(cnamea);
+                newcoursea.setStatus(0);
+                System.out.println(newcoursea.getCourseId());
+                System.out.println(newcoursea.getCourseName());
+                System.out.println(newcoursea.getStatus());
+                data.course.put(newcoursea.getCourseId(),newcoursea);
+                break;
+            case 2:
+                System.out.println("Enter Course Details for dropping course");
+                System.out.println("Enter Course ID");
+                int cidd = sc.nextInt();
+                data.course.remove(cidd);
+                break;
         }
     }
 
