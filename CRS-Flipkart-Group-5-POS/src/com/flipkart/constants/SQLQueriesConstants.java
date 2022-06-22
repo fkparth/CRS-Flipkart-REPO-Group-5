@@ -10,6 +10,10 @@ public class SQLQueriesConstants {
     public static final String GET_COURSE_BY_ID="select * from course where id=? ";
 
 
+
+    public static final String STUDENT_DROP_COURSE="delete from registeredCourses where course_id=? and student_id=?   ";
+    public static final String STUDENT_ADD_COURSE="insert into registeredCourses(course_id,student_id) values(?,?) ";
+
     public static final String GET_REGISTERED_COURSE_STUDENT_ID="select * from registeredCourses where student_id=? ";
 
     public static final String GET_COURSE_CATALOG="select * from course";

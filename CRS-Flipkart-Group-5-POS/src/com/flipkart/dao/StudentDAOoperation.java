@@ -91,12 +91,39 @@ public class StudentDAOoperation implements StudentDAO{
     }
 
     @Override
-    public void addCourses(Student stud) {
+    public void addCourses(Student stud) throws SQLException {
+        System.out.println("Add Course");
+        Scanner sc=new Scanner(System.in);
+        Connection connection = DBConnection.getConnection();
+        String sql = SQLQueriesConstants.STUDENT_ADD_COURSE;
 
+        PreparedStatement stmt=connection.prepareStatement(sql);
+        int stdid=stud.getUserId();
+        //System.out.println(stdid+"hi bro");
+
+        System.out.println("Enter course ID");
+        int courseid=sc.nextInt();
+        stmt.setInt(1,courseid);
+        stmt.setInt(2,stdid);
+        stmt.execute();
     }
 
     @Override
-    public void dropCourses(Student stud) {
+    public void dropCourses(Student stud) throws SQLException {
+        System.out.println("Drop Course");
+        Scanner sc=new Scanner(System.in);
+        Connection connection = DBConnection.getConnection();
+        String sql = SQLQueriesConstants.STUDENT_DROP_COURSE;
+
+        PreparedStatement stmt=connection.prepareStatement(sql);
+        int stdid=stud.getUserId();
+        //System.out.println(stdid+"hi bro");
+
+        System.out.println("Enter course ID");
+        int courseid=sc.nextInt();
+        stmt.setInt(1,courseid);
+        stmt.setInt(2,stdid);
+        stmt.execute();
 
     }
 

@@ -15,9 +15,9 @@ public interface StudentDAO {
     //same goes with this function we show the course catalogue print it not return it
     void viewCourseCatalogue() throws SQLException;
 
-    void addCourses(Student stud);
+    void addCourses(Student stud) throws SQLException;
 
-    void dropCourses(Student stud);
+    void dropCourses(Student stud) throws SQLException;
 
     void feePayment();
 
