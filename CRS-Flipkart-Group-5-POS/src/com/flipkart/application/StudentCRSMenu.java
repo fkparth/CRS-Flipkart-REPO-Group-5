@@ -33,7 +33,7 @@ public class StudentCRSMenu {
                     si.register(student);
                     break;
                 case 3:
-                    si.viewCourses(student);
+                    si.viewCourses(student.getUserId());
                     break;
                 case 4:
                     si.addCourses(student);

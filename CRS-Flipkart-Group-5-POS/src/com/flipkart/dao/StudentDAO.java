@@ -21,5 +21,5 @@ public interface StudentDAO {
 
     void feePayment();
 
-    void viewCourses(Student stud);
+    void viewCourses(int stud) throws SQLException;
 }
