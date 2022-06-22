@@ -8,7 +8,8 @@ import java.sql.SQLException;
 import java.util.Scanner;
 public class StudentCRSMenu {
     public static void showChoices(Student student) throws SQLException {
-
+        if (student==null)
+            return;
         Scanner sc = new Scanner(System.in);
         int choice =0;
         while (choice!=-1){

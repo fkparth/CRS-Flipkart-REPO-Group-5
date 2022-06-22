@@ -2,6 +2,8 @@ package com.flipkart.constants;
 
 public class SQLQueriesConstants {
     public static final String GET_USER_BY_ID= "select * from user where id = ?;";
+
+    public static final String GET_STUDENT_BY_ID= "select * from student where id = ?;";
     public static final String GET_STUDENT_TO_APPROVE="select * from student where is_approved= 0 ;";
     public static final String REGISTER_COURSE="insert into registeredCourses(course_id,student_id) values(?,?)";
     public static final String GIVE_GRADE="update registeredCourses set grade=? where course_id=? and student_id=?";
@@ -10,6 +12,13 @@ public class SQLQueriesConstants {
     public static final String GET_COURSE_BY_ID="select * from course where id=? ";
 
 
+    public static final String GET_MAX_STUDENT_ID="select MAX(id) as id  from student ";
+
+
+    public static final String ADD_STUDENT_BY_REGISTER_USER="insert into user (id,password,name,type) values (?,?,?,1); ";
+
+
+    public static final String ADD_STUDENT_BY_REGISTER="insert into student (id,is_approved) values (?,0); ";
 
     public static final String STUDENT_DROP_COURSE="delete from registeredCourses where course_id=? and student_id=?   ";
     public static final String STUDENT_ADD_COURSE="insert into registeredCourses(course_id,student_id) values(?,?) ";

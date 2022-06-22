@@ -3,10 +3,11 @@ package com.flipkart.application;
 import com.flipkart.bean.Admin;
 import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
+import com.flipkart.constants.SQLQueriesConstants;
 import com.flipkart.dao.*;
-import com.flipkart.service.*;
+import com.flipkart.utils.DBConnection;
 
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 
@@ -69,8 +70,39 @@ public class CRSApplication {
 
 
             } else if (menuClick == 2) {
-                AdminInterface adm = new AdminImplementation();
-                adm.approveStudent();
+                System.out.println("Enter Your Name");
+                String name = sc.next();
+                System.out.println("Enter Your Password");
+                String pass = sc.next();
+
+                Connection connection = DBConnection.getConnection();
+                String sql = SQLQueriesConstants.GET_MAX_STUDENT_ID;
+
+                Statement st = connection.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                int newid = 0;
+                while(rs.next()) {
+                    newid = rs.getInt("id") + 1;
+                }
+
+                String sql2 = SQLQueriesConstants.ADD_STUDENT_BY_REGISTER_USER;
+
+                PreparedStatement stmt=connection.prepareStatement(sql2);
+
+
+                stmt.setInt(1,newid);
+                stmt.setString(2,pass);
+                stmt.setString(3,name);
+                stmt.executeUpdate();
+
+                String sql3 = SQLQueriesConstants.ADD_STUDENT_BY_REGISTER;
+
+                PreparedStatement stmt2=connection.prepareStatement(sql3);
+
+                stmt2.setInt(1,newid);
+                stmt2.executeUpdate();
+
+                System.out.println("Your UserID is "+newid);
 
 
             } else if (menuClick == 3) {

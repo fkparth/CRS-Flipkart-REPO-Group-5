@@ -5,6 +5,16 @@ import java.util.List;
 public class Student extends User {
     public int studentId;
 
+    public int getIsApproved() {
+        return isApproved;
+    }
+
+    public void setIsApproved(int isApproved) {
+        this.isApproved = isApproved;
+    }
+
+    public int isApproved;
+
     public List<RegisteredCourse> registeredCourses;
 
     public int getStudentId() {

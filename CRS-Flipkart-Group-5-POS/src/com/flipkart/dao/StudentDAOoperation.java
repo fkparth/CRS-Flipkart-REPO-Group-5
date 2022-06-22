@@ -44,10 +44,22 @@ public class StudentDAOoperation implements StudentDAO{
         statement.setInt(1,id);
         ResultSet rs = statement.executeQuery();
         while (rs.next()) {
+            String sql2 = SQLQueriesConstants.GET_STUDENT_BY_ID;
+            PreparedStatement statement2=connection.prepareStatement(sql2);
+            statement2.setInt(1,id);
+            ResultSet rs2 = statement2.executeQuery();
+            while (rs2.next()) {
+                int test = rs2.getInt("is_approved");
+                if (test == 0) {
+                    System.out.println("Waiting for admin approval");
+                    return null;
+                }
+            }
             stud.setUserId(rs.getInt("id"));
             stud.setName(rs.getString("name"));
             stud.setType(rs.getInt("type"));
             stud.setPassword(rs.getString("password"));
+
         }
         return stud;
 
