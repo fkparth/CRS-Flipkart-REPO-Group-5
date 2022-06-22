@@ -7,6 +7,10 @@ public class SQLQueriesConstants {
     public static final String GIVE_GRADE="update registeredCourses set grade=? where course_id=? and student_id=?";
     public static final String ADD_COURSE_ADMIN="insert into course(id,course_name,status,strength) values(?,?,0,0) ";
     public static final String DELETE_COURSE_ADMIN="delete from course where id=? ";
+    public static final String GET_COURSE_BY_ID="select * from course where id=? ";
+
+
+    public static final String GET_REGISTERED_COURSE_STUDENT_ID="select * from registeredCourses where student_id=? ";
 
     public static final String GET_COURSE_CATALOG="select * from course";
 

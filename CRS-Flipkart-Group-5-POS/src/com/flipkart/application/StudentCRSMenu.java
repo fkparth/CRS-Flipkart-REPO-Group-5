@@ -45,7 +45,7 @@ public class StudentCRSMenu {
                     si.feePayment();
                     break;
                 case 7:
-                    si.viewGradesheet();
+                    si.viewGradesheet(student.getUserId());
                     break;
                 case -1:
                     break;

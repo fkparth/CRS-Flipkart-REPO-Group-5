@@ -10,7 +10,7 @@ public interface StudentDAO {
     public Student fetchStudentData(int id) throws SQLException;
 
     //show gradesheet(print inside the function not return it)
-    void viewGradesheet();
+    void viewGradesheet(int userId) throws SQLException;
 
     //same goes with this function we show the course catalogue print it not return it
     void viewCourseCatalogue() throws SQLException;
