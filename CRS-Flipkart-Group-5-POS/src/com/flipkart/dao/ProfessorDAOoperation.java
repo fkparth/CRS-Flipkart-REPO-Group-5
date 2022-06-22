@@ -16,9 +16,23 @@ public class ProfessorDAOoperation implements ProfessorDAO{
     @Override
     public void chooseCourse(int id) throws SQLException {
         Connection connection = DBConnection.getConnection();
-        String sql = SQLQueriesConstants.CHOOSE_COURSE_PROF_LIST;
+        String sql = SQLQueriesConstants.VIEW_STUDENT_LIST_COURSEID;
         statement=connection.prepareStatement(sql);
+        statement.setInt(1,id);
         ResultSet rs = statement.executeQuery();
+        //System.out.println("Here are list of available Courses:");
+        int courseid = -1;
+        while (rs.next()) {
+            courseid = (rs.getInt("id"));
+            //System.out.println(courseid+"c");
+        }
+        if (courseid!=-1){
+            System.out.println("Already teaching course with id : "+ courseid);
+            return;
+        }
+        sql = SQLQueriesConstants.CHOOSE_COURSE_PROF_LIST;
+        statement=connection.prepareStatement(sql);
+        rs = statement.executeQuery();
         System.out.println("Here are list of available Courses:");
         while (rs.next()) {
             Course course = new Course();
@@ -66,6 +80,7 @@ public class ProfessorDAOoperation implements ProfessorDAO{
         int courseid = -1;
         while (rs.next()) {
             courseid = (rs.getInt("id"));
+            //System.out.println(courseid+"c");
         }
         sql = SQLQueriesConstants.VIEW_STUDENT_LIST_STUDENTID;
         PreparedStatement statement2=connection.prepareStatement(sql);
@@ -76,6 +91,7 @@ public class ProfessorDAOoperation implements ProfessorDAO{
         System.out.println("StudentID : StudentName");
         while (rs.next()){
             studid = rs.getInt("student_id");
+            //System.out.println(studid+"hi");
             String sql2 = SQLQueriesConstants.VIEW_STUDENT_LIST_STUDENTNAME;
             PreparedStatement statement3=connection.prepareStatement(sql2);
             statement3.setInt(1,studid);
@@ -83,12 +99,52 @@ public class ProfessorDAOoperation implements ProfessorDAO{
             while (rs2.next()){
                 studname = rs2.getString("name");
             }
-            System.out.println(studid+studname);
+            System.out.println(studid+"     "+studname);
         }
     }
 
     @Override
-    public void assignGrade(int id) {
+    public void assignGrade(int id) throws SQLException {
+        Connection connection = DBConnection.getConnection();
+        String sql = SQLQueriesConstants.VIEW_STUDENT_LIST_COURSEID;
+        statement=connection.prepareStatement(sql);
+        statement.setInt(1,id);
+        ResultSet rs = statement.executeQuery();
+        //System.out.println("Here are list of available Courses:");
+        int courseid = -1;
+        while (rs.next()) {
+            courseid = (rs.getInt("id"));
+            //System.out.println(courseid+"c");
+        }
+        sql = SQLQueriesConstants.VIEW_STUDENT_LIST_STUDENTID;
+        PreparedStatement statement2=connection.prepareStatement(sql);
+        statement2.setInt(1,courseid);
+        rs = statement2.executeQuery();
+        int studid = -1;
+        String studname = "datta";
+        System.out.println("StudentID : StudentName");
+        while (rs.next()){
+            studid = rs.getInt("student_id");
+            //System.out.println(studid+"hi");
+            String sql2 = SQLQueriesConstants.VIEW_STUDENT_LIST_STUDENTNAME;
+            PreparedStatement statement3=connection.prepareStatement(sql2);
+            statement3.setInt(1,studid);
+            ResultSet rs2 = statement3.executeQuery();
+            while (rs2.next()){
+                studname = rs2.getString("name");
+            }
+            System.out.println(studid+"     "+studname);
+            System.out.print("Enter Grade- ");
+            Scanner sc = new Scanner(System.in);
+            String grade = sc.nextLine();
+
+            String sql3 = SQLQueriesConstants.GIVE_GRADE;
+            PreparedStatement statement4=connection.prepareStatement(sql3);
+            statement4.setString(1,grade);
+            statement4.setInt(2,courseid);
+            statement4.setInt(3,studid);
+            statement4.executeUpdate();
+        }
 
     }
 }

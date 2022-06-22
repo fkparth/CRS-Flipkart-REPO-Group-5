@@ -5,26 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31945c9c-0f15-4fda-9932-9f8495a4d972" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/constants/SQLQueriesConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/dao/AdminDAOoperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/dao/NotificationDAOoperation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/dao/PaymentDAOoperation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/dao/RegisteredCourseDAOoperation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/dao/StudentDAOoperation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/dao/UserDAOoperation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/AdminCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/AdminCRSMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/CRSApplication$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/CRSApplication$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/CRSApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/CRSApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/AdminImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/service/AdminImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/AdminCRSMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/CRSApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/bean/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/bean/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/AdminDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/MockData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/MockData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/RegisteredGradeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/RegisteredCourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/service/AdminImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/service/AdminImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/flipkart/utils/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/utils/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/ProfessorCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/ProfessorCRSMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/StudentCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/application/StudentCRSMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/dao/AdminDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/dao/AdminDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/dao/ProfessorDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/dao/ProfessorDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/dao/StudentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRS-Flipkart-Group-5-POS/com/flipkart/dao/StudentDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/application/StudentCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/application/StudentCRSMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/constants/SQLQueriesConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/constants/SQLQueriesConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/ProfessorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/ProfessorDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/ProfessorDAOoperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/ProfessorDAOoperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/StudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/dao/StudentDAOoperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/dao/StudentDAOoperation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,18 +51,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/CRS-Flipkart-Group-5-POS",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/CRS-Flipkart-Group-5-POS&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.flipkart.application" />

@@ -5,7 +5,7 @@ import com.flipkart.bean.*;
 import java.sql.SQLException;
 
 public interface StudentDAO {
-    void register(Student stud);
+    void register(Student stud) throws SQLException;
 
     public Student fetchStudentData(int id) throws SQLException;
 
@@ -13,7 +13,7 @@ public interface StudentDAO {
     void viewGradesheet();
 
     //same goes with this function we show the course catalogue print it not return it
-    void viewCourseCatalogue();
+    void viewCourseCatalogue() throws SQLException;
 
     void addCourses(Student stud);
 

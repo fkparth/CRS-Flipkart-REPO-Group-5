@@ -1,17 +1,18 @@
 package com.flipkart.application;
-import java.util.*;
-import com.flipkart.service.*;
-import com.flipkart.bean.*;
+
+import com.flipkart.bean.Student;
+import com.flipkart.dao.StudentDAO;
+import com.flipkart.dao.StudentDAOoperation;
+
+import java.sql.SQLException;
+import java.util.Scanner;
 public class StudentCRSMenu {
-    public static void showChoices(Student student) {
-
-
-
+    public static void showChoices(Student student) throws SQLException {
 
         Scanner sc = new Scanner(System.in);
         int choice =0;
         while (choice!=-1){
-            StudentInterface si = new StudentImplementation();
+            StudentDAO si = new StudentDAOoperation();
             System.out.println("Hello "+student.getName());
             System.out.println("1. View Course Catalogue");
             System.out.println("2. Register");
