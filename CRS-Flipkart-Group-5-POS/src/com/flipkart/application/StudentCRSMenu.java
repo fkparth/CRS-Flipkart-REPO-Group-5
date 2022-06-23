@@ -8,7 +8,7 @@ import com.flipkart.exceptions.*;
 import java.sql.SQLException;
 import java.util.Scanner;
 public class StudentCRSMenu {
-    public static void showChoices(Student student) throws SQLException, RegistrationUnsuccessfulException, NoRegisteredCoursesException, CourseNotAddedException, CourseNotDroppedException, FeePaymentException {
+    public static void showChoices(Student student) throws SQLException, RegistrationUnsuccessfulException, NoRegisteredCoursesException, CourseNotAddedException, CourseNotDroppedException, PaymentUnsuccessfulException {
         if (student==null)
             return;
         Scanner sc = new Scanner(System.in);

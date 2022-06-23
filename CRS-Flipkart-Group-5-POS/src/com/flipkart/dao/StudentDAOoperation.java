@@ -4,7 +4,6 @@ import com.flipkart.bean.Student;
 import com.flipkart.constants.SQLQueriesConstants;
 import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
-import com.sun.deploy.association.RegisterFailedException;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -172,13 +171,14 @@ public class StudentDAOoperation implements StudentDAO{
     }
 
     @Override
-    public void feePayment(Student stud) throws SQLException, FeePaymentException {
+    public void feePayment(Student stud) throws SQLException, PaymentUnsuccessfulException {
         Connection connection = DBConnection.getConnection();
+
+        int stdid=stud.getUserId();
 
         try {
             String sql = SQLQueriesConstants.STUDENT_GET_PAYMENT_STATUS;
             statement=connection.prepareStatement(sql);
-            int stdid=stud.getUserId();
             statement.setInt(1,stdid);
 
             ResultSet rs = statement.executeQuery();
@@ -188,7 +188,7 @@ public class StudentDAOoperation implements StudentDAO{
 
                 if(pay_status == 1) {
                     System.out.println("Fee already paid.");
-                    throw new FeeAlreadyPaidException();
+                    throw new PaymentAlreadyExistsException();
                 }
             }
 
@@ -206,8 +206,8 @@ public class StudentDAOoperation implements StudentDAO{
             statement.execute();
 
         } catch (SQLException se) {
-            throw new FeePaymentException();
-        } catch (FeeAlreadyPaidException e) {
+            throw new PaymentUnsuccessfulException(stdid);
+        } catch (PaymentAlreadyExistsException e) {
             throw new RuntimeException(e);
         }
     }

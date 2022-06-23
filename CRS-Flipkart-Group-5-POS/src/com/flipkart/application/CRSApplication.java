@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 
 public class CRSApplication {
-    public static void main(String[] args) throws SQLException, CourseAlreadyExistsException, CourseNotAddedException, CourseNotFoundException, UserAlreadyExistsException, UserNotFoundException, NoRegisteredCoursesException, CourseNotDroppedException, RegistrationUnsuccessfulException, GradeNotAddedException, CourseNotAssignedToProfException, NoStudentRegisteredException, FeePaymentException {
+    public static void main(String[] args) throws SQLException, CourseAlreadyExistsException, CourseNotAddedException, CourseNotFoundException, UserAlreadyExistsException, UserNotFoundException, NoRegisteredCoursesException, CourseNotDroppedException, RegistrationUnsuccessfulException, GradeNotAddedException, CourseNotAssignedToProfException, NoStudentRegisteredException, PaymentUnsuccessfulException {
         int menuClick = -1;
         while (menuClick != 4) {
             Scanner sc = new Scanner(System.in);
