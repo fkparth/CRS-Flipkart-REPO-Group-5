@@ -1,5 +1,6 @@
 package com.flipkart.exceptions;
 
+//registration of student unsucessful
 public class RegistrationUnsuccessfulException extends Exception{
     private int studentId;
 

@@ -1,5 +1,6 @@
 package com.flipkart.exceptions;
 
+//payment could not success
 public class PaymentUnsuccessfulException extends Exception{
     private int studentId;
 
@@ -12,7 +13,6 @@ public class PaymentUnsuccessfulException extends Exception{
     {
         return studentId;
     }
-
 
     public String getMessage() {
         return "Payment unsuccessful for : " + studentId;

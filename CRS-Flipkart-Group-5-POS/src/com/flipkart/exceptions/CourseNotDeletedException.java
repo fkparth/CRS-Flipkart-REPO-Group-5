@@ -1,5 +1,6 @@
 package com.flipkart.exceptions;
 
+//course could not be added (used by student)
 public class CourseNotDeletedException extends Exception{
     private int courseId;
 

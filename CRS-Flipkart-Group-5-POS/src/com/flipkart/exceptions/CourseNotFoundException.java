@@ -1,5 +1,6 @@
 package com.flipkart.exceptions;
 
+//course not found in course catalogue
 public class CourseNotFoundException extends Exception{
     private int courseId;
 

@@ -1,8 +1,10 @@
 package com.flipkart.exceptions;
 
+//Exception to check if the course already exists in catalogue  (used by admin)
 public class CourseAlreadyExistsException extends Exception{
     private int courseId;
 
+    //constructor
     public CourseAlreadyExistsException(int courseId) {
         this.courseId = courseId;
     }

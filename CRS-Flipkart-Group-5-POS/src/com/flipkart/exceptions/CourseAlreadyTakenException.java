@@ -1,5 +1,6 @@
 package com.flipkart.exceptions;
 
+//course already taken by some other professor
 public class CourseAlreadyTakenException extends Exception{
     private int courseId;
 

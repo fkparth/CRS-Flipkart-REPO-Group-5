@@ -1,5 +1,6 @@
 package com.flipkart.exceptions;
 
+//user already exists(used during registration)
 public class UserAlreadyExistsException extends Exception{
     private int userId;
 
