@@ -5,20 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31945c9c-0f15-4fda-9932-9f8495a4d972" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseAlreadyTakenException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseLimitExceededException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseNotAddedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseNotAssignedToProfException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseNotDeletedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/GradeNotAddedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/NoRegisteredCoursesException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/NoStudentRegisteredException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/PaymentUnsuccessfulException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/RegistrationUnsuccessfulException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/UserAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/UserNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseAlreadyExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseAlreadyTakenException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseAlreadyTakenException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseLimitExceededException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseLimitExceededException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseNotAddedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseNotAddedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseNotAssignedToProfException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseNotAssignedToProfException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseNotDeletedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseNotDeletedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/CourseNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/exceptions/GradeNotAddedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/GradeNotAddedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/exceptions/NoRegisteredCoursesException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/NoRegisteredCoursesException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/exceptions/NoStudentRegisteredException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/NoStudentRegisteredException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/exceptions/RegistrationUnsuccessfulException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/RegistrationUnsuccessfulException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/exceptions/UserAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/UserAlreadyExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/flipkart/exceptions/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/flipkart/exceptions/UserNotFoundException.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +67,7 @@
       <recent name="com.flipkart.application" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.flipkart.exceptions" />
       <recent name="com.flipkart.service" />
     </key>
   </component>
