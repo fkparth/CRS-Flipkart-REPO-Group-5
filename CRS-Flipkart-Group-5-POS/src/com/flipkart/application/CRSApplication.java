@@ -5,6 +5,7 @@ import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 import com.flipkart.constants.SQLQueriesConstants;
 import com.flipkart.dao.*;
+import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
 
 import java.sql.*;
@@ -14,7 +15,7 @@ import java.util.Scanner;
 
 
 public class CRSApplication {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, CourseAlreadyExistsException, CourseNotAddedException, CourseNotFoundException, UserAlreadyExistsException, UserNotFoundException {
         int menuClick = -1;
         while (menuClick != 4) {
             Scanner sc = new Scanner(System.in);
