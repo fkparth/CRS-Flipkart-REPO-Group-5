@@ -157,7 +157,7 @@ public class AdminDAOoperation implements AdminDAO {
                         throw new CourseNotFoundException(cidd);
                     }
                 } catch (SQLException se) {
-                    throw new CourseNotAddedException(cidd);
+                    throw new CourseNotAddedException();
                 }
 
                 break;
