@@ -1,4 +1,21 @@
 package com.flipkart.exceptions;
 
-public class NoRegisteredCoursesException {
+//no courses registered by student
+public class NoRegisteredCoursesException extends Exception{
+    private int studentId;
+
+    public NoRegisteredCoursesException(int studentId)
+    {
+        this.studentId=studentId;
+    }
+
+    public int getStudentId()
+    {
+        return studentId;
+    }
+
+
+    public String getMessage() {
+        return "No courses registered for: " + studentId;
+    }
 }

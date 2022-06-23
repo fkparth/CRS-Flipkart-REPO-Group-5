@@ -1,4 +1,21 @@
 package com.flipkart.exceptions;
 
-public class UserNotFoundException {
+//no user with given id exists
+public class UserNotFoundException extends Exception{
+    private int userId;
+
+    public UserNotFoundException(int userId)
+    {
+        this.userId=userId;
+    }
+
+    public int getStudentId()
+    {
+        return userId;
+    }
+
+
+    public String getMessage() {
+        return "User with userId : " + userId +" not found";
+    }
 }
