@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class ProfessorDAOoperation implements ProfessorDAO {
     private PreparedStatement statement = null;
     @Override
-    public void chooseCourse(int id) throws SQLException {
+    public void chooseCourse(int id) throws SQLException, CourseNotAssignedToProfException {
         Connection connection = DBConnection.getConnection();
 
         try {
@@ -31,7 +31,7 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             }
             if (courseid!=-1){
                 System.out.println("Already teaching course with id : "+ courseid);
-                throw new CourseAlreadyTakenException();
+                throw new CourseAlreadyTakenException(courseid);
             }
             sql = SQLQueriesConstants.CHOOSE_COURSE_PROF_LIST;
             statement=connection.prepareStatement(sql);
@@ -55,10 +55,12 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             System.out.println("Chosen Course ID:"+ccode);
         } catch(SQLException se) {
             throw new CourseNotAssignedToProfException();
+        } catch (CourseAlreadyTakenException e) {
+            throw new RuntimeException(e);
         }
     }
     @Override
-    public Professor fetchProfessorData(int id) throws SQLException {
+    public Professor fetchProfessorData(int id) throws SQLException, UserNotFoundException {
         Connection connection = DBConnection.getConnection();
         System.out.println("Done");
 
@@ -82,8 +84,10 @@ public class ProfessorDAOoperation implements ProfessorDAO {
     }
 
     @Override
-    public void viewStudentsList(int id) throws SQLException{
+    public void viewStudentsList(int id) throws SQLException, NoStudentRegisteredException {
         Connection connection = DBConnection.getConnection();
+
+        int courseid = -1;
 
         try {
             String sql = SQLQueriesConstants.VIEW_STUDENT_LIST_COURSEID;
@@ -91,7 +95,7 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             statement.setInt(1,id);
             ResultSet rs = statement.executeQuery();
             //System.out.println("Here are list of available Courses:");
-            int courseid = -1;
+
             while (rs.next()) {
                 courseid = (rs.getInt("id"));
                 //System.out.println(courseid+"c");
@@ -122,17 +126,21 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             }
 
             if(studid == -1) {
-                throw new NoStudentRegisteredException();
+                throw new NoStudentRegisteredException(courseid);
             }
         } catch (SQLException se) {
-            throw new NoStudentRegisteredException();
+            throw new NoStudentRegisteredException(courseid);
+        } catch (CourseNotAssignedToProfException e) {
+            throw new RuntimeException(e);
+        } catch (NoStudentRegisteredException e) {
+            throw new RuntimeException(e);
         }
 
 
     }
 
     @Override
-    public void assignGrade(int id) throws SQLException {
+    public void assignGrade(int id) throws SQLException, GradeNotAddedException {
         Connection connection = DBConnection.getConnection();
 
         try {
@@ -182,11 +190,15 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             }
 
             if(studid == -1) {
-                throw new NoStudentRegisteredException();
+                throw new NoStudentRegisteredException(courseid);
             }
 
         } catch (SQLException se) {
             throw new GradeNotAddedException();
+        } catch (CourseNotAssignedToProfException e) {
+            throw new RuntimeException(e);
+        } catch (NoStudentRegisteredException e) {
+            throw new RuntimeException(e);
         }
 
     }

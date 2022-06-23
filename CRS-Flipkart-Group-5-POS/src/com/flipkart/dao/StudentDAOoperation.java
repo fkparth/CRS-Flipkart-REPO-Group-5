@@ -2,10 +2,7 @@ package com.flipkart.dao;
 
 import com.flipkart.bean.Student;
 import com.flipkart.constants.SQLQueriesConstants;
-import com.flipkart.exceptions.CourseNotAddedException;
-import com.flipkart.exceptions.NoRegisteredCoursesException;
-import com.flipkart.exceptions.RegistrationUnsuccessfulException;
-import com.flipkart.exceptions.UserNotFoundException;
+import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
 import com.sun.deploy.association.RegisterFailedException;
 
@@ -15,7 +12,7 @@ import java.util.Scanner;
 public class StudentDAOoperation implements StudentDAO{
     private PreparedStatement statement = null;
     @Override
-    public void register(Student stud) throws SQLException {
+    public void register(Student stud) throws SQLException, RegistrationUnsuccessfulException {
         //
         System.out.println("Give you primary preferences");
         Scanner sc=new Scanner(System.in);
@@ -47,7 +44,7 @@ public class StudentDAOoperation implements StudentDAO{
     }
 
     @Override
-    public Student fetchStudentData(int id) throws SQLException {
+    public Student fetchStudentData(int id) throws SQLException, UserNotFoundException {
         Connection connection = DBConnection.getConnection();
         System.out.println("Done");
 
@@ -82,7 +79,7 @@ public class StudentDAOoperation implements StudentDAO{
     }
 
     @Override
-    public void viewGradesheet(int id) throws SQLException {
+    public void viewGradesheet(int id) throws SQLException, NoRegisteredCoursesException {
         Connection connection = DBConnection.getConnection();
         System.out.println("Done");
 
@@ -107,7 +104,7 @@ public class StudentDAOoperation implements StudentDAO{
             }
 
             if (!flag) {
-                throw new NoRegisteredCoursesException();
+                throw new NoRegisteredCoursesException(id);
             }
         } catch (SQLException se) {
             System.out.println(se.getMessage());
@@ -129,7 +126,7 @@ public class StudentDAOoperation implements StudentDAO{
     }
 
     @Override
-    public void addCourses(Student stud) throws SQLException {
+    public void addCourses(Student stud) throws SQLException, CourseNotAddedException {
         System.out.println("Add Course");
         Scanner sc=new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
@@ -152,7 +149,7 @@ public class StudentDAOoperation implements StudentDAO{
     }
 
     @Override
-    public void dropCourses(Student stud) throws SQLException {
+    public void dropCourses(Student stud) throws SQLException, CourseNotDroppedException {
         System.out.println("Drop Course");
         Scanner sc=new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
@@ -180,7 +177,7 @@ public class StudentDAOoperation implements StudentDAO{
     }
 
     @Override
-    public void viewCourses(int id) throws SQLException {
+    public void viewCourses(int id) throws SQLException, NoRegisteredCoursesException {
         Connection connection = DBConnection.getConnection();
         System.out.println("Done");
 
@@ -207,10 +204,10 @@ public class StudentDAOoperation implements StudentDAO{
             }
 
             if (!flag) {
-                throw new NoRegisteredCoursesException();
+                throw new NoRegisteredCoursesException(id);
             }
         } catch (SQLException se) {
-            throw new NoRegisteredCoursesException();
+            throw new NoRegisteredCoursesException(id);
         }
 
 

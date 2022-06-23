@@ -16,7 +16,7 @@ public class AdminDAOoperation implements AdminDAO {
     private PreparedStatement statement = null;
 
     @Override
-    public Admin fetchAdminData(int id) throws SQLException {
+    public Admin fetchAdminData(int id) throws SQLException, UserNotFoundException {
         // For admin login
         Connection connection = DBConnection.getConnection();
         System.out.println("Done");
@@ -35,7 +35,7 @@ public class AdminDAOoperation implements AdminDAO {
                 ad.setPassword(rs.getString("password"));
             }
         } catch(SQLException se) {
-            throw new UserNotFoundException();
+            throw new UserNotFoundException(id);
         }
 
 
@@ -84,7 +84,7 @@ public class AdminDAOoperation implements AdminDAO {
     }
 
     @Override
-    public void addProfessor() throws SQLException{
+    public void addProfessor() throws SQLException, UserAlreadyExistsException {
         // add professor
         Scanner sc = new Scanner(System.in);
         Professor prof = new Professor();
@@ -123,7 +123,7 @@ public class AdminDAOoperation implements AdminDAO {
     }
 
     @Override
-    public void updateCatalogue(int addOrdrop) throws SQLException {
+    public void updateCatalogue(int addOrdrop) throws SQLException, CourseAlreadyExistsException, CourseNotFoundException, CourseNotAddedException {
         // add or drop course from catalogue
         Scanner sc = new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
