@@ -172,8 +172,44 @@ public class StudentDAOoperation implements StudentDAO{
     }
 
     @Override
-    public void feePayment() {
-        System.out.println("TODO: Fee bharna hai...");
+    public void feePayment(Student stud) throws SQLException, FeePaymentException {
+        Connection connection = DBConnection.getConnection();
+
+        try {
+            String sql = SQLQueriesConstants.STUDENT_GET_PAYMENT_STATUS;
+            statement=connection.prepareStatement(sql);
+            int stdid=stud.getUserId();
+            statement.setInt(1,stdid);
+
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                int pay_status = rs.getInt("status");
+
+                if(pay_status == 1) {
+                    System.out.println("Fee already paid.");
+                    throw new FeeAlreadyPaidException();
+                }
+            }
+
+            Scanner sc=new Scanner(System.in);
+            System.out.println("Enter payment mode:");
+            System.out.println("1. Cash");
+            System.out.println("2. Debit Card");
+            System.out.println("3. Credit Card");
+            int paymentMode = sc.nextInt();
+            sql = SQLQueriesConstants.STUDENT_SET_PAYMENT;
+            statement=connection.prepareStatement(sql);
+            statement.setInt(1, stdid);
+            statement.setInt(2, paymentMode);
+            statement.setInt(3, 1);
+            statement.execute();
+
+        } catch (SQLException se) {
+            throw new FeePaymentException();
+        } catch (FeeAlreadyPaidException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

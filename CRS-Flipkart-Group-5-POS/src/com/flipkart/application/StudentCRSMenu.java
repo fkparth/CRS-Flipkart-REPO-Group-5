@@ -3,15 +3,12 @@ package com.flipkart.application;
 import com.flipkart.bean.Student;
 import com.flipkart.dao.StudentDAO;
 import com.flipkart.dao.StudentDAOoperation;
-import com.flipkart.exceptions.CourseNotAddedException;
-import com.flipkart.exceptions.CourseNotDroppedException;
-import com.flipkart.exceptions.NoRegisteredCoursesException;
-import com.flipkart.exceptions.RegistrationUnsuccessfulException;
+import com.flipkart.exceptions.*;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 public class StudentCRSMenu {
-    public static void showChoices(Student student) throws SQLException, RegistrationUnsuccessfulException, NoRegisteredCoursesException, CourseNotAddedException, CourseNotDroppedException {
+    public static void showChoices(Student student) throws SQLException, RegistrationUnsuccessfulException, NoRegisteredCoursesException, CourseNotAddedException, CourseNotDroppedException, FeePaymentException {
         if (student==null)
             return;
         Scanner sc = new Scanner(System.in);
@@ -47,7 +44,7 @@ public class StudentCRSMenu {
                     si.dropCourses(student);
                     break;
                 case 6:
-                    si.feePayment();
+                    si.feePayment(student);
                     break;
                 case 7:
                     si.viewGradesheet(student.getUserId());
