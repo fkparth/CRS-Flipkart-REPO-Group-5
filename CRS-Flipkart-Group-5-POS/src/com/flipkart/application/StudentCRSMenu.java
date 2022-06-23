@@ -17,7 +17,7 @@ public class StudentCRSMenu {
             System.out.println("Hello "+student.getName());
             System.out.println("1. View Course Catalogue");
             System.out.println("2. Register");
-            System.out.println("3. View Courses");
+            System.out.println("3. View Registered Courses");
             System.out.println("4. Add Courses");
             System.out.println("5. Drop Courses");
             System.out.println("6. Fee Payment ");

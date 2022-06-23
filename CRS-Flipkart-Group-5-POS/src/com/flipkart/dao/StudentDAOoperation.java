@@ -2,7 +2,12 @@ package com.flipkart.dao;
 
 import com.flipkart.bean.Student;
 import com.flipkart.constants.SQLQueriesConstants;
+import com.flipkart.exceptions.CourseNotAddedException;
+import com.flipkart.exceptions.NoRegisteredCoursesException;
+import com.flipkart.exceptions.RegistrationUnsuccessfulException;
+import com.flipkart.exceptions.UserNotFoundException;
 import com.flipkart.utils.DBConnection;
+import com.sun.deploy.association.RegisterFailedException;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -11,26 +16,33 @@ public class StudentDAOoperation implements StudentDAO{
     private PreparedStatement statement = null;
     @Override
     public void register(Student stud) throws SQLException {
+        //
         System.out.println("Give you primary preferences");
         Scanner sc=new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
-        String sql = SQLQueriesConstants.REGISTER_COURSE;
 
-        PreparedStatement stmt=connection.prepareStatement(sql);
-        int stdid=stud.getUserId();
-        //System.out.println(stdid+"hi bro");
-        for (int i=0;i<4;i++){
-            System.out.println("Enter course ID");
-            int courseid=sc.nextInt();
-            stmt.setInt(1,courseid);
-            stmt.setInt(2,stdid);
-            stmt.execute();
+        try {
+            String sql = SQLQueriesConstants.REGISTER_COURSE;
 
-        }
-        System.out.println("Give you alternative preferences");
-        for (int i=0;i<2;i++){
-            System.out.println("Enter course ID");
-            int id=sc.nextInt();
+            PreparedStatement stmt=connection.prepareStatement(sql);
+            int stdid=stud.getUserId();
+            //System.out.println(stdid+"hi bro");
+            for (int i=0;i<4;i++){
+                System.out.println("Enter course ID");
+                int courseid=sc.nextInt();
+                stmt.setInt(1,courseid);
+                stmt.setInt(2,stdid);
+                stmt.execute();
+
+            }
+            System.out.println("Give you alternative preferences");
+            for (int i=0;i<2;i++){
+                System.out.println("Enter course ID");
+                int id=sc.nextInt();
+            }
+        } catch (SQLException se) {
+            System.out.println(se.getMessage());
+            throw new RegistrationUnsuccessfulException();
         }
     }
 
@@ -38,32 +50,35 @@ public class StudentDAOoperation implements StudentDAO{
     public Student fetchStudentData(int id) throws SQLException {
         Connection connection = DBConnection.getConnection();
         System.out.println("Done");
-        Student stud = new Student();
-        String sql = SQLQueriesConstants.GET_USER_BY_ID;
-        statement=connection.prepareStatement(sql);
-        statement.setInt(1,id);
-        ResultSet rs = statement.executeQuery();
-        while (rs.next()) {
-            String sql2 = SQLQueriesConstants.GET_STUDENT_BY_ID;
-            PreparedStatement statement2=connection.prepareStatement(sql2);
-            statement2.setInt(1,id);
-            ResultSet rs2 = statement2.executeQuery();
-            while (rs2.next()) {
-                int test = rs2.getInt("is_approved");
-                if (test == 0) {
-                    System.out.println("Waiting for admin approval");
-                    return null;
+
+        try {
+            Student stud = new Student();
+            String sql = SQLQueriesConstants.GET_USER_BY_ID;
+            statement=connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                String sql2 = SQLQueriesConstants.GET_STUDENT_BY_ID;
+                PreparedStatement statement2=connection.prepareStatement(sql2);
+                statement2.setInt(1,id);
+                ResultSet rs2 = statement2.executeQuery();
+                while (rs2.next()) {
+                    int test = rs2.getInt("is_approved");
+                    if (test == 0) {
+                        System.out.println("Waiting for admin approval");
+                        return null;
+                    }
                 }
+                stud.setUserId(rs.getInt("id"));
+                stud.setName(rs.getString("name"));
+                stud.setType(rs.getInt("type"));
+                stud.setPassword(rs.getString("password"));
+
             }
-            stud.setUserId(rs.getInt("id"));
-            stud.setName(rs.getString("name"));
-            stud.setType(rs.getInt("type"));
-            stud.setPassword(rs.getString("password"));
-
+            return stud;
+        } catch (SQLException se) {
+            throw new UserNotFoundException(id);
         }
-        return stud;
-
-
     }
 
     @Override
@@ -71,21 +86,32 @@ public class StudentDAOoperation implements StudentDAO{
         Connection connection = DBConnection.getConnection();
         System.out.println("Done");
 
-        String sql = SQLQueriesConstants.GET_REGISTERED_COURSE_STUDENT_ID;
-        statement=connection.prepareStatement(sql);
-        statement.setInt(1,id);
-        ResultSet rs = statement.executeQuery();
-        System.out.println("Course ID    Course Name    Grade");
-        while (rs.next()) {
-            int cid=rs.getInt("course_id");
-            String sql2=SQLQueriesConstants.GET_COURSE_BY_ID;
-            PreparedStatement st2=connection.prepareStatement(sql2);
-            st2.setInt(1,cid);
-            ResultSet rs2=st2.executeQuery();
+        try {
+            String sql = SQLQueriesConstants.GET_REGISTERED_COURSE_STUDENT_ID;
+            statement=connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            ResultSet rs = statement.executeQuery();
+            System.out.println("Course ID    Course Name    Grade");
+            boolean flag = false;
+            while (rs.next()) {
+                flag = true;
+                int cid=rs.getInt("course_id");
+                String sql2=SQLQueriesConstants.GET_COURSE_BY_ID;
+                PreparedStatement st2=connection.prepareStatement(sql2);
+                st2.setInt(1,cid);
+                ResultSet rs2=st2.executeQuery();
 
-            while(rs2.next()){
-                System.out.println(cid+"    "+rs2.getString("course_name")+"    "+rs.getString("grade"));
+                while(rs2.next()){
+                    System.out.println(cid+"    "+rs2.getString("course_name")+"    "+rs.getString("grade"));
+                }
             }
+
+            if (!flag) {
+                throw new NoRegisteredCoursesException();
+            }
+        } catch (SQLException se) {
+            System.out.println(se.getMessage());
+            throw se;
         }
     }
 
@@ -107,17 +133,22 @@ public class StudentDAOoperation implements StudentDAO{
         System.out.println("Add Course");
         Scanner sc=new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
-        String sql = SQLQueriesConstants.STUDENT_ADD_COURSE;
 
-        PreparedStatement stmt=connection.prepareStatement(sql);
-        int stdid=stud.getUserId();
-        //System.out.println(stdid+"hi bro");
+        try {
+            String sql = SQLQueriesConstants.STUDENT_ADD_COURSE;
 
-        System.out.println("Enter course ID");
-        int courseid=sc.nextInt();
-        stmt.setInt(1,courseid);
-        stmt.setInt(2,stdid);
-        stmt.execute();
+            PreparedStatement stmt=connection.prepareStatement(sql);
+            int stdid=stud.getUserId();
+            //System.out.println(stdid+"hi bro");
+
+            System.out.println("Enter course ID");
+            int courseid=sc.nextInt();
+            stmt.setInt(1,courseid);
+            stmt.setInt(2,stdid);
+            stmt.execute();
+        } catch (SQLException se) {
+            throw new CourseNotAddedException();
+        }
     }
 
     @Override
@@ -125,23 +156,27 @@ public class StudentDAOoperation implements StudentDAO{
         System.out.println("Drop Course");
         Scanner sc=new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
-        String sql = SQLQueriesConstants.STUDENT_DROP_COURSE;
 
-        PreparedStatement stmt=connection.prepareStatement(sql);
-        int stdid=stud.getUserId();
-        //System.out.println(stdid+"hi bro");
+        try {
+            String sql = SQLQueriesConstants.STUDENT_DROP_COURSE;
 
-        System.out.println("Enter course ID");
-        int courseid=sc.nextInt();
-        stmt.setInt(1,courseid);
-        stmt.setInt(2,stdid);
-        stmt.execute();
+            PreparedStatement stmt=connection.prepareStatement(sql);
+            int stdid=stud.getUserId();
+            //System.out.println(stdid+"hi bro");
 
+            System.out.println("Enter course ID");
+            int courseid=sc.nextInt();
+            stmt.setInt(1,courseid);
+            stmt.setInt(2,stdid);
+            stmt.execute();
+        } catch (SQLException se) {
+            throw new CourseNotDroppedException();
+        }
     }
 
     @Override
     public void feePayment() {
-
+        System.out.println("TODO: Fee bharna hai...");
     }
 
     @Override
@@ -149,21 +184,35 @@ public class StudentDAOoperation implements StudentDAO{
         Connection connection = DBConnection.getConnection();
         System.out.println("Done");
 
-        String sql = SQLQueriesConstants.GET_REGISTERED_COURSE_STUDENT_ID;
-        statement=connection.prepareStatement(sql);
-        statement.setInt(1,id);
-        ResultSet rs = statement.executeQuery();
-        System.out.println("Course ID    Course Name");
-        while (rs.next()) {
-            int cid=rs.getInt("course_id");
-            String sql2=SQLQueriesConstants.GET_COURSE_BY_ID;
-            PreparedStatement st2=connection.prepareStatement(sql2);
-            st2.setInt(1,cid);
-            ResultSet rs2=st2.executeQuery();
+        try {
+            String sql = SQLQueriesConstants.GET_REGISTERED_COURSE_STUDENT_ID;
+            statement=connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            ResultSet rs = statement.executeQuery();
+            System.out.println("Course ID    Course Name");
 
-            while(rs2.next()){
-                System.out.println(cid+"    "+rs2.getString("course_name"));
+            boolean flag = false;
+
+            while (rs.next()) {
+                flag = true;
+                int cid=rs.getInt("course_id");
+                String sql2=SQLQueriesConstants.GET_COURSE_BY_ID;
+                PreparedStatement st2=connection.prepareStatement(sql2);
+                st2.setInt(1,cid);
+                ResultSet rs2=st2.executeQuery();
+
+                while(rs2.next()){
+                    System.out.println(cid+"    "+rs2.getString("course_name"));
+                }
             }
+
+            if (!flag) {
+                throw new NoRegisteredCoursesException();
+            }
+        } catch (SQLException se) {
+            throw new NoRegisteredCoursesException();
         }
+
+
     }
 }
