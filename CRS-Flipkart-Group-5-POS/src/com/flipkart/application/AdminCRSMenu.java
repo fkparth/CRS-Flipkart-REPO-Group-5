@@ -21,6 +21,7 @@ public class AdminCRSMenu {
             System.out.println("Enter 3 to add professor");
             System.out.println("Enter 4 to update course catalogue");
             System.out.println("Enter 5 to assignCourse to student");
+            System.out.println("Enter 6 to view course catalogue");
             System.out.println("Enter -1 to logout");
             System.out.println("Enter your choice:");
             Scanner sc = new Scanner(System.in);
@@ -44,6 +45,9 @@ public class AdminCRSMenu {
                     break;
                 case 5:
                     AI.assignCourseToStudent();
+                    break;
+                case 6:
+                    AI.viewCourseCatalogue();
                     break;
                 default:
                     System.out.println("Number chosen is not part of Menu");

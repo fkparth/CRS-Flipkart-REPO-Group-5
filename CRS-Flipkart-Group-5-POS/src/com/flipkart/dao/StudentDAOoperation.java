@@ -96,9 +96,9 @@ public class StudentDAOoperation implements StudentDAO{
         String sql = SQLQueriesConstants.GET_COURSE_CATALOG;
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(sql);
-        System.out.println("CourseID - Course-Name - Strength ");
+        System.out.println("CourseID - Course-Name");
         while(rs.next()){
-            System.out.println(rs.getInt("id")+"    "+rs.getString("course_name")+"     "+rs.getInt("strength"));
+            System.out.println(rs.getInt("id")+"    "+rs.getString("course_name"));//+"     "+rs.getInt("strength"));
         }
     }
 

@@ -15,4 +15,6 @@ public interface AdminDAO {
     void updateCatalogue(int addOrDrop) throws SQLException;
 
     void assignCourseToStudent();
+
+    void viewCourseCatalogue() throws SQLException;
 }
