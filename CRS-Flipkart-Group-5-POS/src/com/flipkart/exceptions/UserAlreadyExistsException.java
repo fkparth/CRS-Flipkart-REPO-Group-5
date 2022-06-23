@@ -1,6 +1,6 @@
 package com.flipkart.exceptions;
 
-public class UserAlreadyExistsException {
+public class UserAlreadyExistsException extends Exception{
     private int userId;
 
     public UserAlreadyExistsException(int userId)

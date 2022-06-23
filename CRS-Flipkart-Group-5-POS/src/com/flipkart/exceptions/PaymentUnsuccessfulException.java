@@ -1,6 +1,6 @@
 package com.flipkart.exceptions;
 
-public class PaymentUnsuccessfulException {
+public class PaymentUnsuccessfulException extends Exception{
     private int studentId;
 
     public PaymentUnsuccessfulException(int studentId)
