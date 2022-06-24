@@ -8,8 +8,20 @@ import com.flipkart.utils.DBConnection;
 import java.sql.*;
 import java.util.Scanner;
 
+/**
+ *
+ * Class to implement Student Dao Operations
+ *
+ */
 public class StudentDAOoperation implements StudentDAO{
     private PreparedStatement statement = null;
+
+    /**
+     * Method to register student in a course from database
+     * @param stud: student object containing all the fields
+     * @return
+     * @throws RegistrationUnsuccessfulException
+     */
     @Override
     public void register(Student stud) throws SQLException, RegistrationUnsuccessfulException {
         //
@@ -36,6 +48,7 @@ public class StudentDAOoperation implements StudentDAO{
 
             System.out.println("Give you primary preferences");
             //System.out.println(stdid+"hi bro");
+            //to fill 4 primary courses in the preference list
             for (int i=0;i<4;i++){
                 System.out.println("Enter course ID");
                 int courseid=sc.nextInt();
@@ -45,6 +58,7 @@ public class StudentDAOoperation implements StudentDAO{
 
             }
             System.out.println("Give you alternative preferences");
+            //to fill 2 alternative courses in preference list
             for (int i=0;i<2;i++){
                 System.out.println("Enter course ID");
                 int id=sc.nextInt();
@@ -58,6 +72,12 @@ public class StudentDAOoperation implements StudentDAO{
         }
     }
 
+    /**
+     * Method to fetch student data from database
+     * @param id: student id
+     * @return student object containing all the fields
+     * @throws UserNotFoundException
+     */
     @Override
     public Student fetchStudentData(int id) throws SQLException, UserNotFoundException {
         Connection connection = DBConnection.getConnection();
@@ -98,6 +118,12 @@ public class StudentDAOoperation implements StudentDAO{
         }
     }
 
+    /**
+     * Method to view gradesheet after grade assigned by the professor
+     * @param id: student id
+     * @return
+     * @throws NoRegisteredCoursesException
+     */
     @Override
     public void viewGradesheet(int id) throws SQLException, NoRegisteredCoursesException {
         Connection connection = DBConnection.getConnection();
@@ -132,6 +158,11 @@ public class StudentDAOoperation implements StudentDAO{
         }
     }
 
+    /**
+     * Method to view course course catalogue
+     * @return
+     * @throws SQLException
+     */
     @Override
     public void viewCourseCatalogue() throws SQLException {
         Connection connection = DBConnection.getConnection();
@@ -145,6 +176,12 @@ public class StudentDAOoperation implements StudentDAO{
         }
     }
 
+    /**
+     * method to add course in database from course catalogue
+     * @param stud: student object containing all fields
+     * @return
+     * @throws CourseNotAddedException
+     */
     @Override
     public void addCourses(Student stud) throws SQLException, CourseNotAddedException {
         System.out.println("Add Course");
@@ -168,6 +205,12 @@ public class StudentDAOoperation implements StudentDAO{
         }
     }
 
+    /**
+     * method to drop course selected by student
+     * @param stud: student object containing all fields
+     * @return
+     * @throws CourseNotDroppedException
+     */
     @Override
     public void dropCourses(Student stud) throws SQLException, CourseNotDroppedException {
         System.out.println("Drop Course");
@@ -191,6 +234,12 @@ public class StudentDAOoperation implements StudentDAO{
         }
     }
 
+    /**
+     * method to pay fee by student for the selected course from database
+     * @param stud: student object containing all fields
+     * @return
+     * @throws PaymentUnsuccessfulException
+     */
     @Override
     public void feePayment(Student stud) throws SQLException, PaymentUnsuccessfulException {
         Connection connection = DBConnection.getConnection();
@@ -233,6 +282,12 @@ public class StudentDAOoperation implements StudentDAO{
         }
     }
 
+    /**
+     * method to view selected course list
+     * @param id: student id
+     * @return
+     * @throws NoRegisteredCoursesException
+     */
     @Override
     public void viewCourses(int id) throws SQLException, NoRegisteredCoursesException {
         Connection connection = DBConnection.getConnection();
