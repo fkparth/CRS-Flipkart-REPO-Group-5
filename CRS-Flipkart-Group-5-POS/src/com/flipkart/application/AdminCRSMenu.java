@@ -10,11 +10,8 @@ import com.flipkart.exceptions.CourseNotFoundException;
 import com.flipkart.exceptions.UserAlreadyExistsException;
 
 import java.sql.SQLException;
-import java.text.FieldPosition;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Scanner;
 public class AdminCRSMenu {
     public static void showChoices(Admin ad) throws SQLException, UserAlreadyExistsException, CourseAlreadyExistsException, CourseNotAddedException, CourseNotFoundException {
@@ -26,6 +23,10 @@ public class AdminCRSMenu {
         String dateTimeString = now.format(formatter);
         System.out.print(dateTimeString+" ");
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b9847b0a64c990c6c043e638df239536fb0a0a4d
         System.out.println("Hello " + ad.getName());
         while (choice != -1) {
 
@@ -43,12 +44,15 @@ public class AdminCRSMenu {
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
+                    //approve the student once they register/login
                     AI.approveStudent();
                     break;
                 case 2:
+                    //to generate report card after grade is assigned by the professor
                     AI.generateReportCard();
                     break;
                 case 3:
+                    //add professor to respective courses they chose
                     AI.addProfessor();
                     break;
                 case 4:
@@ -59,9 +63,11 @@ public class AdminCRSMenu {
                     AI.updateCatalogue(adchoice);
                     break;
                 case 5:
+                    //to assign courses to students after they fill their preference
                     AI.assignCourseToStudent();
                     break;
                 case 6:
+                    //shows list of courses for students to choose
                     AI.viewCourseCatalogue();
                     break;
                 default:
