@@ -41,12 +41,15 @@ public class AdminCRSMenu {
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
+                    //approve the student once they register/login
                     AI.approveStudent();
                     break;
                 case 2:
+                    //to generate report card after grade is assigned by the professor
                     AI.generateReportCard();
                     break;
                 case 3:
+                    //add professor to respective courses they chose
                     AI.addProfessor();
                     break;
                 case 4:
@@ -57,9 +60,11 @@ public class AdminCRSMenu {
                     AI.updateCatalogue(adchoice);
                     break;
                 case 5:
+                    //to assign courses to students after they fill their preference
                     AI.assignCourseToStudent();
                     break;
                 case 6:
+                    //shows list of courses for students to choose
                     AI.viewCourseCatalogue();
                     break;
                 default:

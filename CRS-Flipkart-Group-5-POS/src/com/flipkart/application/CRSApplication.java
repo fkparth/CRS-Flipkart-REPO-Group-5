@@ -20,6 +20,7 @@ public class CRSApplication {
 
         int menuClick = -1;
         while (menuClick != 4) {
+            //shows the menu for user
             Scanner sc = new Scanner(System.in);
             System.out.println("--------------------------------------------------------------");
             System.out.println("\t \t Welcome to CRS Application");
@@ -30,6 +31,7 @@ public class CRSApplication {
             System.out.println("Enter Here:");
 
             menuClick = sc.nextInt();
+            //to login an already existing user
             if (menuClick == 1) {
 
 
@@ -70,8 +72,7 @@ public class CRSApplication {
                     adcrs.showChoices(ad);
 
                 }
-
-
+                //to register a new user
             } else if (menuClick == 2) {
                 System.out.println("Enter Your Name");
                 String name = sc.next();
@@ -109,9 +110,9 @@ public class CRSApplication {
 
                 System.out.println("Your UserID is "+newid);
 
-
+            //update password
             } else if (menuClick == 3) {
-
+            //exit
             } else {
                 System.out.println("Thank you");
             }
