@@ -28,24 +28,31 @@ public class StudentCRSMenu {
              choice = sc.nextInt();
             switch (choice) {
                 case 1:
+                    //view course catalogue to choose course
                     si.viewCourseCatalogue();
                     break;
                 case 2:
+                    //to register a new student
                     si.register(student);
                     break;
                 case 3:
+                    //to view courses chosen by student
                     si.viewCourses(student.getUserId());
                     break;
                 case 4:
+                    //add courses according to preference
                     si.addCourses(student);
                     break;
                 case 5:
+                    //drop unwanted course
                     si.dropCourses(student);
                     break;
                 case 6:
+                    //fee payment for chosen courses
                     si.feePayment();
                     break;
                 case 7:
+                    //view gradesheet after completion of course
                     si.viewGradesheet(student.getUserId());
                     break;
                 case -1:
