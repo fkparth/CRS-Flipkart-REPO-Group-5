@@ -181,13 +181,11 @@ public class AdminDAOoperation implements AdminDAO {
                     stmt=connection.prepareStatement(sql);
                     stmt.setInt(1,cida);
                     stmt.setString(2,cnamea);
-                    flag=stmt.execute();
-                    if(!flag) {
-                        throw new CourseAlreadyExistsException(cida);
-
-                    }
-                } catch (SQLException se) {
-                    throw new CourseAlreadyExistsException(cida);
+                    stmt.execute();
+                }
+                catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    //throw new CourseAlreadyExistsException(cida);
                 }
                 break;
             case 2:

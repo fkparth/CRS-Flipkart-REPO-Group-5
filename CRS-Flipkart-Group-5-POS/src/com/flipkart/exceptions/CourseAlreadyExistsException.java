@@ -18,3 +18,6 @@ public class CourseAlreadyExistsException extends Exception{
         return "Exception: The course with ID: " + courseId + " already exists";
     }
 }
+//user at left
+//java8 api
+//push documentation

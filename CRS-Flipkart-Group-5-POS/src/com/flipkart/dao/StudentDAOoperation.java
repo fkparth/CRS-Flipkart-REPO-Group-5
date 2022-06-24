@@ -281,7 +281,7 @@ public class StudentDAOoperation implements StudentDAO{
         } catch (SQLException se) {
             throw new PaymentUnsuccessfulException(stdid);
         } catch (PaymentAlreadyExistsException e) {
-            throw new RuntimeException(e);
+            System.out.println("Payment already done.");
         }
     }
 
