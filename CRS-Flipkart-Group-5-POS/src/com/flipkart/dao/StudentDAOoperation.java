@@ -202,24 +202,26 @@ public class StudentDAOoperation implements StudentDAO{
             int courseid=sc.nextInt();
             stmt.setInt(1,courseid);
             stmt.setInt(2,stdid);
-            ResultSet rs = stmt.executeQuery();
+            stmt.execute();
 
-            boolean flag = false;
-            while (rs.next()) {
-                flag = true;
-            }
-            if(!flag) {
-                throw new CourseNotAddedException();
-            }
+//            //boolean flag = false;
+////            while (rs.next()) {
+////                flag = true;
+////            }
+//            if(!rs) {
+//                throw new CourseNotAddedException();
+//            }
+            System.out.println("Course added");
 
 
         } catch (SQLException se) {
             System.out.println(se.getMessage());
             System.out.println("Course not added");
-        } catch (CourseNotAddedException se) {
-            System.out.println(se.getMessage());
-            //System.out.println("Course not added");
         }
+//        catch (CourseNotAddedException se) {
+//            System.out.println(se.getMessage());
+//            //System.out.println("Course not added");
+//        }
 
     }
 
@@ -257,34 +259,31 @@ public class StudentDAOoperation implements StudentDAO{
 
             stmt.setInt(1,courseid);
             stmt.setInt(2,stdid);
-            ResultSet rs2 = stmt.executeQuery();
-            boolean flag2 = false;
-            while (rs2.next()) {
-                flag2 = true;
-            }
-
-
-            if(!flag2) {
-                //System.out.println("false");
-                throw new CourseNotDroppedException();
-            }
+            stmt.execute();
+//            boolean flag2 = false;
+//            while (rs2.next()) {
+//                flag2 = true;
+//            }
+//
+//
+//            if(!flag2) {
+//                //System.out.println("false");
+//                throw new CourseNotDroppedException();
+//            }
+            System.out.println("Course dropped");
 
 
         } catch (SQLException se) {
             System.out.println(se.getMessage());
-           // System.out.println("You don't have such registered course");
+           System.out.println("You don't have such registered course");
 //            throw new CourseNotDroppedException();
         }catch (CourseNotFoundException s) {
 
             System.out.println(s.getMessage());
             System.out.println("Course not dropped");
 //            throw new CourseNotFoundException();
-        }catch (CourseNotDroppedException s) {
-
-            System.out.println(s.getMessage());
-
-//            throw new CourseNotDroppedException();
         }
+
 
 
     }
