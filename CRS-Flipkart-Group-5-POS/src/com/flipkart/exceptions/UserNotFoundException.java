@@ -16,6 +16,6 @@ public class UserNotFoundException extends Exception{
 
 
     public String getMessage() {
-        return "User with userId : " + userId +" not found";
+        return "Exception: User with userId : " + userId +" not found";
     }
 }

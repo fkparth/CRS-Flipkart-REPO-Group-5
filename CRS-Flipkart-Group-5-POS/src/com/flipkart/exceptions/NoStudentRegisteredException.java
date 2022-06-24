@@ -14,6 +14,6 @@ public class NoStudentRegisteredException extends Exception{
 
     @Override
     public String getMessage() {
-        return "No student registered for Course with ID: " + courseId ;
+        return "Exception: No student registered for Course with ID: " + courseId ;
     }
 }

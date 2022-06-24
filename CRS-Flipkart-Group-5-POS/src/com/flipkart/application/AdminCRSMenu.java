@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class AdminCRSMenu {
     public static void showChoices(Admin ad) throws SQLException, UserAlreadyExistsException, CourseAlreadyExistsException, CourseNotAddedException, CourseNotFoundException {
         int choice = 0;
-
+        System.out.println(" ");
         System.out.println("Hello " + ad.getName());
         while (choice != -1) {
 
@@ -55,6 +55,7 @@ public class AdminCRSMenu {
                     break;
                 default:
                     System.out.println("Number chosen is not part of Menu");
+                    System.out.println("");
 
 
             }

@@ -15,6 +15,6 @@ public class CourseAlreadyExistsException extends Exception{
 
     @Override
     public String getMessage() {
-        return "The course with ID: " + courseId + "already exists";
+        return "Exception: The course with ID: " + courseId + "already exists";
     }
 }

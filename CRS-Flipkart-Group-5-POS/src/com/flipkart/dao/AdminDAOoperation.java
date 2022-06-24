@@ -55,6 +55,7 @@ public class AdminDAOoperation implements AdminDAO {
 
         Student stud=new Student();
 
+        boolean flag=false;
         try {
             String sql = SQLQueriesConstants.GET_STUDENT_TO_APPROVE;
             statement=connection.prepareStatement(sql);
@@ -75,10 +76,14 @@ public class AdminDAOoperation implements AdminDAO {
             st = connection.createStatement();
             rs = st.executeQuery(sql);
             while (rs.next()) {
+                flag=true;
                 int id=rs.getInt("id");
                 System.out.println(id+"not approved");
             }
-        } catch(SQLException se) {
+            if (!flag)
+                System.out.println("No student to be approved");
+        }
+        catch(SQLException se) {
             System.out.println(se.getMessage());
         }
     }
@@ -120,11 +125,12 @@ public class AdminDAOoperation implements AdminDAO {
             stmt2.setInt(1,profid);
             stmt2.setInt(2,deptid);
             stmt2.executeUpdate();
-        } catch (SQLException se) {
-            throw new UserAlreadyExistsException(profid);
+
         }
-
-
+        catch (SQLException se) {
+            //throw new UserAlreadyExistsException(profid);
+            System.out.println(se.getMessage());
+        }
     }
 
     @Override
@@ -154,15 +160,26 @@ public class AdminDAOoperation implements AdminDAO {
                 System.out.println("Enter Course ID");
                 int cidd = sc.nextInt();
                 try {
-                    String sql = SQLQueriesConstants.DELETE_COURSE_ADMIN;
+                    String sql = SQLQueriesConstants.GET_COURSE_BY_ID;
                     PreparedStatement stmt=connection.prepareStatement(sql);
                     stmt.setInt(1,cidd);
-                    boolean flag = stmt.execute();
-                    if (flag == false) {
+                    ResultSet rs = stmt.executeQuery();
+                    boolean flag = false;
+                    while (rs.next()) {
+                        flag = true;
+                    }
+                    if(!flag) {
                         throw new CourseNotFoundException(cidd);
                     }
-                } catch (SQLException se) {
-                    throw new CourseNotAddedException();
+
+                    sql = SQLQueriesConstants.DELETE_COURSE_ADMIN;
+                    stmt=connection.prepareStatement(sql);
+                    stmt.setInt(1,cidd);
+                    stmt.execute();
+
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    //throw new CourseNotAddedException();
                 }
 
                 break;
