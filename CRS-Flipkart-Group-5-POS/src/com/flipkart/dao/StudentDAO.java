@@ -18,7 +18,7 @@ public interface StudentDAO {
 
     void addCourses(Student stud) throws SQLException, CourseNotAddedException;
 
-    void dropCourses(Student stud) throws SQLException, CourseNotDroppedException;
+    void dropCourses(Student stud) throws SQLException, CourseNotDroppedException,CourseNotFoundException;
 
     void feePayment(Student student) throws SQLException, PaymentUnsuccessfulException;
 

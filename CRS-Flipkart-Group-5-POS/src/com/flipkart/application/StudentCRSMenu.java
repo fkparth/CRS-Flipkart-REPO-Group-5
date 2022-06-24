@@ -3,19 +3,15 @@ package com.flipkart.application;
 import com.flipkart.bean.Student;
 import com.flipkart.dao.StudentDAO;
 import com.flipkart.dao.StudentDAOoperation;
-
 import com.flipkart.exceptions.*;
 
 import java.sql.SQLException;
-import java.text.FieldPosition;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Scanner;
 public class StudentCRSMenu {
 
-    public static void showChoices(Student student) throws SQLException, RegistrationUnsuccessfulException, NoRegisteredCoursesException, CourseNotAddedException, CourseNotDroppedException, PaymentUnsuccessfulException {
+    public static void showChoices(Student student) throws SQLException, RegistrationUnsuccessfulException, NoRegisteredCoursesException, CourseNotAddedException, CourseNotDroppedException, PaymentUnsuccessfulException, CourseNotFoundException {
 
         if (student==null)
             return;
@@ -62,12 +58,9 @@ public class StudentCRSMenu {
                     si.dropCourses(student);
                     break;
                 case 6:
-<<<<<<< HEAD
-                    //fee payment for chosen courses
-                    si.feePayment();
-=======
+
                     si.feePayment(student);
->>>>>>> 9626dd773eb3a47e4251ec665111bd931c924ba4
+
                     break;
                 case 7:
                     //view gradesheet after completion of course

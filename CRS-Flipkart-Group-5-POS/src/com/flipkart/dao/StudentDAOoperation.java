@@ -166,14 +166,29 @@ public class StudentDAOoperation implements StudentDAO{
             int courseid=sc.nextInt();
             stmt.setInt(1,courseid);
             stmt.setInt(2,stdid);
-            stmt.execute();
+            ResultSet rs = stmt.executeQuery();
+
+            boolean flag = false;
+            while (rs.next()) {
+                flag = true;
+            }
+            if(!flag) {
+                throw new CourseNotAddedException();
+            }
+
+
         } catch (SQLException se) {
-            throw new CourseNotAddedException();
+            System.out.println(se.getMessage());
+            System.out.println("Course not added");
+        } catch (CourseNotAddedException se) {
+            System.out.println(se.getMessage());
+            //System.out.println("Course not added");
         }
+
     }
 
     @Override
-    public void dropCourses(Student stud) throws SQLException, CourseNotDroppedException {
+    public void dropCourses(Student stud) throws SQLException, CourseNotDroppedException,CourseNotFoundException {
         System.out.println("Drop Course");
         Scanner sc=new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
@@ -184,15 +199,52 @@ public class StudentDAOoperation implements StudentDAO{
             PreparedStatement stmt=connection.prepareStatement(sql);
             int stdid=stud.getUserId();
             //System.out.println(stdid+"hi bro");
-
             System.out.println("Enter course ID");
             int courseid=sc.nextInt();
+            String sql2 = SQLQueriesConstants.GET_COURSE_BY_ID;
+            PreparedStatement stmt2=connection.prepareStatement(sql2);
+            stmt2.setInt(1,courseid);
+            ResultSet rs = stmt2.executeQuery();
+            boolean flag = false;
+            while (rs.next()) {
+                flag = true;
+            }
+            if(!flag) {
+                throw new CourseNotFoundException(courseid);
+            }
+
             stmt.setInt(1,courseid);
             stmt.setInt(2,stdid);
-            stmt.execute();
+            ResultSet rs2 = stmt.executeQuery();
+            boolean flag2 = false;
+            while (rs2.next()) {
+                flag2 = true;
+            }
+
+
+            if(!flag2) {
+                //System.out.println("false");
+                throw new CourseNotDroppedException();
+            }
+
+
         } catch (SQLException se) {
-            throw new CourseNotDroppedException();
+            System.out.println(se.getMessage());
+           // System.out.println("You don't have such registered course");
+//            throw new CourseNotDroppedException();
+        }catch (CourseNotFoundException s) {
+
+            System.out.println(s.getMessage());
+            System.out.println("Course not dropped");
+//            throw new CourseNotFoundException();
+        }catch (CourseNotDroppedException s) {
+
+            System.out.println(s.getMessage());
+
+//            throw new CourseNotDroppedException();
         }
+
+
     }
 
     @Override
