@@ -16,6 +16,6 @@ public class UserAlreadyExistsException extends Exception{
 
 
     public String getMessage() {
-        return "User with userId : " + userId +" already exists";
+        return "Exception: User with userId : " + userId +" already exists";
     }
 }

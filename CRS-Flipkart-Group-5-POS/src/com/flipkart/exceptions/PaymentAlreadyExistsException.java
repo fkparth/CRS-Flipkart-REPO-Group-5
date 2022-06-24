@@ -3,6 +3,6 @@ package com.flipkart.exceptions;
 public class PaymentAlreadyExistsException extends Exception {
     @Override
     public String getMessage() {
-        return "Fee already paid.";
+        return "Exception: Fee already paid.";
     }
 }

@@ -13,15 +13,28 @@ public class StudentDAOoperation implements StudentDAO{
     @Override
     public void register(Student stud) throws SQLException, RegistrationUnsuccessfulException {
         //
-        System.out.println("Give you primary preferences");
+
         Scanner sc=new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
 
         try {
-            String sql = SQLQueriesConstants.REGISTER_COURSE;
-
-            PreparedStatement stmt=connection.prepareStatement(sql);
+            String sql = SQLQueriesConstants.GET_REGISTERED_COURSE_STUDENT_ID;
             int stdid=stud.getUserId();
+            PreparedStatement stmt=connection.prepareStatement(sql);
+            stmt.setInt(1,stdid);
+            boolean flag=false;
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()){
+                flag=true;
+            }
+            if (flag)
+                throw new RegistrationUnsuccessfulException();
+
+            sql = SQLQueriesConstants.REGISTER_COURSE;
+
+            stmt=connection.prepareStatement(sql);
+
+            System.out.println("Give you primary preferences");
             //System.out.println(stdid+"hi bro");
             for (int i=0;i<4;i++){
                 System.out.println("Enter course ID");
@@ -38,8 +51,13 @@ public class StudentDAOoperation implements StudentDAO{
             }
 
         } catch (SQLException se) {
-            System.out.println("Course Already Registered");
+
+            System.out.println(se.getMessage());
             //throw new RegistrationUnsuccessfulException();
+        }
+        catch (Exception ex){
+            System.out.println(ex.getMessage());
+
         }
 
     }

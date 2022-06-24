@@ -16,6 +16,6 @@ public class NoRegisteredCoursesException extends Exception{
 
 
     public String getMessage() {
-        return "No courses registered for: " + studentId;
+        return "Exception: No courses registered for: " + studentId;
     }
 }

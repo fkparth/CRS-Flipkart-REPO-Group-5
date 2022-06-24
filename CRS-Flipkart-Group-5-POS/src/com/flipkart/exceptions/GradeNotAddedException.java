@@ -5,6 +5,6 @@ public class GradeNotAddedException extends Exception{
 
     @Override
     public String getMessage() {
-        return "Grades not assigned";
+        return "Exception: Grades not assigned";
     }
 }
