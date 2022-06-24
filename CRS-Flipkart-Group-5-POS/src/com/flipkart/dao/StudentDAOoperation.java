@@ -12,7 +12,6 @@ public class StudentDAOoperation implements StudentDAO{
     private PreparedStatement statement = null;
     @Override
     public void register(Student stud) throws SQLException, RegistrationUnsuccessfulException {
-        //
 
         Scanner sc=new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
@@ -52,9 +51,6 @@ public class StudentDAOoperation implements StudentDAO{
         } catch (SQLException se) {
             System.out.println(se.getMessage());
             //throw new RegistrationUnsuccessfulException();
-        }
-        catch (Exception ex){
-            System.out.println(ex.getMessage());
         }
     }
 

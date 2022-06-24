@@ -11,7 +11,7 @@ public class DBConnection {
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "Blue_176486";
+    static final String PASS = "R0h!t10@sql";
 
     public static Connection getConnection() {
 

@@ -146,13 +146,25 @@ public class AdminDAOoperation implements AdminDAO {
                 System.out.println("Enter Course Name");
                 String cnamea = sc.next();
                 try {
-                    String sql = SQLQueriesConstants.ADD_COURSE_ADMIN;
+                    String sql = SQLQueriesConstants.GET_COURSE_BY_ID;
                     PreparedStatement stmt=connection.prepareStatement(sql);
+                    stmt.setInt(1,cida);
+                    ResultSet rs = stmt.executeQuery();
+                    boolean flag = true;
+                    while (rs.next()) {
+                        flag = false;
+                    }
+                    if(!flag) {
+                        throw new CourseAlreadyExistsException(cida);
+                    }
+
+                    sql = SQLQueriesConstants.ADD_COURSE_ADMIN;
+                    stmt=connection.prepareStatement(sql);
                     stmt.setInt(1,cida);
                     stmt.setString(2,cnamea);
                     stmt.execute();
-                } catch (SQLException se) {
-                    throw new CourseAlreadyExistsException(cida);
+                } catch (Exception ex) {
+                    System.out.println(ex.getMessage());
                 }
                 break;
             case 2:
