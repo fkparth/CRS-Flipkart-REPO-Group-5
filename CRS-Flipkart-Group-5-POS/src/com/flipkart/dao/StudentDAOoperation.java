@@ -333,11 +333,9 @@ public class StudentDAOoperation implements StudentDAO{
         } catch (SQLException se) {
             System.out.println(se.getMessage());
         } catch (PaymentAlreadyExistsException e) {
-<<<<<<< HEAD
-            System.out.println("Payment already done.");
-=======
+
             System.out.println(e.getMessage());
->>>>>>> cdc650996c8ce9060f9cccb050b9eecb65ae9dd6
+
         }
     }
 
