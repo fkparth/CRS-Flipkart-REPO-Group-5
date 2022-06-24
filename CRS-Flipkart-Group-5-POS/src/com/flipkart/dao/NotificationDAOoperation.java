@@ -1,33 +1,51 @@
 package com.flipkart.dao;
 
+import com.flipkart.constants.SQLQueriesConstants;
+import com.flipkart.exceptions.NotificationNotSentException;
+import com.flipkart.exceptions.PaymentAlreadyExistsException;
+import com.flipkart.exceptions.PaymentUnsuccessfulException;
+import com.flipkart.exceptions.RegistrationUnsuccessfulException;
+import com.flipkart.utils.DBConnection;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
 public class NotificationDAOoperation implements NotificationDAO{
 
-    public NotificationDAOoperation() {
-        super();
-    }
+    private PreparedStatement statement = null;
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
+    public void sendNotification(int userId, int type) throws SQLException, NotificationNotSentException {
+        Connection connection = DBConnection.getConnection();
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
+        try {
+            String sql = SQLQueriesConstants.SEND_NOTIFICATION;
+            statement=connection.prepareStatement(sql);
+            statement.setInt(1, userId);
 
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
+            String message = "";
+            switch (type) {
+                case 1:
+                    message = "Notification: Payment Successful.";
+                    break;
+                case 2:
+                    message = "Notification: Registration Successful.";
+                    break;
+                case 3:
+                    message = "";
+                    break;
+            }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
+            statement.setString(2, message);
+            statement.setInt(3, type);
 
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
+            statement.executeUpdate();
+
+        } catch (SQLException se) {
+            System.out.println(se.getMessage());
+            throw new NotificationNotSentException();
+        }
     }
 }

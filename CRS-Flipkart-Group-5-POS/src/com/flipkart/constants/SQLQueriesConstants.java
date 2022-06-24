@@ -44,4 +44,6 @@ public class SQLQueriesConstants {
 
     public static final String STUDENT_SET_PAYMENT = "insert into payment (student_id,payment_mode,status) values (?,?,?) ;";
 
+    public static final String SEND_NOTIFICATION = "insert into notification (user_id, message, type) values (?, ?, ?);";
+
 }
