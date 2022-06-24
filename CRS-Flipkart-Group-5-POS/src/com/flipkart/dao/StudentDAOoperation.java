@@ -54,14 +54,11 @@ public class StudentDAOoperation implements StudentDAO{
             System.out.println(se.getMessage());
             //throw new RegistrationUnsuccessfulException();
         }
-<<<<<<< HEAD
-=======
         catch (Exception ex){
             System.out.println(ex.getMessage());
 
         }
 
->>>>>>> b9847b0a64c990c6c043e638df239536fb0a0a4d
     }
 
     @Override
