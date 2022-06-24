@@ -23,7 +23,10 @@ public class AdminCRSMenu {
         String dateTimeString = now.format(formatter);
         System.out.print(dateTimeString+" ");
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> b9847b0a64c990c6c043e638df239536fb0a0a4d
         System.out.println("Hello " + ad.getName());
         while (choice != -1) {
 
