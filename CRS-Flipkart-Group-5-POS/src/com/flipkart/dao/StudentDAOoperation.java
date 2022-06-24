@@ -40,7 +40,7 @@ public class StudentDAOoperation implements StudentDAO{
         } catch (SQLException se) {
             System.out.println("Course Already Registered");
             //throw new RegistrationUnsuccessfulException();
-        } 
+        }
 
     }
 
