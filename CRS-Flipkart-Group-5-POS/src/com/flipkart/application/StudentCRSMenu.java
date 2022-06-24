@@ -19,12 +19,13 @@ public class StudentCRSMenu {
         int choice =0;
         while (choice!=-1){
             StudentDAO si = new StudentDAOoperation();
+            System.out.println("Hello "+student.getName());
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss a");
             LocalDateTime now = LocalDateTime.now();
             String dateTimeString = now.format(formatter);
-            System.out.print(dateTimeString+", ");
+            System.out.println(dateTimeString+", ");
 
-            System.out.println("Hello "+student.getName());
+
             System.out.println("1. View Course Catalogue");
             System.out.println("2. Register");
             System.out.println("3. View Registered Courses");

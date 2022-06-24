@@ -17,13 +17,13 @@ public class AdminCRSMenu {
     public static void showChoices(Admin ad) throws SQLException, UserAlreadyExistsException, CourseAlreadyExistsException, CourseNotAddedException, CourseNotFoundException {
         int choice = 0;
 
-
+        System.out.println("Hello " + ad.getName());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss a");
         LocalDateTime now = LocalDateTime.now();
         String dateTimeString = now.format(formatter);
-        System.out.print(dateTimeString+" ");
+        System.out.println(dateTimeString+" ");
         
-        System.out.println("Hello " + ad.getName());
+
         while (choice != -1) {
 
             AdminDAO AI = new AdminDAOoperation();
