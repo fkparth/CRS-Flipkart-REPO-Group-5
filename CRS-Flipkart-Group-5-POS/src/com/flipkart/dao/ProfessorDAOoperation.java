@@ -14,6 +14,12 @@ import java.util.Scanner;
 
 public class ProfessorDAOoperation implements ProfessorDAO {
     private PreparedStatement statement = null;
+    /**
+     * Function for professor to choose course to teach from course catalogue.
+     * @param id
+     * @throws CourseAlreadyTakenException
+     * @throws SQLException
+     */
     @Override
     public void chooseCourse(int id) throws SQLException, CourseNotAssignedToProfException {
         Connection connection = DBConnection.getConnection();
@@ -60,6 +66,12 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             System.out.println(e.getMessage());
         }
     }
+    /**
+     * Function to fetch professor data when he logs into CRSApplication
+     * @param id
+     * @throws UserNotFoundException
+     * @throws SQLException
+     */
     @Override
     public Professor fetchProfessorData(int id) throws SQLException, UserNotFoundException {
         Connection connection = DBConnection.getConnection();
@@ -89,6 +101,12 @@ public class ProfessorDAOoperation implements ProfessorDAO {
 
     }
 
+    /**
+     * Function for professor to view students list registered to the course he chose.
+     * @param id
+     * @throws NoStudentRegisteredException
+     * @throws SQLException
+     */
     @Override
     public void viewStudentsList(int id) throws SQLException, NoStudentRegisteredException {
         Connection connection = DBConnection.getConnection();
@@ -145,6 +163,12 @@ public class ProfessorDAOoperation implements ProfessorDAO {
 
     }
 
+    /**
+     * Function for professor to assign grade to students registered to the course he chose.
+     * @param id
+     * @throws GradeNotAddedException
+     * @throws SQLException
+     */
     @Override
     public void assignGrade(int id) throws SQLException, GradeNotAddedException {
         Connection connection = DBConnection.getConnection();
