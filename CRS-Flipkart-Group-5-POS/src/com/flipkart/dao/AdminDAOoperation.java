@@ -128,7 +128,7 @@ public class AdminDAOoperation implements AdminDAO {
     }
 
     @Override
-    public void updateCatalogue(int addOrdrop) throws SQLException, CourseAlreadyExistsException, CourseNotFoundException, CourseNotAddedException {
+    public void updateCatalogue(int addOrdrop) throws SQLException, CourseAlreadyExistsException, CourseNotFoundException {
         // add or drop course from catalogue
         Scanner sc = new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
@@ -144,7 +144,11 @@ public class AdminDAOoperation implements AdminDAO {
                     PreparedStatement stmt=connection.prepareStatement(sql);
                     stmt.setInt(1,cida);
                     stmt.setString(2,cnamea);
-                    stmt.execute();
+                    boolean flag=stmt.execute();
+                    if(!flag) {
+                        throw new CourseAlreadyExistsException(cida);
+
+                    }
                 } catch (SQLException se) {
                     throw new CourseAlreadyExistsException(cida);
                 }
@@ -161,8 +165,9 @@ public class AdminDAOoperation implements AdminDAO {
                     if (flag == false) {
                         throw new CourseNotFoundException(cidd);
                     }
-                } catch (SQLException se) {
-                    throw new CourseNotAddedException();
+                } catch (Exception se) {
+                    System.out.println(se.getMessage());
+
                 }
 
                 break;

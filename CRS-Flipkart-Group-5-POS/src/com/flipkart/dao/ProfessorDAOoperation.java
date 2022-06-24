@@ -54,9 +54,10 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             statement.executeUpdate();
             System.out.println("Chosen Course ID:"+ccode);
         } catch(SQLException se) {
-            throw new CourseNotAssignedToProfException();
+            //throw new CourseNotAssignedToProfException();
+            System.out.println(se.getMessage());
         } catch (CourseAlreadyTakenException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
     }
     @Override
@@ -136,9 +137,9 @@ public class ProfessorDAOoperation implements ProfessorDAO {
         } catch (SQLException se) {
             throw new NoStudentRegisteredException(courseid);
         } catch (CourseNotAssignedToProfException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         } catch (NoStudentRegisteredException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
 
 

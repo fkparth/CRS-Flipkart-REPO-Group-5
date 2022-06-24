@@ -36,10 +36,12 @@ public class StudentDAOoperation implements StudentDAO{
                 System.out.println("Enter course ID");
                 int id=sc.nextInt();
             }
+
         } catch (SQLException se) {
-            System.out.println(se.getMessage());
-            throw new RegistrationUnsuccessfulException();
-        }
+            System.out.println("Course Already Registered");
+            //throw new RegistrationUnsuccessfulException();
+        } 
+
     }
 
     @Override

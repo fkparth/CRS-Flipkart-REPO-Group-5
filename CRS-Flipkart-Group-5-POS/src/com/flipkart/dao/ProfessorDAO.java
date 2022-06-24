@@ -16,6 +16,6 @@ public interface ProfessorDAO {
 
     void viewStudentsList (int id) throws SQLException, NoStudentRegisteredException;
 
-    void assignGrade(int id) throws SQLException, GradeNotAddedException;
+    void assignGrade(int id) throws SQLException, GradeNotAddedException,NoStudentRegisteredException;
 
 }
