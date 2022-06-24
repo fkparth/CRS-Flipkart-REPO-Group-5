@@ -39,4 +39,9 @@ public class SQLQueriesConstants {
     public static final String VIEW_STUDENT_LIST_STUDENTNAME = "select * from user where id=?;";
     public static final String ADD_PROFESSOR_SET_USER = "insert into user (id,password,name,type) values (?,?,?,?); ";
     public static final String ADD_PROFESSOR_SET_PROF = "insert into professor (id,dept_id) values (?,?) ;";
+
+    public static final String STUDENT_GET_PAYMENT_STATUS = "select status from payment where student_id = ? ;";
+
+    public static final String STUDENT_SET_PAYMENT = "insert into payment (student_id,payment_mode,status) values (?,?,?) ;";
+
 }
