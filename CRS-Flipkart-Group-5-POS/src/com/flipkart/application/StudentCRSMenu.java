@@ -3,19 +3,15 @@ package com.flipkart.application;
 import com.flipkart.bean.Student;
 import com.flipkart.dao.StudentDAO;
 import com.flipkart.dao.StudentDAOoperation;
-
 import com.flipkart.exceptions.*;
 
 import java.sql.SQLException;
-import java.text.FieldPosition;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Scanner;
 public class StudentCRSMenu {
 
-    public static void showChoices(Student student) throws SQLException, RegistrationUnsuccessfulException, NoRegisteredCoursesException, CourseNotAddedException, CourseNotDroppedException, PaymentUnsuccessfulException {
+    public static void showChoices(Student student) throws SQLException, RegistrationUnsuccessfulException, NoRegisteredCoursesException, CourseNotAddedException, CourseNotDroppedException, PaymentUnsuccessfulException, CourseNotFoundException {
 
         if (student==null)
             return;
@@ -23,12 +19,13 @@ public class StudentCRSMenu {
         int choice =0;
         while (choice!=-1){
             StudentDAO si = new StudentDAOoperation();
+            System.out.println("Hello "+student.getName());
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss a");
             LocalDateTime now = LocalDateTime.now();
             String dateTimeString = now.format(formatter);
-            System.out.print(dateTimeString+", ");
+            System.out.println(dateTimeString+", ");
 
-            System.out.println("Hello "+student.getName());
+
             System.out.println("1. View Course Catalogue");
             System.out.println("2. Register");
             System.out.println("3. View Registered Courses");
@@ -62,8 +59,10 @@ public class StudentCRSMenu {
                     si.dropCourses(student);
                     break;
                 case 6:
+
                     //fee payment for chosen courses
                     si.feePayment(student);
+
                     break;
                 case 7:
                     //view gradesheet after completion of course

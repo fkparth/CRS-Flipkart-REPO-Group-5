@@ -25,12 +25,12 @@ public interface StudentDAO {
     public Student fetchStudentData(int id) throws SQLException, UserNotFoundException;
 
     //show gradesheet(print inside the function not return it)
-    /**
-     * Method to view gradesheet after grade assigned by the professor
-     * @param id: student id
-     * @return
-     * @throws NoRegisteredCoursesException
-     */
+//    /**
+//     * Method to view gradesheet after grade assigned by the professor
+//     * @param id: student id
+//     * @return
+//     * @throws NoRegisteredCoursesException
+//     */
     void viewGradesheet(int userId) throws SQLException, NoRegisteredCoursesException;
 
     //same goes with this function we show the course catalogue print it not return it
@@ -49,13 +49,15 @@ public interface StudentDAO {
      */
     void addCourses(Student stud) throws SQLException, CourseNotAddedException;
 
+
     /**
      * method to drop course selected by student
      * @param stud: student object containing all fields
      * @return
      * @throws CourseNotDroppedException
      */
-    void dropCourses(Student stud) throws SQLException, CourseNotDroppedException;
+    void dropCourses(Student stud) throws SQLException, CourseNotDroppedException,CourseNotFoundException;
+
 
     /**
      * method to pay fee by student for the selected course from database

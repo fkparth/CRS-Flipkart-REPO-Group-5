@@ -203,9 +203,26 @@ public class StudentDAOoperation implements StudentDAO{
             stmt.setInt(1,courseid);
             stmt.setInt(2,stdid);
             stmt.execute();
+
+//            //boolean flag = false;
+////            while (rs.next()) {
+////                flag = true;
+////            }
+//            if(!rs) {
+//                throw new CourseNotAddedException();
+//            }
+            System.out.println("Course added");
+
+
         } catch (SQLException se) {
-            throw new CourseNotAddedException();
+            System.out.println(se.getMessage());
+            System.out.println("Course not added");
         }
+//        catch (CourseNotAddedException se) {
+//            System.out.println(se.getMessage());
+//            //System.out.println("Course not added");
+//        }
+
     }
 
     /**
@@ -215,7 +232,7 @@ public class StudentDAOoperation implements StudentDAO{
      * @throws CourseNotDroppedException
      */
     @Override
-    public void dropCourses(Student stud) throws SQLException, CourseNotDroppedException {
+    public void dropCourses(Student stud) throws SQLException, CourseNotDroppedException,CourseNotFoundException {
         System.out.println("Drop Course");
         Scanner sc=new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
@@ -226,15 +243,49 @@ public class StudentDAOoperation implements StudentDAO{
             PreparedStatement stmt=connection.prepareStatement(sql);
             int stdid=stud.getUserId();
             //System.out.println(stdid+"hi bro");
-
             System.out.println("Enter course ID");
             int courseid=sc.nextInt();
+            String sql2 = SQLQueriesConstants.GET_COURSE_BY_ID;
+            PreparedStatement stmt2=connection.prepareStatement(sql2);
+            stmt2.setInt(1,courseid);
+            ResultSet rs = stmt2.executeQuery();
+            boolean flag = false;
+            while (rs.next()) {
+                flag = true;
+            }
+            if(!flag) {
+                throw new CourseNotFoundException(courseid);
+            }
+
             stmt.setInt(1,courseid);
             stmt.setInt(2,stdid);
             stmt.execute();
+//            boolean flag2 = false;
+//            while (rs2.next()) {
+//                flag2 = true;
+//            }
+//
+//
+//            if(!flag2) {
+//                //System.out.println("false");
+//                throw new CourseNotDroppedException();
+//            }
+            System.out.println("Course dropped");
+
+
         } catch (SQLException se) {
-            throw new CourseNotDroppedException();
+            System.out.println(se.getMessage());
+           System.out.println("You don't have such registered course");
+//            throw new CourseNotDroppedException();
+        }catch (CourseNotFoundException s) {
+
+            System.out.println(s.getMessage());
+            System.out.println("Course not dropped");
+//            throw new CourseNotFoundException();
         }
+
+
+
     }
 
     /**
@@ -260,7 +311,7 @@ public class StudentDAOoperation implements StudentDAO{
                 int pay_status = rs.getInt("status");
 
                 if(pay_status == 1) {
-                    System.out.println("Fee already paid.");
+                    //System.out.println("Fee already paid.");
                     throw new PaymentAlreadyExistsException();
                 }
             }
@@ -277,11 +328,16 @@ public class StudentDAOoperation implements StudentDAO{
             statement.setInt(2, paymentMode);
             statement.setInt(3, 1);
             statement.execute();
+            System.out.println("Fee  paid.");
 
         } catch (SQLException se) {
-            throw new PaymentUnsuccessfulException(stdid);
+            System.out.println(se.getMessage());
         } catch (PaymentAlreadyExistsException e) {
+<<<<<<< HEAD
             System.out.println("Payment already done.");
+=======
+            System.out.println(e.getMessage());
+>>>>>>> cdc650996c8ce9060f9cccb050b9eecb65ae9dd6
         }
     }
 
