@@ -1,5 +1,8 @@
 package com.flipkart.application;
 import com.flipkart.bean.*;
+import com.flipkart.exceptions.CourseNotAssignedToProfException;
+import com.flipkart.exceptions.GradeNotAddedException;
+import com.flipkart.exceptions.NoStudentRegisteredException;
 import com.flipkart.service.*;
 import com.flipkart.dao.*;
 
@@ -7,7 +10,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class ProfessorCRSMenu {
-    public static void showChoices(Professor professor) throws SQLException {
+    public static void showChoices(Professor professor) throws SQLException, CourseNotAssignedToProfException, NoStudentRegisteredException, GradeNotAddedException {
         int choice = 0;
 
         System.out.println("Hello " + professor.getName());

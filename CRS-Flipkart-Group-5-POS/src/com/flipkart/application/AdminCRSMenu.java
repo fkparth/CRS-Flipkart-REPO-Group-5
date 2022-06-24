@@ -4,11 +4,15 @@ import com.flipkart.bean.Admin;
 import com.flipkart.bean.Course;
 import com.flipkart.dao.AdminDAO;
 import com.flipkart.dao.AdminDAOoperation;
+import com.flipkart.exceptions.CourseAlreadyExistsException;
+import com.flipkart.exceptions.CourseNotAddedException;
+import com.flipkart.exceptions.CourseNotFoundException;
+import com.flipkart.exceptions.UserAlreadyExistsException;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 public class AdminCRSMenu {
-    public static void showChoices(Admin ad) throws SQLException {
+    public static void showChoices(Admin ad) throws SQLException, UserAlreadyExistsException, CourseAlreadyExistsException, CourseNotAddedException, CourseNotFoundException {
         int choice = 0;
 
         System.out.println("Hello " + ad.getName());

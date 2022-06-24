@@ -28,11 +28,16 @@ public class AdminDAOoperation implements AdminDAO {
             statement=connection.prepareStatement(sql);
             statement.setInt(1,id);
             ResultSet rs = statement.executeQuery();
+            boolean flag = false;
             while (rs.next()) {
                 ad.setUserId(rs.getInt("id"));
                 ad.setName(rs.getString("name"));
                 ad.setType(rs.getInt("type"));
                 ad.setPassword(rs.getString("password"));
+                flag = true;
+            }
+            if(!flag){
+                throw new UserNotFoundException(id);
             }
         } catch(SQLException se) {
             throw new UserNotFoundException(id);
@@ -157,7 +162,7 @@ public class AdminDAOoperation implements AdminDAO {
                         throw new CourseNotFoundException(cidd);
                     }
                 } catch (SQLException se) {
-                    throw new CourseNotAddedException(cidd);
+                    throw new CourseNotAddedException();
                 }
 
                 break;

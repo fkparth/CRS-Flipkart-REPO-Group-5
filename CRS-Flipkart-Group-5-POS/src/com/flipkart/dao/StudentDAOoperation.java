@@ -54,11 +54,13 @@ public class StudentDAOoperation implements StudentDAO{
             statement=connection.prepareStatement(sql);
             statement.setInt(1,id);
             ResultSet rs = statement.executeQuery();
+            boolean flag = false;
             while (rs.next()) {
                 String sql2 = SQLQueriesConstants.GET_STUDENT_BY_ID;
                 PreparedStatement statement2=connection.prepareStatement(sql2);
                 statement2.setInt(1,id);
                 ResultSet rs2 = statement2.executeQuery();
+
                 while (rs2.next()) {
                     int test = rs2.getInt("is_approved");
                     if (test == 0) {
@@ -70,7 +72,10 @@ public class StudentDAOoperation implements StudentDAO{
                 stud.setName(rs.getString("name"));
                 stud.setType(rs.getInt("type"));
                 stud.setPassword(rs.getString("password"));
-
+                flag = true;
+            }
+            if(!flag){
+                throw new UserNotFoundException(id);
             }
             return stud;
         } catch (SQLException se) {

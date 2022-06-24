@@ -70,11 +70,16 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             statement=connection.prepareStatement(sql);
             statement.setInt(1,id);
             ResultSet rs = statement.executeQuery();
+            boolean flag = false;
             while (rs.next()) {
                 prof.setUserId(rs.getInt("id"));
                 prof.setName(rs.getString("name"));
                 prof.setType(rs.getInt("type"));
                 prof.setPassword(rs.getString("password"));
+                flag = true;
+            }
+            if(!flag){
+                throw new UserNotFoundException(id);
             }
             return prof;
         } catch (SQLException se) {
