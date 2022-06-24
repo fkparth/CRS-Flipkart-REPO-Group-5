@@ -15,6 +15,6 @@ public class PaymentUnsuccessfulException extends Exception{
     }
 
     public String getMessage() {
-        return "Payment unsuccessful for : " + studentId;
+        return "Exception: Payment unsuccessful for : " + studentId;
     }
 }

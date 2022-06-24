@@ -3,6 +3,6 @@ package com.flipkart.exceptions;
 public class CourseNotDroppedException extends Exception {
     @Override
     public String getMessage() {
-        return "Course has not been added";
+        return "Exception: Course has not been added";
     }
 }

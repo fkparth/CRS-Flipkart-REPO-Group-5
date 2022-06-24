@@ -14,6 +14,6 @@ public class CourseNotDeletedException extends Exception{
 
     @Override
     public String getMessage() {
-        return "Course with ID: " + courseId + "has not been deleted";
+        return "Exception: Course with ID: " + courseId + "has not been deleted";
     }
 }

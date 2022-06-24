@@ -6,6 +6,6 @@ public class CourseNotAddedException extends Exception{
 
     @Override
     public String getMessage() {
-        return "Course has not been added";
+        return "Exception: Course has not been added";
     }
 }

@@ -5,6 +5,6 @@ public class RegistrationUnsuccessfulException extends Exception{
 
     @Override
     public String getMessage() {
-        return "Registration unsuccessful ";
+        return "Exception: Registration unsuccessful ";
     }
 }
