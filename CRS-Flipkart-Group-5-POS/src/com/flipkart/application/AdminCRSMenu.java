@@ -4,12 +4,26 @@ import com.flipkart.bean.Admin;
 import com.flipkart.bean.Course;
 import com.flipkart.dao.AdminDAO;
 import com.flipkart.dao.AdminDAOoperation;
+import com.flipkart.exceptions.CourseAlreadyExistsException;
+import com.flipkart.exceptions.CourseNotAddedException;
+import com.flipkart.exceptions.CourseNotFoundException;
+import com.flipkart.exceptions.UserAlreadyExistsException;
 
 import java.sql.SQLException;
+import java.text.FieldPosition;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Scanner;
 public class AdminCRSMenu {
-    public static void showChoices(Admin ad) throws SQLException {
+    public static void showChoices(Admin ad) throws SQLException, UserAlreadyExistsException, CourseAlreadyExistsException, CourseNotAddedException, CourseNotFoundException {
         int choice = 0;
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss a");
+        LocalDateTime now = LocalDateTime.now();
+        String dateTimeString = now.format(formatter);
+        System.out.print(dateTimeString+" ");
 
         System.out.println("Hello " + ad.getName());
         while (choice != -1) {

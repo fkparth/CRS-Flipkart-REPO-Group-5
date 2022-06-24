@@ -5,6 +5,7 @@ import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 import com.flipkart.constants.SQLQueriesConstants;
 import com.flipkart.dao.*;
+import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
 
 import java.sql.*;
@@ -14,7 +15,9 @@ import java.util.Scanner;
 
 
 public class CRSApplication {
-    public static void main(String[] args) throws SQLException {
+
+    public static void main(String[] args) throws SQLException, CourseAlreadyExistsException, CourseNotAddedException, CourseNotFoundException, UserAlreadyExistsException, UserNotFoundException, NoRegisteredCoursesException, CourseNotDroppedException, RegistrationUnsuccessfulException, GradeNotAddedException, CourseNotAssignedToProfException, NoStudentRegisteredException, PaymentUnsuccessfulException {
+
         int menuClick = -1;
         while (menuClick != 4) {
             //shows the menu for user
@@ -85,7 +88,9 @@ public class CRSApplication {
                 while(rs.next()) {
                     newid = rs.getInt("id") + 1;
                 }
-
+                if (newid ==1) {
+                    newid = 101;
+                }
                 String sql2 = SQLQueriesConstants.ADD_STUDENT_BY_REGISTER_USER;
 
                 PreparedStatement stmt=connection.prepareStatement(sql2);

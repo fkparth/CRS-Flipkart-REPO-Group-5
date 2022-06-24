@@ -1,5 +1,9 @@
 package com.flipkart.dao;
 
-public interface NotificationDAO {
+import com.flipkart.exceptions.NotificationNotSentException;
 
+import java.sql.SQLException;
+
+public interface NotificationDAO {
+    public void sendNotification(int userId, int type) throws SQLException, NotificationNotSentException;
 }

@@ -4,6 +4,7 @@ import com.flipkart.bean.Admin;
 import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 import com.flipkart.constants.SQLQueriesConstants;
+import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
 
 import java.sql.*;
@@ -15,22 +16,33 @@ public class AdminDAOoperation implements AdminDAO {
     private PreparedStatement statement = null;
 
     @Override
-    public Admin fetchAdminData(int id) throws SQLException {
+    public Admin fetchAdminData(int id) throws SQLException, UserNotFoundException {
+        // For admin login
         Connection connection = DBConnection.getConnection();
         System.out.println("Done");
+
         Admin ad=new Admin();
-        String sql = SQLQueriesConstants.GET_USER_BY_ID;
-        statement=connection.prepareStatement(sql);
-        statement.setInt(1,id);
-        ResultSet rs = statement.executeQuery();
-        while (rs.next()) {
-            ad.setUserId(rs.getInt("id"));
-            ad.setName(rs.getString("name"));
-            ad.setType(rs.getInt("type"));
-            ad.setPassword(rs.getString("password"));
 
-
+        try {
+            String sql = SQLQueriesConstants.GET_USER_BY_ID;
+            statement=connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            ResultSet rs = statement.executeQuery();
+            boolean flag = false;
+            while (rs.next()) {
+                ad.setUserId(rs.getInt("id"));
+                ad.setName(rs.getString("name"));
+                ad.setType(rs.getInt("type"));
+                ad.setPassword(rs.getString("password"));
+                flag = true;
+            }
+            if(!flag){
+                throw new UserNotFoundException(id);
+            }
+        } catch(SQLException se) {
+            throw new UserNotFoundException(id);
         }
+
 
         return ad;
 
@@ -38,39 +50,47 @@ public class AdminDAOoperation implements AdminDAO {
 
     @Override
     public void approveStudent() throws SQLException {
+        // Approves students to be approved
         Connection connection = DBConnection.getConnection();
+
         Student stud=new Student();
-        String sql = SQLQueriesConstants.GET_STUDENT_TO_APPROVE;
 
-        statement=connection.prepareStatement(sql);
-        Statement st = connection.createStatement();
-        ResultSet rs = st.executeQuery(sql);
-        while (rs.next()) {
-            int id=rs.getInt("id");
-            System.out.println(id+"to be approved");
-            String postsql=SQLQueriesConstants.APPROVE_STUDENT_BY_ID;
+        try {
+            String sql = SQLQueriesConstants.GET_STUDENT_TO_APPROVE;
+            statement=connection.prepareStatement(sql);
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                int id=rs.getInt("id");
+                System.out.println(id+"to be approved");
+                String postsql=SQLQueriesConstants.APPROVE_STUDENT_BY_ID;
 
-            statement=connection.prepareStatement(postsql);
-            statement.setInt(1,id);
-            statement.executeUpdate();
-            System.out.println(id+"approved");
-        }
-        sql = SQLQueriesConstants.GET_STUDENT_TO_APPROVE;
-        st = connection.createStatement();
-        rs = st.executeQuery(sql);
-        while (rs.next()) {
-            int id=rs.getInt("id");
-            System.out.println(id+"not approved");
+                statement=connection.prepareStatement(postsql);
+                statement.setInt(1,id);
+                statement.executeUpdate();
+                System.out.println(id+"approved");
+            }
+            // check if approval is done
+            sql = SQLQueriesConstants.GET_STUDENT_TO_APPROVE;
+            st = connection.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                int id=rs.getInt("id");
+                System.out.println(id+"not approved");
+            }
+        } catch(SQLException se) {
+            System.out.println(se.getMessage());
         }
     }
 
     @Override
     public void generateReportCard() {
-
+        // add status of report card
     }
 
     @Override
-    public void addProfessor() throws SQLException{
+    public void addProfessor() throws SQLException, UserAlreadyExistsException {
+        // add professor
         Scanner sc = new Scanner(System.in);
         Professor prof = new Professor();
         System.out.println("Enter userid for new professor");
@@ -82,26 +102,36 @@ public class AdminDAOoperation implements AdminDAO {
         int deptid = sc.nextInt();
         int profrole = 2;
         String pass = "1234";
-        Connection connection = DBConnection.getConnection();
-        String sql = SQLQueriesConstants.ADD_PROFESSOR_SET_USER;
 
-        PreparedStatement stmt=connection.prepareStatement(sql);
-        stmt.setInt(1,profid);
-        stmt.setString(2,pass);
-        stmt.setString(3,profname);
-        stmt.setInt(4,profrole);
-        stmt.executeUpdate();
+        try {
+            Connection connection = DBConnection.getConnection();
 
-        sql = SQLQueriesConstants.ADD_PROFESSOR_SET_PROF;
-        PreparedStatement stmt2=connection.prepareStatement(sql);
-        stmt2.setInt(1,profid);
-        stmt2.setInt(2,deptid);
-        stmt2.executeUpdate();
+            String sql = SQLQueriesConstants.ADD_PROFESSOR_SET_USER; // add in user table
+
+            PreparedStatement stmt=connection.prepareStatement(sql);
+            stmt.setInt(1,profid);
+            stmt.setString(2,pass);
+            stmt.setString(3,profname);
+            stmt.setInt(4,profrole);
+            stmt.executeUpdate();
+
+            sql = SQLQueriesConstants.ADD_PROFESSOR_SET_PROF; // add in professor table
+            PreparedStatement stmt2=connection.prepareStatement(sql);
+            stmt2.setInt(1,profid);
+            stmt2.setInt(2,deptid);
+            stmt2.executeUpdate();
+        } catch (SQLException se) {
+            throw new UserAlreadyExistsException(profid);
+        }
+
+
     }
 
     @Override
-    public void updateCatalogue(int addOrdrop) throws SQLException {
+    public void updateCatalogue(int addOrdrop) throws SQLException, CourseAlreadyExistsException, CourseNotFoundException, CourseNotAddedException {
+        // add or drop course from catalogue
         Scanner sc = new Scanner(System.in);
+        Connection connection = DBConnection.getConnection();
         switch (addOrdrop) {
             case 1:
                 System.out.println("Enter Course Details for adding course");
@@ -109,28 +139,31 @@ public class AdminDAOoperation implements AdminDAO {
                 int cida = sc.nextInt();
                 System.out.println("Enter Course Name");
                 String cnamea = sc.next();
-                Connection connection = DBConnection.getConnection();
-                String sql = SQLQueriesConstants.ADD_COURSE_ADMIN;
-
-                PreparedStatement stmt=connection.prepareStatement(sql);
-                stmt.setInt(1,cida);
-                stmt.setString(2,cnamea);
-
-                stmt.execute();
-
+                try {
+                    String sql = SQLQueriesConstants.ADD_COURSE_ADMIN;
+                    PreparedStatement stmt=connection.prepareStatement(sql);
+                    stmt.setInt(1,cida);
+                    stmt.setString(2,cnamea);
+                    stmt.execute();
+                } catch (SQLException se) {
+                    throw new CourseAlreadyExistsException(cida);
+                }
                 break;
             case 2:
                 System.out.println("Enter Course Details for dropping course");
                 System.out.println("Enter Course ID");
                 int cidd = sc.nextInt();
-                connection = DBConnection.getConnection();
-                sql = SQLQueriesConstants.DELETE_COURSE_ADMIN;
-
-                stmt=connection.prepareStatement(sql);
-                stmt.setInt(1,cidd);
-
-
-                stmt.execute();
+                try {
+                    String sql = SQLQueriesConstants.DELETE_COURSE_ADMIN;
+                    PreparedStatement stmt=connection.prepareStatement(sql);
+                    stmt.setInt(1,cidd);
+                    boolean flag = stmt.execute();
+                    if (flag == false) {
+                        throw new CourseNotFoundException(cidd);
+                    }
+                } catch (SQLException se) {
+                    throw new CourseNotAddedException();
+                }
 
                 break;
         }
@@ -140,6 +173,7 @@ public class AdminDAOoperation implements AdminDAO {
     public void viewCourseCatalogue() throws SQLException {
         Connection connection = DBConnection.getConnection();
         System.out.println("Done");
+
         String sql = SQLQueriesConstants.GET_COURSE_CATALOG;
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(sql);
@@ -151,6 +185,6 @@ public class AdminDAOoperation implements AdminDAO {
 
     @Override
     public void assignCourseToStudent() {
-
+        // approve assignment
     }
 }
