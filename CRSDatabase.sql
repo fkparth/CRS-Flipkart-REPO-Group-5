@@ -72,10 +72,9 @@ CONSTRAINT payment_student_fk FOREIGN KEY (student_id) REFERENCES student(id)
 
 drop TABLE if exists notification;
 create table if not exists notification(
-id int primary key,
+id int primary key AUTO_INCREMENT,
 user_id int,
 message varchar(255),
-status int,
 type int,
 CONSTRAINT notification_user_fk FOREIGN KEY (user_id) REFERENCES user(id)
 );
