@@ -311,7 +311,7 @@ public class StudentDAOoperation implements StudentDAO{
                 int pay_status = rs.getInt("status");
 
                 if(pay_status == 1) {
-                    System.out.println("Fee already paid.");
+                    //System.out.println("Fee already paid.");
                     throw new PaymentAlreadyExistsException();
                 }
             }
@@ -328,11 +328,12 @@ public class StudentDAOoperation implements StudentDAO{
             statement.setInt(2, paymentMode);
             statement.setInt(3, 1);
             statement.execute();
+            System.out.println("Fee  paid.");
 
         } catch (SQLException se) {
-            throw new PaymentUnsuccessfulException(stdid);
+            System.out.println(se.getMessage());
         } catch (PaymentAlreadyExistsException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
     }
 
