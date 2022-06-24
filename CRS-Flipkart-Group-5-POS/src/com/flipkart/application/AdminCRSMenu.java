@@ -22,8 +22,7 @@ public class AdminCRSMenu {
         LocalDateTime now = LocalDateTime.now();
         String dateTimeString = now.format(formatter);
         System.out.print(dateTimeString+" ");
-
-
+        
         System.out.println("Hello " + ad.getName());
         while (choice != -1) {
 

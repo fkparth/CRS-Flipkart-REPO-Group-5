@@ -14,7 +14,6 @@ public class DBConnection {
 
     static final String PASS = "password";
 
-
     public static Connection getConnection() {
 
         if (connection != null)

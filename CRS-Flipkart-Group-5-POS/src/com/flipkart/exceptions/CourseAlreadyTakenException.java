@@ -14,6 +14,6 @@ public class CourseAlreadyTakenException extends Exception{
 
     @Override
     public String getMessage() {
-        return "Exception: Course with ID: " + courseId + "already taken by other professor";
+        return "Exception: Course with ID: " + courseId + " already taken by other professor";
     }
 }
