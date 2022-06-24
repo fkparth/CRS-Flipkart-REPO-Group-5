@@ -15,6 +15,11 @@ public class AdminDAOoperation implements AdminDAO {
 
     private PreparedStatement statement = null;
 
+    /**
+     * Function to fetch admin data where admin logs into the system.
+     * @throws UserNotFoundException
+     * @throws SQLException
+     */
     @Override
     public Admin fetchAdminData(int id) throws SQLException, UserNotFoundException {
         // For admin login
@@ -48,6 +53,9 @@ public class AdminDAOoperation implements AdminDAO {
 
     }
 
+    /**
+     * Approve Student using SQL commands
+     */
     @Override
     public void approveStudent() throws SQLException {
         // Approves students to be approved
@@ -93,6 +101,10 @@ public class AdminDAOoperation implements AdminDAO {
         // add status of report card
     }
 
+    /**
+     * Function to add professor to database using SQL commands
+     * @throws SQLException
+     */
     @Override
     public void addProfessor() throws SQLException, UserAlreadyExistsException {
         // add professor
@@ -133,8 +145,15 @@ public class AdminDAOoperation implements AdminDAO {
         }
     }
 
+    /**
+     * Add or Delete Course from Catalogue using SQL commands
+     * @param addOrdrop
+     * @throws CourseNotFoundException
+     * @throws CourseNotDeletedException
+     * @throws SQLException
+     */
     @Override
-    public void updateCatalogue(int addOrdrop) throws SQLException, CourseAlreadyExistsException, CourseNotFoundException, CourseNotAddedException {
+    public void updateCatalogue(int addOrdrop) throws SQLException, CourseAlreadyExistsException, CourseNotFoundException {
         // add or drop course from catalogue
         Scanner sc = new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
@@ -146,11 +165,27 @@ public class AdminDAOoperation implements AdminDAO {
                 System.out.println("Enter Course Name");
                 String cnamea = sc.next();
                 try {
-                    String sql = SQLQueriesConstants.ADD_COURSE_ADMIN;
+                    String sql = SQLQueriesConstants.GET_COURSE_BY_ID;
                     PreparedStatement stmt=connection.prepareStatement(sql);
                     stmt.setInt(1,cida);
+                    ResultSet rs = stmt.executeQuery();
+                    boolean flag = true;
+                    while (rs.next()) {
+                        flag = false;
+                    }
+                    if(!flag) {
+                        throw new CourseAlreadyExistsException(cida);
+                    }
+
+                    sql = SQLQueriesConstants.ADD_COURSE_ADMIN;
+                    stmt=connection.prepareStatement(sql);
+                    stmt.setInt(1,cida);
                     stmt.setString(2,cnamea);
-                    stmt.execute();
+                    flag=stmt.execute();
+                    if(!flag) {
+                        throw new CourseAlreadyExistsException(cida);
+
+                    }
                 } catch (SQLException se) {
                     throw new CourseAlreadyExistsException(cida);
                 }
@@ -172,6 +207,7 @@ public class AdminDAOoperation implements AdminDAO {
                         throw new CourseNotFoundException(cidd);
                     }
 
+
                     sql = SQLQueriesConstants.DELETE_COURSE_ADMIN;
                     stmt=connection.prepareStatement(sql);
                     stmt.setInt(1,cidd);
@@ -180,12 +216,16 @@ public class AdminDAOoperation implements AdminDAO {
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                     //throw new CourseNotAddedException();
+
                 }
 
                 break;
         }
     }
 
+    /**
+     * Function for admin to list the courses in catalogue.
+     */
     @Override
     public void viewCourseCatalogue() throws SQLException {
         Connection connection = DBConnection.getConnection();

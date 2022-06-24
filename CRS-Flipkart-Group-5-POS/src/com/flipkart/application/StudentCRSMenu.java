@@ -62,12 +62,8 @@ public class StudentCRSMenu {
                     si.dropCourses(student);
                     break;
                 case 6:
-<<<<<<< HEAD
                     //fee payment for chosen courses
-                    si.feePayment();
-=======
                     si.feePayment(student);
->>>>>>> 9626dd773eb3a47e4251ec665111bd931c924ba4
                     break;
                 case 7:
                     //view gradesheet after completion of course
