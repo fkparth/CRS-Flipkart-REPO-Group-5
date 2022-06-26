@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5c37b4c-dc48-4f9a-bb8b-17cfd8729226" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/entity/StudentIdEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/entity/StudentPaymentEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/entity/StudentRegisterCourseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/entity/StudentViewGradesheetEntity.java" afterDir="false" />
+>>>>>>> ecd55c20350d8df7c7a8b0a5c30cd5c13994b82b
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/application/StudentCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/application/StudentCRSMenu.java" afterDir="false" />
@@ -13,10 +20,17 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/StudentDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/StudentDAOoperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/StudentDAOoperation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CRSDropWizard-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/CRSDropWizard-1.0-SNAPSHOT.jar" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/application/StudentCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/application/StudentCRSMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/controller/StudentRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/controller/StudentRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/dao/StudentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/dao/StudentDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/dao/StudentDAOoperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/dao/StudentDAOoperation.class" afterDir="false" />
+>>>>>>> ecd55c20350d8df7c7a8b0a5c30cd5c13994b82b
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/original-CRSDropWizard-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-CRSDropWizard-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.flipkart.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.flipkart.AppTest.xml" afterDir="false" />
     </list>
@@ -61,6 +75,7 @@
 }</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
+      <command value="mvn clean" />
       <command value="mvn clean package" />
     </option>
   </component>
@@ -72,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1656247675474</updated>
-      <workItem from="1656247678997" duration="10868000" />
+      <workItem from="1656247678997" duration="16751000" />
     </task>
     <servers />
   </component>

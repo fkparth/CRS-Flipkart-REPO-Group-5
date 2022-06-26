@@ -2,6 +2,7 @@ com/flipkart/entity/AdminApproveStudentEntity.class
 com/flipkart/bean/RegisteredCourse.class
 com/flipkart/bean/Professor.class
 com/flipkart/utils/DBConnection.class
+com/flipkart/entity/StudentIdEntity.class
 com/flipkart/service/StudentInterface.class
 com/flipkart/entity/UserRegisterEntity.class
 com/flipkart/service/CourseCatalogInterface.class
@@ -39,7 +40,11 @@ com/flipkart/dao/PaymentDAOoperation.class
 com/flipkart/entity/AdminAddProfessorEntity.class
 com/flipkart/bean/Employee.class
 com/flipkart/dao/MockData.class
+<<<<<<< HEAD
 com/flipkart/entity/StudentAddCourseEntity.class
+=======
+com/flipkart/entity/StudentRegisterCourseEntity.class
+>>>>>>> ecd55c20350d8df7c7a8b0a5c30cd5c13994b82b
 com/flipkart/dao/UserDAO.class
 com/flipkart/dao/RegisteredCourseDAOoperation.class
 com/flipkart/application/StudentCRSMenu.class
@@ -58,10 +63,12 @@ com/flipkart/dao/EmployeeDB.class
 com/flipkart/dao/NotificationDAOoperation.class
 com/flipkart/exceptions/PaymentUnsuccessfulException.class
 com/flipkart/entity/CourseCatalogEntity.class
+com/flipkart/entity/StudentPaymentEntity.class
 com/flipkart/exceptions/CourseNotDroppedException.class
 com/flipkart/controller/StudentRestController.class
 com/flipkart/exceptions/RegistrationUnsuccessfulException.class
 com/flipkart/service/StudentImplementation.class
+com/flipkart/entity/StudentViewGradesheetEntity.class
 com/flipkart/exceptions/CourseNotDeletedException.class
 com/flipkart/dao/UserDAOoperation.class
 com/flipkart/exceptions/NoRegisteredCoursesException.class
