@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public interface ProfessorDAO {
 
-    ArrayList<String> chooseCourse(int id) throws SQLException, CourseNotAssignedToProfException;
+    Boolean chooseCourse(int id,int courseid) throws SQLException, CourseNotAssignedToProfException;
 
     Professor fetchProfessorData(int id) throws SQLException, UserNotFoundException;
 

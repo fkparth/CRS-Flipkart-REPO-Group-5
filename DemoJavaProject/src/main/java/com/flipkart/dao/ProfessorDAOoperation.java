@@ -24,7 +24,7 @@ public class ProfessorDAOoperation implements ProfessorDAO {
      * @throws SQLException
      */
     @Override
-    public ArrayList<String> chooseCourse(int id) throws SQLException, CourseNotAssignedToProfException {
+    public boolean chooseCourse(int id,int courseid) throws SQLException, CourseNotAssignedToProfException {
         Connection connection = DBConnection.getConnection();
 
         try {
@@ -33,28 +33,28 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             statement.setInt(1,id);
             ResultSet rs = statement.executeQuery();
             //System.out.println("Here are list of available Courses:");
-            int courseid = -1;
-            while (rs.next()) {
-                courseid = (rs.getInt("id"));
+            //int courseid = -1;
+            //while (rs.next()) {
+               // courseid = (rs.getInt("id"));
                 //System.out.println(courseid+"c");
-            }
+           // }
             if (courseid!=-1){
                 System.out.println("Already teaching course with id : "+ courseid);
                 throw new CourseAlreadyTakenException(courseid);
             }
-            sql = SQLQueriesConstants.CHOOSE_COURSE_PROF_LIST;
-            statement=connection.prepareStatement(sql);
-            rs = statement.executeQuery();
-            System.out.println("Here are list of available Courses:");
-            while (rs.next()) {
-                Course course = new Course();
-                course.setCourseId(rs.getInt("id"));
-                course.setCourseName(rs.getString("course_name"));
-                System.out.println(course.getCourseId()+" : "+course.getCourseName());
-            }
-            System.out.println("Enter Course Code :");
-            Scanner sc = new Scanner(System.in);
-            int ccode = sc.nextInt();
+//            sql = SQLQueriesConstants.CHOOSE_COURSE_PROF_LIST;
+//            statement=connection.prepareStatement(sql);
+//            rs = statement.executeQuery();
+//            System.out.println("Here are list of available Courses:");
+//            while (rs.next()) {
+//                Course course = new Course();
+//                course.setCourseId(rs.getInt("id"));
+//                course.setCourseName(rs.getString("course_name"));
+//                System.out.println(course.getCourseId()+" : "+course.getCourseName());
+//            }
+//            System.out.println("Enter Course Code :");
+//            Scanner sc = new Scanner(System.in);
+            int ccode = courseid;
 
             sql = SQLQueriesConstants.CHOOSE_COURSE_PROF_SELECT;
             statement=connection.prepareStatement(sql);
@@ -62,13 +62,16 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             statement.setInt(2,ccode);
             statement.executeUpdate();
             System.out.println("Chosen Course ID:"+ccode);
+            return true;
         } catch(SQLException se) {
             //throw new CourseNotAssignedToProfException();
             System.out.println(se.getMessage());
+            return false;
         } catch (CourseAlreadyTakenException e) {
             System.out.println(e.getMessage());
+            return false;
         }
-        return null;
+        return false;
     }
     /**
      * Function to fetch professor data when he logs into CRSApplication

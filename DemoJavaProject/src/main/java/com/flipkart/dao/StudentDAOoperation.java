@@ -2,10 +2,12 @@ package com.flipkart.dao;
 
 import com.flipkart.bean.Student;
 import com.flipkart.constants.SQLQueriesConstants;
+import com.flipkart.entity.CourseCatalogEntity;
 import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -167,16 +169,21 @@ public class StudentDAOoperation implements StudentDAO{
      * @throws SQLException
      */
     @Override
-    public void viewCourseCatalogue() throws SQLException {
+    public ArrayList<CourseCatalogEntity> viewCourseCatalogue() throws SQLException {
         Connection connection = DBConnection.getConnection();
-        System.out.println("Done");
         String sql = SQLQueriesConstants.GET_COURSE_CATALOG;
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(sql);
         System.out.println("CourseID - Course-Name");
+
+        ArrayList<CourseCatalogEntity> res = new ArrayList<CourseCatalogEntity>();
+
         while(rs.next()){
-            System.out.println(rs.getInt("id")+"    "+rs.getString("course_name"));//+"     "+rs.getInt("strength"));
+            CourseCatalogEntity en = new CourseCatalogEntity(rs.getString("course_name"), rs.getInt("id"));
+            res.add(en);
         }
+
+        return res;
     }
 
     /**

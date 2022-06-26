@@ -1,9 +1,11 @@
 package com.flipkart.dao;
 
 import com.flipkart.bean.*;
+import com.flipkart.entity.CourseCatalogEntity;
 import com.flipkart.exceptions.*;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public interface StudentDAO {
     //method to register student for a new course
@@ -39,7 +41,7 @@ public interface StudentDAO {
      * @return
      * @throws SQLException
      */
-    void viewCourseCatalogue() throws SQLException;
+    ArrayList<CourseCatalogEntity> viewCourseCatalogue() throws SQLException;
 
     /**
      * method to add course in database from course catalogue
