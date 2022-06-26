@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -16,12 +17,14 @@ public class ProfessorDAOoperation implements ProfessorDAO {
     private PreparedStatement statement = null;
     /**
      * Function for professor to choose course to teach from course catalogue.
+     *
      * @param id
+     * @return
      * @throws CourseAlreadyTakenException
      * @throws SQLException
      */
     @Override
-    public void chooseCourse(int id) throws SQLException, CourseNotAssignedToProfException {
+    public ArrayList<String> chooseCourse(int id) throws SQLException, CourseNotAssignedToProfException {
         Connection connection = DBConnection.getConnection();
 
         try {
@@ -65,6 +68,7 @@ public class ProfessorDAOoperation implements ProfessorDAO {
         } catch (CourseAlreadyTakenException e) {
             System.out.println(e.getMessage());
         }
+        return null;
     }
     /**
      * Function to fetch professor data when he logs into CRSApplication

@@ -7,10 +7,11 @@ import com.flipkart.exceptions.NoStudentRegisteredException;
 import com.flipkart.exceptions.UserNotFoundException;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public interface ProfessorDAO {
 
-    void chooseCourse(int id) throws SQLException, CourseNotAssignedToProfException;
+    ArrayList<String> chooseCourse(int id) throws SQLException, CourseNotAssignedToProfException;
 
     Professor fetchProfessorData(int id) throws SQLException, UserNotFoundException;
 

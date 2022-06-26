@@ -1,14 +1,15 @@
 package com.flipkart.dao;
 
 import com.flipkart.bean.Admin;
-import com.flipkart.bean.Professor;
 import com.flipkart.bean.Student;
 import com.flipkart.constants.SQLQueriesConstants;
+import com.flipkart.entity.CourseCatalogEntity;
 import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
+import javafx.util.Pair;
 
 import java.sql.*;
-import java.util.Scanner;
+import java.util.ArrayList;
 
 
 public class AdminDAOoperation implements AdminDAO {
@@ -53,11 +54,39 @@ public class AdminDAOoperation implements AdminDAO {
 
     }
 
+    @Override
+    public ArrayList<Integer> approveStudentsList() throws SQLException {
+        // Approves students to be approved
+        Connection connection = DBConnection.getConnection();
+
+        Student stud=new Student();
+
+        boolean flag=false;
+        ArrayList<Integer> list=new ArrayList<Integer>() ;
+        try {
+            String sql = SQLQueriesConstants.GET_STUDENT_TO_APPROVE;
+            statement=connection.prepareStatement(sql);
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+                int id=rs.getInt("id");
+                list.add(id);
+                //System.out.println(id+"approved");
+            }
+
+        }
+        catch(SQLException se) {
+            System.out.println(se.getMessage());
+        }
+        return list;
+    }
+
     /**
      * Approve Student using SQL commands
      */
     @Override
-    public void approveStudent() throws SQLException {
+    public void approveStudent(ArrayList<Integer> list) throws SQLException {
         // Approves students to be approved
         Connection connection = DBConnection.getConnection();
 
@@ -65,31 +94,20 @@ public class AdminDAOoperation implements AdminDAO {
 
         boolean flag=false;
         try {
-            String sql = SQLQueriesConstants.GET_STUDENT_TO_APPROVE;
-            statement=connection.prepareStatement(sql);
-            Statement st = connection.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-                int id=rs.getInt("id");
-                System.out.println(id+"to be approved");
+            for(int id:list)
+             {
+
+                //System.out.println(id+"to be approved");
                 String postsql=SQLQueriesConstants.APPROVE_STUDENT_BY_ID;
 
                 statement=connection.prepareStatement(postsql);
                 statement.setInt(1,id);
                 statement.executeUpdate();
-                System.out.println(id+"approved");
+                //System.out.println(id+"approved");
             }
             // check if approval is done
-            sql = SQLQueriesConstants.GET_STUDENT_TO_APPROVE;
-            st = connection.createStatement();
-            rs = st.executeQuery(sql);
-            while (rs.next()) {
-                flag=true;
-                int id=rs.getInt("id");
-                System.out.println(id+"not approved");
-            }
-            if (!flag)
-                System.out.println("No student to be approved");
+
+
         }
         catch(SQLException se) {
             System.out.println(se.getMessage());
@@ -106,19 +124,19 @@ public class AdminDAOoperation implements AdminDAO {
      * @throws SQLException
      */
     @Override
-    public void addProfessor() throws SQLException, UserAlreadyExistsException {
+    public void addProfessor(int profid,String pass,String profname,int profrole,int deptid) throws SQLException, UserAlreadyExistsException {
         // add professor
-        Scanner sc = new Scanner(System.in);
-        Professor prof = new Professor();
-        System.out.println("Enter userid for new professor");
-        int profid = sc.nextInt();
-        prof.setUserId(profid);
-        System.out.println("Enter new Professor Name");
-        String profname = sc.next();
-        System.out.println("Enter new Professor Dept ID");
-        int deptid = sc.nextInt();
-        int profrole = 2;
-        String pass = "1234";
+//        Scanner sc = new Scanner(System.in);
+//        Professor prof = new Professor();
+//        System.out.println("Enter userid for new professor");
+//        int profid = sc.nextInt();
+//        prof.setUserId(profid);
+//        System.out.println("Enter new Professor Name");
+//        String profname = sc.next();
+//        System.out.println("Enter new Professor Dept ID");
+//        int deptid = sc.nextInt();
+//        int profrole = 2;
+//        String pass = "1234";
 
         try {
             Connection connection = DBConnection.getConnection();
@@ -221,19 +239,30 @@ public class AdminDAOoperation implements AdminDAO {
 
     /**
      * Function for admin to list the courses in catalogue.
+     *
+     * @return
      */
     @Override
-    public void viewCourseCatalogue() throws SQLException {
+    public ArrayList<CourseCatalogEntity> viewCourseCatalogue() throws SQLException {
         Connection connection = DBConnection.getConnection();
-        System.out.println("Done");
-
+        //System.out.println("Done");
+        ArrayList<CourseCatalogEntity> courseList=new ArrayList<CourseCatalogEntity>();
         String sql = SQLQueriesConstants.GET_COURSE_CATALOG;
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(sql);
         System.out.println("CourseID - Course-Name");
         while(rs.next()){
-            System.out.println(rs.getInt("id")+"    "+rs.getString("course_name"));//+"     "+rs.getInt("strength"));
+           // Pair<String,Integer> coursePair=new Pair<String,Integer>();
+            CourseCatalogEntity en = new CourseCatalogEntity(rs.getString("course_name"), rs.getInt("id"));
+
+            courseList.add(en);
+            //System.out.println(+"    "+rs.getString("course_name"));//+"     "+rs.getInt("strength"));
         }
+        for(int i = 0; i < courseList.size(); i++) {
+            CourseCatalogEntity en = courseList.get(i);
+            System.out.println(en.getCourseName());
+        }
+        return courseList;
     }
 
     @Override

@@ -41,7 +41,7 @@ public class AdminCRSMenu {
             switch (choice) {
                 case 1:
                     //approve the student once they register/login
-                    AI.approveStudent();
+                   // AI.approveStudent(ArrayList<Integer> list);
                     break;
                 case 2:
                     //to generate report card after grade is assigned by the professor
@@ -49,7 +49,7 @@ public class AdminCRSMenu {
                     break;
                 case 3:
                     //add professor to respective courses they chose
-                    AI.addProfessor();
+                    //AI.addProfessor(int profid,String pass, String profname, int profrole, int depid);
                     break;
                 case 4:
                     System.out.println("Enter 1 to Add course");
@@ -64,7 +64,7 @@ public class AdminCRSMenu {
                     break;
                 case 6:
                     //shows list of courses for students to choose
-                    AI.viewCourseCatalogue();
+                    //AI.viewCourseCatalogue();
                     break;
                 default:
                     System.out.println("Number chosen is not part of Menu");
