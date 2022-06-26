@@ -8,6 +8,7 @@
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/service/StudentInterface.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/bean/RegisteredCourse.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/exceptions/NoRegisteredCoursesException.java
+/Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/entity/StudentRegisterCourseEntity.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/bean/SemesterRegistration.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/bean/GradeCard.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/application/CRSApplication.java
@@ -49,6 +50,7 @@
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/dao/UserDAO.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/dao/ProfessorDAO.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/exceptions/CourseNotDeletedException.java
+/Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/entity/StudentViewGradesheetEntity.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/exceptions/UserNotFoundException.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/service/AdminInterface.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/service/CourseCatalogInterface.java
@@ -64,6 +66,8 @@
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/application/StudentCRSMenu.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/exceptions/CourseNotDroppedException.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/controller/EmployeeRestController.java
+/Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/entity/StudentIdEntity.java
+/Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/entity/StudentPaymentEntity.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/controller/UserRestController.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/service/RegistrationInterface.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/bean/Employee.java

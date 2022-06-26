@@ -29,6 +29,8 @@ public class App extends Application<Configuration> {
         e.jersey().register(new EmployeeRestController(e.getValidator()));
         e.jersey().register(new UserRestController(e.getValidator()));
         e.jersey().register(new AdminRestController(e.getValidator()));
+        e.jersey().register(new StudentRestController(e.getValidator()));
+
     }
 
     public static void main(String[] args) throws Exception {

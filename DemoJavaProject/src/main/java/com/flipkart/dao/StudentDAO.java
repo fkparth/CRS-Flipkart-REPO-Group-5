@@ -1,9 +1,11 @@
 package com.flipkart.dao;
 
 import com.flipkart.bean.*;
+import com.flipkart.entity.StudentViewGradesheetEntity;
 import com.flipkart.exceptions.*;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public interface StudentDAO {
     //method to register student for a new course
@@ -14,7 +16,7 @@ public interface StudentDAO {
      * @return
      * @throws RegistrationUnsuccessfulException
      */
-    void register(Student stud) throws SQLException, RegistrationUnsuccessfulException;
+    void register(int stud, ArrayList<Integer> preference) throws SQLException, RegistrationUnsuccessfulException;
 
     /**
      * Method to fetch student data from database
@@ -31,7 +33,7 @@ public interface StudentDAO {
 //     * @return
 //     * @throws NoRegisteredCoursesException
 //     */
-    void viewGradesheet(int userId) throws SQLException, NoRegisteredCoursesException;
+    ArrayList<StudentViewGradesheetEntity> viewGradesheet(int userId) throws SQLException, NoRegisteredCoursesException;
 
     //same goes with this function we show the course catalogue print it not return it
     /**
@@ -65,7 +67,7 @@ public interface StudentDAO {
      * @return
      * @throws PaymentUnsuccessfulException
      */
-    void feePayment(Student student) throws SQLException, PaymentUnsuccessfulException;
+
 
     /**
      * method to view selected course list
@@ -74,4 +76,6 @@ public interface StudentDAO {
      * @throws NoRegisteredCoursesException
      */
     void viewCourses(int stud) throws SQLException, NoRegisteredCoursesException;
+
+    void feePayment(int id, int paymentMode) throws SQLException, PaymentUnsuccessfulException;
 }
