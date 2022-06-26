@@ -32,8 +32,11 @@ public class App extends Application<Configuration> {
         e.jersey().register(new ProfessorRestController(e.getValidator()));
 
         e.jersey().register(new StudentRestController(e.getValidator()));
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 6f36733e091f5566839659445a53cee8aede44a9
     }
 
     public static void main(String[] args) throws Exception {
