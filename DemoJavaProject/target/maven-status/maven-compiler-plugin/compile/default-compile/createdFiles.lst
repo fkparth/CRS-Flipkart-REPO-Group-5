@@ -6,6 +6,7 @@ com/flipkart/entity/StudentIdEntity.class
 com/flipkart/service/StudentInterface.class
 com/flipkart/entity/UserRegisterEntity.class
 com/flipkart/service/CourseCatalogInterface.class
+com/flipkart/entity/StudentViewCourseEntity.class
 com/flipkart/exceptions/CourseAlreadyTakenException.class
 com/flipkart/entity/ProfessorChooseCourseEntity.class
 com/flipkart/bean/User.class
@@ -40,11 +41,8 @@ com/flipkart/dao/PaymentDAOoperation.class
 com/flipkart/entity/AdminAddProfessorEntity.class
 com/flipkart/bean/Employee.class
 com/flipkart/dao/MockData.class
-<<<<<<< HEAD
 com/flipkart/entity/StudentAddCourseEntity.class
-=======
 com/flipkart/entity/StudentRegisterCourseEntity.class
->>>>>>> ecd55c20350d8df7c7a8b0a5c30cd5c13994b82b
 com/flipkart/dao/UserDAO.class
 com/flipkart/dao/RegisteredCourseDAOoperation.class
 com/flipkart/application/StudentCRSMenu.class

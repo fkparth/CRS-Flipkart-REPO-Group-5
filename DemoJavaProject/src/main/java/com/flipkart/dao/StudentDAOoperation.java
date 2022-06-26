@@ -2,13 +2,12 @@ package com.flipkart.dao;
 
 import com.flipkart.bean.Student;
 import com.flipkart.constants.SQLQueriesConstants;
-import com.flipkart.entity.StudentViewGradesheetEntity;
+import com.flipkart.entity.*;
 import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
@@ -282,17 +281,12 @@ public class StudentDAOoperation implements StudentDAO{
 //                throw new CourseNotDroppedException();
 //            }
             System.out.println("Course dropped");
-
-
-
-
-
-
     }
 
     /**
      * method to pay fee by student for the selected course from database
-     * @param stud: student object containing all fields
+     * @param id: id of the student paying fees
+     * @param paymentMode: mode of payment(online/offline)
      * @return
      * @throws PaymentUnsuccessfulException
      */
@@ -343,16 +337,16 @@ public class StudentDAOoperation implements StudentDAO{
 
     /**
      * method to view selected course list
+     *
      * @param id: student id
      * @return
      * @throws NoRegisteredCoursesException
      */
     @Override
-    public void viewCourses(int id) throws SQLException, NoRegisteredCoursesException {
+    public ArrayList<StudentViewCourseEntity> viewCourses(int id) throws SQLException, NoRegisteredCoursesException {
         Connection connection = DBConnection.getConnection();
-        System.out.println("Done");
+        //System.out.println("Done");
 
-        try {
             String sql = SQLQueriesConstants.GET_REGISTERED_COURSE_STUDENT_ID;
             statement=connection.prepareStatement(sql);
             statement.setInt(1,id);
@@ -360,7 +354,7 @@ public class StudentDAOoperation implements StudentDAO{
             System.out.println("Course ID    Course Name");
 
             boolean flag = false;
-
+            ArrayList<StudentViewCourseEntity> viewc = new ArrayList<StudentViewCourseEntity>();
             while (rs.next()) {
                 flag = true;
                 int cid=rs.getInt("course_id");
@@ -370,17 +364,16 @@ public class StudentDAOoperation implements StudentDAO{
                 ResultSet rs2=st2.executeQuery();
 
                 while(rs2.next()){
+                    StudentViewCourseEntity svce = new StudentViewCourseEntity();
+                    svce.setCourseId(cid);
+                    svce.setCourseName(rs2.getString("course_name"));
+                    viewc.add(svce);
                     System.out.println(cid+"    "+rs2.getString("course_name"));
                 }
             }
-
             if (!flag) {
                 throw new NoRegisteredCoursesException(id);
             }
-        } catch (SQLException se) {
-            throw new NoRegisteredCoursesException(id);
-        }
-
-
+            return viewc;
     }
 }
