@@ -58,7 +58,6 @@
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/dao/AdminDAOoperation.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/service/AdminImplementation.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/application/AdminCRSMenu.java
-/Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/entity/ProfessorChooseCourseEntity.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/dao/UserDAOoperation.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/exceptions/GradeNotAddedException.java
 /Users/parth.khanna/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject/src/main/java/com/flipkart/controller/AdminRestController.java

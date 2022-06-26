@@ -10,6 +10,7 @@ import com.flipkart.entity.StudentViewGradesheetEntity;
 import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
 
+import java.net.URISyntaxException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -183,7 +184,7 @@ public class StudentDAOoperation implements StudentDAO{
      * @throws SQLException
      */
     @Override
-    public ArrayList<CourseCatalogEntity> viewCourseCatalogue() throws SQLException {
+    public ArrayList<CourseCatalogEntity> viewCourseCatalogue() throws URISyntaxException, UserNotFoundException, SQLException, NoRegisteredCoursesException, CourseNotAddedException, PaymentUnsuccessfulException, CourseNotDroppedException, RegistrationUnsuccessfulException, CourseNotFoundException,CourseAlreadyExistsException {
         Connection connection = DBConnection.getConnection();
         String sql = SQLQueriesConstants.GET_COURSE_CATALOG;
         Statement st = connection.createStatement();

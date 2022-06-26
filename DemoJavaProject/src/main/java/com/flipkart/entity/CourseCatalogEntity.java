@@ -5,10 +5,9 @@ public class CourseCatalogEntity {
     public String courseName;
     public int courseId;
 
-    public CourseCatalogEntity() {
-    }
 
-    public CourseCatalogEntity(String courseName, int courseId) {
+
+    public CourseCatalogEntity() {
         this.courseName = courseName;
         this.courseId = courseId;
     }

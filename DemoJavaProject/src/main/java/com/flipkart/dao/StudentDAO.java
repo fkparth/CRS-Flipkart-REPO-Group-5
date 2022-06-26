@@ -7,6 +7,7 @@ import com.flipkart.entity.StudentViewGradesheetEntity;
 
 import com.flipkart.exceptions.*;
 
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -44,7 +45,7 @@ public interface StudentDAO {
      * @return
      * @throws SQLException
      */
-    ArrayList<CourseCatalogEntity> viewCourseCatalogue() throws SQLException;
+    ArrayList<CourseCatalogEntity> viewCourseCatalogue() throws SQLException, URISyntaxException, UserNotFoundException, NoRegisteredCoursesException, CourseNotAddedException, PaymentUnsuccessfulException, CourseNotDroppedException, RegistrationUnsuccessfulException, CourseNotFoundException, CourseAlreadyExistsException;
 
     /**
      * method to add course in database from course catalogue

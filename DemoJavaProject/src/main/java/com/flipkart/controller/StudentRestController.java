@@ -81,7 +81,7 @@ public class StudentRestController {
         return Response.status(200).entity("PAYMENT DONE").build();
     }
     @GET
-    @Path("/viewCourseCatalogue")
+    @Path("/viewcoursecatalogue")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response viewCourseCatalogue(@Valid CourseCatalogEntity entity) throws URISyntaxException, UserNotFoundException, SQLException, NoRegisteredCoursesException, CourseNotAddedException, PaymentUnsuccessfulException, CourseNotDroppedException, RegistrationUnsuccessfulException, CourseNotFoundException,CourseAlreadyExistsException  {
