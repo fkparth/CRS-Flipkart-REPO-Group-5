@@ -2,7 +2,11 @@ package com.flipkart.dao;
 
 import com.flipkart.bean.Student;
 import com.flipkart.constants.SQLQueriesConstants;
+<<<<<<< HEAD
 import com.flipkart.entity.CourseCatalogEntity;
+=======
+import com.flipkart.entity.StudentViewGradesheetEntity;
+>>>>>>> bc6cbb1f630ba98f17d71add1e4d7b07e81197d5
 import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
 
@@ -25,14 +29,14 @@ public class StudentDAOoperation implements StudentDAO{
      * @throws RegistrationUnsuccessfulException
      */
     @Override
-    public void register(Student stud) throws SQLException, RegistrationUnsuccessfulException {
+    public void register(int stud, ArrayList<Integer> preference) throws SQLException, RegistrationUnsuccessfulException {
 
-        Scanner sc=new Scanner(System.in);
+//        Scanner sc=new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
 
         try {
             String sql = SQLQueriesConstants.GET_REGISTERED_COURSE_STUDENT_ID;
-            int stdid=stud.getUserId();
+            int stdid=stud;
             PreparedStatement stmt=connection.prepareStatement(sql);
             stmt.setInt(1,stdid);
             boolean flag=false;
@@ -47,23 +51,23 @@ public class StudentDAOoperation implements StudentDAO{
 
             stmt=connection.prepareStatement(sql);
 
-            System.out.println("Give you primary preferences");
-            //System.out.println(stdid+"hi bro");
+//           System.out.println("Give you primary preferences");
+//           System.out.println(stdid+"hi bro");
             //to fill 4 primary courses in the preference list
-            for (int i=0;i<4;i++){
+            for (int i=0;i<preference.size();i++){
                 System.out.println("Enter course ID");
-                int courseid=sc.nextInt();
+                int courseid= preference.get(i);
                 stmt.setInt(1,courseid);
                 stmt.setInt(2,stdid);
                 stmt.execute();
 
             }
-            System.out.println("Give you alternative preferences");
-            //to fill 2 alternative courses in preference list
-            for (int i=0;i<2;i++){
-                System.out.println("Enter course ID");
-                int id=sc.nextInt();
-            }
+//            System.out.println("Give you alternative preferences");
+//            //to fill 2 alternative courses in preference list
+//            for (int i=0;i<2;i++){
+//                System.out.println("Enter course ID");
+//                int id=sc.nextInt();
+//            }
 
         } catch (SQLException se) {
 
@@ -125,21 +129,23 @@ public class StudentDAOoperation implements StudentDAO{
 
     /**
      * Method to view gradesheet after grade assigned by the professor
+     *
      * @param id: student id
      * @return
      * @throws NoRegisteredCoursesException
      */
     @Override
-    public void viewGradesheet(int id) throws SQLException, NoRegisteredCoursesException {
+    public ArrayList<StudentViewGradesheetEntity> viewGradesheet(int id) throws SQLException, NoRegisteredCoursesException {
         Connection connection = DBConnection.getConnection();
         System.out.println("Done");
-
+        ArrayList<StudentViewGradesheetEntity> grades=new ArrayList<StudentViewGradesheetEntity>();
         try {
             String sql = SQLQueriesConstants.GET_REGISTERED_COURSE_STUDENT_ID;
             statement=connection.prepareStatement(sql);
             statement.setInt(1,id);
             ResultSet rs = statement.executeQuery();
             System.out.println("Course ID    Course Name    Grade");
+
             boolean flag = false;
             while (rs.next()) {
                 flag = true;
@@ -149,7 +155,14 @@ public class StudentDAOoperation implements StudentDAO{
                 st2.setInt(1,cid);
                 ResultSet rs2=st2.executeQuery();
 
+
                 while(rs2.next()){
+                    StudentViewGradesheetEntity en=new StudentViewGradesheetEntity();
+                    en.setCourseId(cid);
+                    en.setGrade(rs.getString("grade"));
+                    en.setCourseName(rs2.getString("course_name"));
+
+                    grades.add(en);
                     System.out.println(cid+"    "+rs2.getString("course_name")+"    "+rs.getString("grade"));
                 }
             }
@@ -161,6 +174,7 @@ public class StudentDAOoperation implements StudentDAO{
             System.out.println(se.getMessage());
             throw se;
         }
+        return grades;
     }
 
     /**
@@ -188,25 +202,26 @@ public class StudentDAOoperation implements StudentDAO{
 
     /**
      * method to add course in database from course catalogue
-     * @param stud: student object containing all fields
+     * @param stdid: id of the student adding the course
+     * @param courseid: id of the course being added
      * @return
      * @throws CourseNotAddedException
      */
     @Override
-    public void addCourses(Student stud) throws SQLException, CourseNotAddedException {
-        System.out.println("Add Course");
-        Scanner sc=new Scanner(System.in);
+    public void addCourses(int stdid,int courseid) throws SQLException, CourseNotAddedException {
+        //System.out.println("Add Course");
+//        Scanner sc=new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
 
-        try {
+
             String sql = SQLQueriesConstants.STUDENT_ADD_COURSE;
 
             PreparedStatement stmt=connection.prepareStatement(sql);
-            int stdid=stud.getUserId();
-            //System.out.println(stdid+"hi bro");
+//            int stdid=.getUserId();
+//            System.out.println(stdid+"hi bro");
 
-            System.out.println("Enter course ID");
-            int courseid=sc.nextInt();
+            //System.out.println("Enter course ID");
+//            int courseid=sc.nextInt();
             stmt.setInt(1,courseid);
             stmt.setInt(2,stdid);
             stmt.execute();
@@ -218,40 +233,38 @@ public class StudentDAOoperation implements StudentDAO{
 //            if(!rs) {
 //                throw new CourseNotAddedException();
 //            }
-            System.out.println("Course added");
+            //System.out.println("Course added");
 
 
-        } catch (SQLException se) {
-            System.out.println(se.getMessage());
-            System.out.println("Course not added");
-        }
+
 //        catch (CourseNotAddedException se) {
 //            System.out.println(se.getMessage());
 //            //System.out.println("Course not added");
-//        }
+//
 
     }
 
     /**
      * method to drop course selected by student
-     * @param stud: student object containing all fields
+     * @param stdid: object containing all fields
+     * @param courseid: id of the course being added
      * @return
      * @throws CourseNotDroppedException
      */
     @Override
-    public void dropCourses(Student stud) throws SQLException, CourseNotDroppedException,CourseNotFoundException {
-        System.out.println("Drop Course");
-        Scanner sc=new Scanner(System.in);
+    public void dropCourses(int stdid, int courseid) throws SQLException, CourseNotDroppedException,CourseNotFoundException {
+        //System.out.println("Drop Course");
+        //Scanner sc=new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
 
-        try {
+
             String sql = SQLQueriesConstants.STUDENT_DROP_COURSE;
 
             PreparedStatement stmt=connection.prepareStatement(sql);
-            int stdid=stud.getUserId();
+            //int stdid=stud.getUserId();
             //System.out.println(stdid+"hi bro");
-            System.out.println("Enter course ID");
-            int courseid=sc.nextInt();
+            //System.out.println("Enter course ID");
+            //int courseid=sc.nextInt();
             String sql2 = SQLQueriesConstants.GET_COURSE_BY_ID;
             PreparedStatement stmt2=connection.prepareStatement(sql2);
             stmt2.setInt(1,courseid);
@@ -280,16 +293,7 @@ public class StudentDAOoperation implements StudentDAO{
             System.out.println("Course dropped");
 
 
-        } catch (SQLException se) {
-            System.out.println(se.getMessage());
-           System.out.println("You don't have such registered course");
-//            throw new CourseNotDroppedException();
-        }catch (CourseNotFoundException s) {
 
-            System.out.println(s.getMessage());
-            System.out.println("Course not dropped");
-//            throw new CourseNotFoundException();
-        }
 
 
 
@@ -302,10 +306,10 @@ public class StudentDAOoperation implements StudentDAO{
      * @throws PaymentUnsuccessfulException
      */
     @Override
-    public void feePayment(Student stud) throws SQLException, PaymentUnsuccessfulException {
+    public void feePayment(int id,int paymentMode) throws SQLException, PaymentUnsuccessfulException {
         Connection connection = DBConnection.getConnection();
 
-        int stdid=stud.getUserId();
+        int stdid=id;
 
         try {
             String sql = SQLQueriesConstants.STUDENT_GET_PAYMENT_STATUS;
@@ -323,12 +327,12 @@ public class StudentDAOoperation implements StudentDAO{
                 }
             }
 
-            Scanner sc=new Scanner(System.in);
-            System.out.println("Enter payment mode:");
-            System.out.println("1. Cash");
-            System.out.println("2. Debit Card");
-            System.out.println("3. Credit Card");
-            int paymentMode = sc.nextInt();
+//            Scanner sc=new Scanner(System.in);
+//            System.out.println("Enter payment mode:");
+//            System.out.println("1. Cash");
+//            System.out.println("2. Debit Card");
+//            System.out.println("3. Credit Card");
+//            int paymentMode = sc.nextInt();
             sql = SQLQueriesConstants.STUDENT_SET_PAYMENT;
             statement=connection.prepareStatement(sql);
             statement.setInt(1, stdid);

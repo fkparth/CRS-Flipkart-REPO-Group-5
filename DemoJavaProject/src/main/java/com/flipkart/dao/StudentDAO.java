@@ -1,7 +1,11 @@
 package com.flipkart.dao;
 
 import com.flipkart.bean.*;
+<<<<<<< HEAD
 import com.flipkart.entity.CourseCatalogEntity;
+=======
+import com.flipkart.entity.StudentViewGradesheetEntity;
+>>>>>>> bc6cbb1f630ba98f17d71add1e4d7b07e81197d5
 import com.flipkart.exceptions.*;
 
 import java.sql.SQLException;
@@ -16,7 +20,7 @@ public interface StudentDAO {
      * @return
      * @throws RegistrationUnsuccessfulException
      */
-    void register(Student stud) throws SQLException, RegistrationUnsuccessfulException;
+    void register(int stud, ArrayList<Integer> preference) throws SQLException, RegistrationUnsuccessfulException;
 
     /**
      * Method to fetch student data from database
@@ -33,7 +37,7 @@ public interface StudentDAO {
 //     * @return
 //     * @throws NoRegisteredCoursesException
 //     */
-    void viewGradesheet(int userId) throws SQLException, NoRegisteredCoursesException;
+    ArrayList<StudentViewGradesheetEntity> viewGradesheet(int userId) throws SQLException, NoRegisteredCoursesException;
 
     //same goes with this function we show the course catalogue print it not return it
     /**
@@ -45,29 +49,29 @@ public interface StudentDAO {
 
     /**
      * method to add course in database from course catalogue
-     * @param stud: student object containing all fields
+     * @param stdid: student object containing all fields
+     * @param courseid: id of the course being added
      * @return
      * @throws CourseNotAddedException
      */
-    void addCourses(Student stud) throws SQLException, CourseNotAddedException;
+    void addCourses(int stdid,int courseid) throws SQLException, CourseNotAddedException;
 
 
     /**
      * method to drop course selected by student
-     * @param stud: student object containing all fields
-     * @return
+     * @param stdid: student object containing all fields
+     * @param courseid: id of the course being added
      * @throws CourseNotDroppedException
      */
-    void dropCourses(Student stud) throws SQLException, CourseNotDroppedException,CourseNotFoundException;
+    void dropCourses(int stdid,int courseid) throws SQLException, CourseNotDroppedException,CourseNotFoundException;
 
 
     /**
      * method to pay fee by student for the selected course from database
      * @param student: student object containing all fields
-     * @return
      * @throws PaymentUnsuccessfulException
      */
-    void feePayment(Student student) throws SQLException, PaymentUnsuccessfulException;
+
 
     /**
      * method to view selected course list
@@ -76,4 +80,6 @@ public interface StudentDAO {
      * @throws NoRegisteredCoursesException
      */
     void viewCourses(int stud) throws SQLException, NoRegisteredCoursesException;
+
+    void feePayment(int id, int paymentMode) throws SQLException, PaymentUnsuccessfulException;
 }

@@ -44,7 +44,7 @@ public class StudentCRSMenu {
                     break;
                 case 2:
                     //to register a new student
-                    si.register(student);
+                    //si.register(student);
                     break;
                 case 3:
                     //to view courses chosen by student
@@ -52,16 +52,16 @@ public class StudentCRSMenu {
                     break;
                 case 4:
                     //add courses according to preference
-                    si.addCourses(student);
+                    //si.addCourses(student);
                     break;
                 case 5:
                     //drop unwanted course
-                    si.dropCourses(student);
+                    //si.dropCourses(student);
                     break;
                 case 6:
 
                     //fee payment for chosen courses
-                    si.feePayment(student);
+                   // si.feePayment(int id, int paymentMode);
 
                     break;
                 case 7:
