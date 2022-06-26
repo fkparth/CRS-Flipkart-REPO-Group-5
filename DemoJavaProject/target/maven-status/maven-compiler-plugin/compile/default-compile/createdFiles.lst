@@ -16,6 +16,7 @@ com/flipkart/exceptions/GradeNotAddedException.class
 com/flipkart/service/CourseInterface.class
 com/flipkart/exceptions/NoStudentRegisteredException.class
 com/flipkart/controller/AdminRestController.class
+com/flipkart/entity/AdminUpdateCatalogueEntity.class
 com/flipkart/service/AdminImplementation.class
 com/flipkart/bean/Admin.class
 com/flipkart/exceptions/CourseNotAssignedToProfException.class

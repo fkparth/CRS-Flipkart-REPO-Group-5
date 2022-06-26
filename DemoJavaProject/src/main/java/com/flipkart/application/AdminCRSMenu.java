@@ -55,8 +55,8 @@ public class AdminCRSMenu {
                     System.out.println("Enter 1 to Add course");
                     System.out.println("Enter 2 to Drop course");
                     System.out.println("Enter your choice:");
-                    int adchoice = sc.nextInt();
-                    AI.updateCatalogue(adchoice);
+//                    int adchoice = sc.nextInt();
+//                    AI.updateCatalogue(adchoice);
                     break;
                 case 5:
                     //to assign courses to students after they fill their preference

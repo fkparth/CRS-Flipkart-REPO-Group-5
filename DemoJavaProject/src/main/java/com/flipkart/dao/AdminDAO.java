@@ -13,7 +13,7 @@ public interface AdminDAO {
 
     void addProfessor() throws SQLException, UserAlreadyExistsException;
 
-    void updateCatalogue(int addOrDrop) throws SQLException, CourseAlreadyExistsException, CourseNotFoundException;
+    void updateCatalogue(int addOrDrop , int courseId , String courseName) throws SQLException, CourseAlreadyExistsException, CourseNotFoundException;
 
     void assignCourseToStudent();
 

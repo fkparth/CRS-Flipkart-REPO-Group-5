@@ -1,7 +1,6 @@
 package com.flipkart;
-import com.flipkart.controller.EmployeeRestController;
-import com.flipkart.controller.HelloRestController;
-import com.flipkart.controller.UserRestController;
+import com.flipkart.controller.*;
+
 import io.dropwizard.Application;
 import io.dropwizard.Configuration;
 import io.dropwizard.setup.Bootstrap;
@@ -29,6 +28,7 @@ public class App extends Application<Configuration> {
         e.jersey().register(new HelloRestController());
         e.jersey().register(new EmployeeRestController(e.getValidator()));
         e.jersey().register(new UserRestController(e.getValidator()));
+        e.jersey().register(new AdminRestController(e.getValidator()));
     }
 
     public static void main(String[] args) throws Exception {

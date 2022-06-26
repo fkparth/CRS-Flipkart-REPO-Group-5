@@ -10,6 +10,11 @@ import com.flipkart.dao.*;
 import com.flipkart.entity.UserLoginEntity;
 import com.flipkart.entity.UserRegisterEntity;
 import com.flipkart.exceptions.*;
+import com.flipkart.utils.*;
+import com.flipkart.constants.*;
+
+import java.sql.*;
+import java.util.Scanner;
 
 import java.net.URISyntaxException;
 import java.sql.SQLException;
@@ -67,9 +72,45 @@ public class UserRestController {
     @POST
     @Path("/register")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response register(@Valid UserRegisterEntity entity) throws URISyntaxException {
+    public Response register(@Valid UserRegisterEntity entity) throws URISyntaxException, UserNotFoundException, SQLException, NoRegisteredCoursesException, CourseNotAddedException, PaymentUnsuccessfulException, CourseNotDroppedException, RegistrationUnsuccessfulException, CourseNotFoundException {
+
         // validation
-        return Response.status(200).entity(entity.getName()).build();
+
+
+        //dao
+        String name = entity.getName();
+        String pass = entity.getPassword();
+
+        Connection connection = DBConnection.getConnection();
+        String sql = SQLQueriesConstants.GET_MAX_STUDENT_ID;
+
+        Statement st = connection.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        int newid = 0;
+        while(rs.next()) {
+            newid = rs.getInt("id") + 1;
+        }
+        if (newid ==1) {
+            newid = 101;
+        }
+        String sql2 = SQLQueriesConstants.ADD_STUDENT_BY_REGISTER_USER;
+
+        PreparedStatement stmt=connection.prepareStatement(sql2);
+
+
+        stmt.setInt(1,newid);
+        stmt.setString(2,pass);
+        stmt.setString(3,name);
+        stmt.executeUpdate();
+
+        String sql3 = SQLQueriesConstants.ADD_STUDENT_BY_REGISTER;
+
+        PreparedStatement stmt2=connection.prepareStatement(sql3);
+
+        stmt2.setInt(1,newid);
+        stmt2.executeUpdate();
+
+        return Response.status(200).entity("Your User ID is "+newid).build();
     }
 
     @POST
@@ -82,3 +123,4 @@ public class UserRestController {
 
 
 }
+

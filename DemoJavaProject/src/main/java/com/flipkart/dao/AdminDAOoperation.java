@@ -153,60 +153,60 @@ public class AdminDAOoperation implements AdminDAO {
      * @throws SQLException
      */
     @Override
-    public void updateCatalogue(int addOrdrop) throws SQLException, CourseAlreadyExistsException, CourseNotFoundException {
+    public void updateCatalogue(int addOrdrop,int courseId,String courseName) throws SQLException, CourseAlreadyExistsException, CourseNotFoundException {
         // add or drop course from catalogue
-        Scanner sc = new Scanner(System.in);
+//        Scanner sc = new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
         switch (addOrdrop) {
             case 1:
-                System.out.println("Enter Course Details for adding course");
-                System.out.println("Enter Course ID");
-                int cida = sc.nextInt();
-                System.out.println("Enter Course Name");
-                String cnamea = sc.next();
+//                System.out.println("Enter Course Details for adding course");
+//                System.out.println("Enter Course ID");
+//                int cida = sc.nextInt();
+//                System.out.println("Enter Course Name");
+//                String cnamea = sc.next();
                 try {
                     String sql = SQLQueriesConstants.GET_COURSE_BY_ID;
                     PreparedStatement stmt=connection.prepareStatement(sql);
-                    stmt.setInt(1,cida);
+                    stmt.setInt(1,courseId);
                     ResultSet rs = stmt.executeQuery();
                     boolean flag = true;
                     while (rs.next()) {
                         flag = false;
                     }
                     if(!flag) {
-                        throw new CourseAlreadyExistsException(cida);
+                        throw new CourseAlreadyExistsException(courseId);
                     }
 
                     sql = SQLQueriesConstants.ADD_COURSE_ADMIN;
                     stmt=connection.prepareStatement(sql);
-                    stmt.setInt(1,cida);
-                    stmt.setString(2,cnamea);
+                    stmt.setInt(1,courseId);
+                    stmt.setString(2,courseName);
                     stmt.executeUpdate();
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
                 break;
             case 2:
-                System.out.println("Enter Course Details for dropping course");
-                System.out.println("Enter Course ID");
-                int cidd = sc.nextInt();
+//                System.out.println("Enter Course Details for dropping course");
+//                System.out.println("Enter Course ID");
+//                int cidd = sc.nextInt();
                 try {
                     String sql = SQLQueriesConstants.GET_COURSE_BY_ID;
                     PreparedStatement stmt=connection.prepareStatement(sql);
-                    stmt.setInt(1,cidd);
+                    stmt.setInt(1,courseId);
                     ResultSet rs = stmt.executeQuery();
                     boolean flag = false;
                     while (rs.next()) {
                         flag = true;
                     }
                     if(!flag) {
-                        throw new CourseNotFoundException(cidd);
+                        throw new CourseNotFoundException(courseId);
                     }
 
 
                     sql = SQLQueriesConstants.DELETE_COURSE_ADMIN;
                     stmt=connection.prepareStatement(sql);
-                    stmt.setInt(1,cidd);
+                    stmt.setInt(1,courseId);
                     stmt.execute();
 
                 } catch (Exception e) {
