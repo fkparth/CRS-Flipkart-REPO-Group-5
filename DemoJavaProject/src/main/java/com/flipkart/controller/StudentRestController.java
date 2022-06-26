@@ -80,4 +80,17 @@ public class StudentRestController {
 
         return Response.status(200).entity("PAYMENT DONE").build();
     }
+    @GET
+    @Path("/viewCourseCatalogue")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response viewCourseCatalogue(@Valid CourseCatalogEntity entity) throws URISyntaxException, UserNotFoundException, SQLException, NoRegisteredCoursesException, CourseNotAddedException, PaymentUnsuccessfulException, CourseNotDroppedException, RegistrationUnsuccessfulException, CourseNotFoundException,CourseAlreadyExistsException  {
+        // validation
+
+        // call the dao
+        StudentDAO student = new StudentDAOoperation();
+        ArrayList<CourseCatalogEntity> courses =student.viewCourseCatalogue();
+
+        return Response.ok(courses,MediaType.APPLICATION_JSON).build();
+    }
 }

@@ -2,11 +2,11 @@ package com.flipkart.dao;
 
 import com.flipkart.bean.Student;
 import com.flipkart.constants.SQLQueriesConstants;
-<<<<<<< HEAD
+
 import com.flipkart.entity.CourseCatalogEntity;
-=======
+
 import com.flipkart.entity.StudentViewGradesheetEntity;
->>>>>>> bc6cbb1f630ba98f17d71add1e4d7b07e81197d5
+
 import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
 
@@ -193,7 +193,9 @@ public class StudentDAOoperation implements StudentDAO{
         ArrayList<CourseCatalogEntity> res = new ArrayList<CourseCatalogEntity>();
 
         while(rs.next()){
-            CourseCatalogEntity en = new CourseCatalogEntity(rs.getString("course_name"), rs.getInt("id"));
+            CourseCatalogEntity en = new CourseCatalogEntity();
+            en.setCourseId(rs.getInt("id"));
+            en.setCourseName(rs.getString("course_name"));
             res.add(en);
         }
 
@@ -301,7 +303,7 @@ public class StudentDAOoperation implements StudentDAO{
 
     /**
      * method to pay fee by student for the selected course from database
-     * @param stud: student object containing all fields
+
      * @return
      * @throws PaymentUnsuccessfulException
      */

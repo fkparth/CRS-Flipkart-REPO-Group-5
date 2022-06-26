@@ -40,7 +40,7 @@ public class StudentCRSMenu {
             switch (choice) {
                 case 1:
                     //view course catalogue to choose course
-                    si.viewCourseCatalogue();
+                    //si.viewCourseCatalogue();
                     break;
                 case 2:
                     //to register a new student
@@ -66,7 +66,7 @@ public class StudentCRSMenu {
                     break;
                 case 7:
                     //view gradesheet after completion of course
-                    si.viewGradesheet(student.getUserId());
+                    //si.viewGradesheet(student.getUserId());
                     break;
                 case -1:
                     break;

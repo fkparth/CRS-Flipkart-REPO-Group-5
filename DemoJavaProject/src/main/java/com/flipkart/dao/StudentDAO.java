@@ -1,11 +1,10 @@
 package com.flipkart.dao;
 
 import com.flipkart.bean.*;
-<<<<<<< HEAD
+
 import com.flipkart.entity.CourseCatalogEntity;
-=======
 import com.flipkart.entity.StudentViewGradesheetEntity;
->>>>>>> bc6cbb1f630ba98f17d71add1e4d7b07e81197d5
+
 import com.flipkart.exceptions.*;
 
 import java.sql.SQLException;
