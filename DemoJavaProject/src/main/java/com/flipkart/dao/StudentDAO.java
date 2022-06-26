@@ -1,8 +1,14 @@
 package com.flipkart.dao;
 
 import com.flipkart.bean.*;
+<<<<<<< HEAD
 import com.flipkart.entity.StudentViewCourseEntity;
+=======
+
+import com.flipkart.entity.CourseCatalogEntity;
+>>>>>>> 6f36733e091f5566839659445a53cee8aede44a9
 import com.flipkart.entity.StudentViewGradesheetEntity;
+
 import com.flipkart.exceptions.*;
 
 import java.sql.SQLException;
@@ -41,7 +47,7 @@ public interface StudentDAO {
      * @return returns Coursecatalogue
      * @throws SQLException
      */
-    void viewCourseCatalogue() throws SQLException;
+    ArrayList<CourseCatalogEntity> viewCourseCatalogue() throws SQLException;
 
     /**
      * method to add course in database from course catalogue

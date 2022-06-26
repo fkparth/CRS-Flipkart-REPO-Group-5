@@ -2,7 +2,15 @@ package com.flipkart.dao;
 
 import com.flipkart.bean.Student;
 import com.flipkart.constants.SQLQueriesConstants;
+<<<<<<< HEAD
 import com.flipkart.entity.*;
+=======
+
+import com.flipkart.entity.CourseCatalogEntity;
+
+import com.flipkart.entity.StudentViewGradesheetEntity;
+
+>>>>>>> 6f36733e091f5566839659445a53cee8aede44a9
 import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
 
@@ -178,16 +186,23 @@ public class StudentDAOoperation implements StudentDAO{
      * @throws SQLException
      */
     @Override
-    public void viewCourseCatalogue() throws SQLException {
+    public ArrayList<CourseCatalogEntity> viewCourseCatalogue() throws SQLException {
         Connection connection = DBConnection.getConnection();
-        System.out.println("Done");
         String sql = SQLQueriesConstants.GET_COURSE_CATALOG;
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(sql);
         System.out.println("CourseID - Course-Name");
+
+        ArrayList<CourseCatalogEntity> res = new ArrayList<CourseCatalogEntity>();
+
         while(rs.next()){
-            System.out.println(rs.getInt("id")+"    "+rs.getString("course_name"));//+"     "+rs.getInt("strength"));
+            CourseCatalogEntity en = new CourseCatalogEntity();
+            en.setCourseId(rs.getInt("id"));
+            en.setCourseName(rs.getString("course_name"));
+            res.add(en);
         }
+
+        return res;
     }
 
     /**
@@ -285,8 +300,12 @@ public class StudentDAOoperation implements StudentDAO{
 
     /**
      * method to pay fee by student for the selected course from database
+<<<<<<< HEAD
      * @param id: id of the student paying fees
      * @param paymentMode: mode of payment(online/offline)
+=======
+
+>>>>>>> 6f36733e091f5566839659445a53cee8aede44a9
      * @return
      * @throws PaymentUnsuccessfulException
      */

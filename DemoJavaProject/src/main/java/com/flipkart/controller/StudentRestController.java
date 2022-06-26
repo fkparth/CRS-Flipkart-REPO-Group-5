@@ -49,6 +49,7 @@ public class StudentRestController {
         return Response.status(200).entity("Course Registeration Succesful").build();
     }
 
+<<<<<<< HEAD
     @PUT
     @Path("/addcourse")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -85,6 +86,8 @@ public class StudentRestController {
         }
 
     }
+=======
+>>>>>>> 6f36733e091f5566839659445a53cee8aede44a9
 
     @GET
     @Path("/viewgradesheet")
@@ -93,7 +96,10 @@ public class StudentRestController {
     public Response viewGradesheet(@Valid StudentIdEntity entity) throws URISyntaxException, UserNotFoundException, SQLException, NoRegisteredCoursesException, CourseNotAddedException, PaymentUnsuccessfulException, CourseNotDroppedException, RegistrationUnsuccessfulException, CourseNotFoundException,CourseAlreadyExistsException  {
         // validation
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6f36733e091f5566839659445a53cee8aede44a9
         // call the dao
         int id=entity.getId();
         StudentDAO student = new StudentDAOoperation();
@@ -134,6 +140,22 @@ public class StudentRestController {
         student.feePayment(id,paymentMode);
 
         return Response.status(200).entity("PAYMENT DONE").build();
+<<<<<<< HEAD
 
+=======
+    }
+    @GET
+    @Path("/viewCourseCatalogue")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response viewCourseCatalogue(@Valid CourseCatalogEntity entity) throws URISyntaxException, UserNotFoundException, SQLException, NoRegisteredCoursesException, CourseNotAddedException, PaymentUnsuccessfulException, CourseNotDroppedException, RegistrationUnsuccessfulException, CourseNotFoundException,CourseAlreadyExistsException  {
+        // validation
+
+        // call the dao
+        StudentDAO student = new StudentDAOoperation();
+        ArrayList<CourseCatalogEntity> courses =student.viewCourseCatalogue();
+
+        return Response.ok(courses,MediaType.APPLICATION_JSON).build();
+>>>>>>> 6f36733e091f5566839659445a53cee8aede44a9
     }
 }

@@ -6,6 +6,26 @@
   <component name="ChangeListManager">
     <list default="true" id="c5c37b4c-dc48-4f9a-bb8b-17cfd8729226" name="Changes" comment="">
 <<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/application/CRSApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/application/CRSApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/controller/ProfessorRestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/ProfessorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/ProfessorDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/ProfessorDAOoperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/ProfessorDAOoperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/StudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/StudentDAOoperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/StudentDAOoperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/utils/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/utils/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CRSDropWizard-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/CRSDropWizard-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/application/CRSApplication$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/application/CRSApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/application/CRSApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/application/StudentCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/application/StudentCRSMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/controller/ProfessorRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/controller/ProfessorRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/dao/StudentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/dao/StudentDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/dao/StudentDAOoperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/dao/StudentDAOoperation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/utils/DBConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/utils/DBConnection.class" afterDir="false" />
+=======
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
 =======
       <change afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/entity/StudentIdEntity.java" afterDir="false" />
@@ -28,6 +48,7 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/dao/StudentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/dao/StudentDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/dao/StudentDAOoperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/dao/StudentDAOoperation.class" afterDir="false" />
 >>>>>>> ecd55c20350d8df7c7a8b0a5c30cd5c13994b82b
+>>>>>>> bc6cbb1f630ba98f17d71add1e4d7b07e81197d5
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
@@ -56,6 +77,7 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="useMavenConfig" value="true" />
+        <option name="workOffline" value="true" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -65,17 +87,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/shefali.verma/Documents/CRS-Flipkart-REPO-Group-5/DemoJavaProject",
+    "nodejs_package_manager_path": "npm"
+=======
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+>>>>>>> bc6cbb1f630ba98f17d71add1e4d7b07e81197d5
   }
 }</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
+<<<<<<< HEAD
+      <command value="mvn install" />
+=======
       <command value="mvn clean" />
+>>>>>>> bc6cbb1f630ba98f17d71add1e4d7b07e81197d5
       <command value="mvn clean package" />
     </option>
   </component>
@@ -87,7 +123,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1656247675474</updated>
+<<<<<<< HEAD
+      <workItem from="1656247678997" duration="10868000" />
+      <workItem from="1656266269076" duration="3728000" />
+=======
       <workItem from="1656247678997" duration="16751000" />
+>>>>>>> bc6cbb1f630ba98f17d71add1e4d7b07e81197d5
     </task>
     <servers />
   </component>

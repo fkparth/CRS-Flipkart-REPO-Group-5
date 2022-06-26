@@ -45,11 +45,7 @@ public class CRSApplication {
                 int reqRole = userName / 100;
                 if (reqRole == 1) {
 
-                    StudentDAO SI = new StudentDAOoperation() {
-                        @Override
-                        public void viewCourseCatalogue() {
-                        }
-                    };
+                    StudentDAO SI = new StudentDAOoperation();
                     Student s = SI.fetchStudentData((userName));
 
                     //StudentInterface SI = new StudentImplementation();
