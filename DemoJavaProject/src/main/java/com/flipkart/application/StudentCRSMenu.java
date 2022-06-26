@@ -52,11 +52,11 @@ public class StudentCRSMenu {
                     break;
                 case 4:
                     //add courses according to preference
-                    si.addCourses(student);
+                    //si.addCourses(student);
                     break;
                 case 5:
                     //drop unwanted course
-                    si.dropCourses(student);
+                    //si.dropCourses(student);
                     break;
                 case 6:
 

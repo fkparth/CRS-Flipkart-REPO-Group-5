@@ -181,25 +181,26 @@ public class StudentDAOoperation implements StudentDAO{
 
     /**
      * method to add course in database from course catalogue
-     * @param stud: student object containing all fields
+     * @param stdid: id of the student adding the course
+     * @param courseid: id of the course being added
      * @return
      * @throws CourseNotAddedException
      */
     @Override
-    public void addCourses(Student stud) throws SQLException, CourseNotAddedException {
-        System.out.println("Add Course");
-        Scanner sc=new Scanner(System.in);
+    public void addCourses(int stdid,int courseid) throws SQLException, CourseNotAddedException {
+        //System.out.println("Add Course");
+//        Scanner sc=new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
 
-        try {
+
             String sql = SQLQueriesConstants.STUDENT_ADD_COURSE;
 
             PreparedStatement stmt=connection.prepareStatement(sql);
-            int stdid=stud.getUserId();
-            //System.out.println(stdid+"hi bro");
+//            int stdid=.getUserId();
+//            System.out.println(stdid+"hi bro");
 
-            System.out.println("Enter course ID");
-            int courseid=sc.nextInt();
+            //System.out.println("Enter course ID");
+//            int courseid=sc.nextInt();
             stmt.setInt(1,courseid);
             stmt.setInt(2,stdid);
             stmt.execute();
@@ -211,40 +212,38 @@ public class StudentDAOoperation implements StudentDAO{
 //            if(!rs) {
 //                throw new CourseNotAddedException();
 //            }
-            System.out.println("Course added");
+            //System.out.println("Course added");
 
 
-        } catch (SQLException se) {
-            System.out.println(se.getMessage());
-            System.out.println("Course not added");
-        }
+
 //        catch (CourseNotAddedException se) {
 //            System.out.println(se.getMessage());
 //            //System.out.println("Course not added");
-//        }
+//
 
     }
 
     /**
      * method to drop course selected by student
-     * @param stud: student object containing all fields
+     * @param stdid: object containing all fields
+     * @param courseid: id of the course being added
      * @return
      * @throws CourseNotDroppedException
      */
     @Override
-    public void dropCourses(Student stud) throws SQLException, CourseNotDroppedException,CourseNotFoundException {
-        System.out.println("Drop Course");
-        Scanner sc=new Scanner(System.in);
+    public void dropCourses(int stdid, int courseid) throws SQLException, CourseNotDroppedException,CourseNotFoundException {
+        //System.out.println("Drop Course");
+        //Scanner sc=new Scanner(System.in);
         Connection connection = DBConnection.getConnection();
 
-        try {
+
             String sql = SQLQueriesConstants.STUDENT_DROP_COURSE;
 
             PreparedStatement stmt=connection.prepareStatement(sql);
-            int stdid=stud.getUserId();
+            //int stdid=stud.getUserId();
             //System.out.println(stdid+"hi bro");
-            System.out.println("Enter course ID");
-            int courseid=sc.nextInt();
+            //System.out.println("Enter course ID");
+            //int courseid=sc.nextInt();
             String sql2 = SQLQueriesConstants.GET_COURSE_BY_ID;
             PreparedStatement stmt2=connection.prepareStatement(sql2);
             stmt2.setInt(1,courseid);
@@ -273,16 +272,7 @@ public class StudentDAOoperation implements StudentDAO{
             System.out.println("Course dropped");
 
 
-        } catch (SQLException se) {
-            System.out.println(se.getMessage());
-           System.out.println("You don't have such registered course");
-//            throw new CourseNotDroppedException();
-        }catch (CourseNotFoundException s) {
 
-            System.out.println(s.getMessage());
-            System.out.println("Course not dropped");
-//            throw new CourseNotFoundException();
-        }
 
 
 

@@ -43,26 +43,26 @@ public interface StudentDAO {
 
     /**
      * method to add course in database from course catalogue
-     * @param stud: student object containing all fields
+     * @param stdid: student object containing all fields
+     * @param courseid: id of the course being added
      * @return
      * @throws CourseNotAddedException
      */
-    void addCourses(Student stud) throws SQLException, CourseNotAddedException;
+    void addCourses(int stdid,int courseid) throws SQLException, CourseNotAddedException;
 
 
     /**
      * method to drop course selected by student
-     * @param stud: student object containing all fields
-     * @return
+     * @param stdid: student object containing all fields
+     * @param courseid: id of the course being added
      * @throws CourseNotDroppedException
      */
-    void dropCourses(Student stud) throws SQLException, CourseNotDroppedException,CourseNotFoundException;
+    void dropCourses(int stdid,int courseid) throws SQLException, CourseNotDroppedException,CourseNotFoundException;
 
 
     /**
      * method to pay fee by student for the selected course from database
      * @param student: student object containing all fields
-     * @return
      * @throws PaymentUnsuccessfulException
      */
     void feePayment(Student student) throws SQLException, PaymentUnsuccessfulException;

@@ -39,6 +39,7 @@ com/flipkart/dao/PaymentDAOoperation.class
 com/flipkart/entity/AdminAddProfessorEntity.class
 com/flipkart/bean/Employee.class
 com/flipkart/dao/MockData.class
+com/flipkart/entity/StudentAddCourseEntity.class
 com/flipkart/dao/UserDAO.class
 com/flipkart/dao/RegisteredCourseDAOoperation.class
 com/flipkart/application/StudentCRSMenu.class

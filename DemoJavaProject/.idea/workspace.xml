@@ -5,38 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5c37b4c-dc48-4f9a-bb8b-17cfd8729226" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/entity/AdminAddProfessorEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/entity/AdminApproveStudentEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/entity/AdminViewCourseCatalogueEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/entity/CourseCatalogEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DemoJavaProject.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/application/AdminCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/application/AdminCRSMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/controller/AdminRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/controller/AdminRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/controller/ProfessorRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/controller/ProfessorRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/AdminDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/AdminDAOoperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/AdminDAOoperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/ProfessorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/ProfessorDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/ProfessorDAOoperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/ProfessorDAOoperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/application/StudentCRSMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/application/StudentCRSMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/controller/StudentRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/controller/StudentRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/StudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/StudentDAOoperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipkart/dao/StudentDAOoperation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CRSDropWizard-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/CRSDropWizard-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/application/AdminCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/application/AdminCRSMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/application/ProfessorCRSMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/application/ProfessorCRSMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/controller/AdminRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/controller/AdminRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/controller/ProfessorRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/controller/ProfessorRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/dao/AdminDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/dao/AdminDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/dao/AdminDAOoperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/dao/AdminDAOoperation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/dao/ProfessorDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/dao/ProfessorDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/flipkart/dao/ProfessorDAOoperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/flipkart/dao/ProfessorDAOoperation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/original-CRSDropWizard-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-CRSDropWizard-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.flipkart.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.flipkart.AppTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.flipkart.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.flipkart.AppTest.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,14 +51,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean package" />
