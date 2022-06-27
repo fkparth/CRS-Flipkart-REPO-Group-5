@@ -2,6 +2,19 @@ package com.flipkart.dao;
 
 
 import com.flipkart.bean.*;
+
+
+import com.flipkart.entity.CourseCatalogEntity;
+
+import com.flipkart.entity.StudentViewCourseEntity;
+
+
+import com.flipkart.entity.CourseCatalogEntity;
+
+import com.flipkart.entity.StudentViewGradesheetEntity;
+
+
+import com.flipkart.bean.*;
 import com.flipkart.entity.*;
 import com.flipkart.exceptions.*;
 

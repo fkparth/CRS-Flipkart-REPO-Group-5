@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -27,46 +28,53 @@ public class ProfessorDAOoperation implements ProfessorDAO {
      * @throws SQLException
      */
     @Override
-    public GenericResponse chooseCourse(int id, int courseid) throws SQLException, CourseNotAssignedToProfException, CourseAlreadyTakenException, CourseAlreadyAssignedException {
+
+
+    public GenericResponse chooseCourse(int id, int courseid) throws SQLException, CourseNotAssignedToProfException, CourseAlreadyAssignedException, CourseAlreadyTakenException {
+
+
         Connection connection = DBConnection.getConnection();
-            String sql = SQLQueriesConstants.VIEW_STUDENT_LIST_COURSEID;
-            statement=connection.prepareStatement(sql);
-            statement.setInt(1,id);
-            ResultSet rs = statement.executeQuery();
+        String sql = SQLQueriesConstants.VIEW_STUDENT_LIST_COURSEID;
+        statement = connection.prepareStatement(sql);
+        statement.setInt(1, id);
+        ResultSet rs = statement.executeQuery();
 
-            while (rs.next()) {
-                throw new CourseAlreadyAssignedException(id);
+        while (rs.next()) {
+
+            throw new CourseAlreadyAssignedException(id);
+        }
+
+        String sql2 = SQLQueriesConstants.CHECK_COURSE_PROF_SELECT;
+        PreparedStatement stmt = connection.prepareStatement(sql2);
+        stmt.setInt(1, courseid);
+        ResultSet rs2 = stmt.executeQuery();
+        //System.out.println("Here are list of available Courses:");
+
+        while (rs2.next()) {
+            if (rs2.getInt("status") == 1) {
+                throw new CourseAlreadyTakenException(courseid);
             }
 
-            String sql2 = SQLQueriesConstants.CHECK_COURSE_PROF_SELECT;
-            PreparedStatement stmt = connection.prepareStatement(sql2);
-            stmt.setInt(1,courseid);
-            ResultSet rs2 = stmt.executeQuery();
-            //System.out.println("Here are list of available Courses:");
-
-            while (rs2.next()) {
-                if (rs2.getInt("status") == 1){
-                    throw new CourseAlreadyTakenException(courseid);
-                }
-            }
-
-
-            sql = SQLQueriesConstants.CHOOSE_COURSE_PROF_SELECT;
-            statement=connection.prepareStatement(sql);
-            statement.setInt(1,id);
-            statement.setInt(2,courseid);
-            System.out.println("Executed once");
-            statement.executeUpdate();
-            System.out.println("Chosen Course ID:"+courseid);
-
-            GenericResponse res = new GenericResponse(true, "Course assigned successfully.");
+            // int checkCourseId = (rs.getInt("id"));
+            // if(checkCourseId == courseid) {
+            GenericResponse res = new GenericResponse(false, "Course already assigned!");
             return res;
+            // }
 
+        }
+
+
+        sql = SQLQueriesConstants.CHOOSE_COURSE_PROF_SELECT;
+        statement = connection.prepareStatement(sql);
+        statement.setInt(1, id);
+        statement.setInt(2, courseid);
+        System.out.println("Executed once");
+        statement.executeUpdate();
+        System.out.println("Chosen Course ID:" + courseid);
+
+        GenericResponse res = new GenericResponse(true, "Course assigned successfully.");
+        return res;
     }
-
-
-
-
     /**
      * Function to fetch professor data when he logs into CRSApplication
      * @param id
@@ -174,7 +182,7 @@ public class ProfessorDAOoperation implements ProfessorDAO {
      * @throws SQLException
      */
     @Override
-    public GenericResponse assignGrade(int id,String grade) throws SQLException, GradeNotAddedException {
+    public GenericResponse assignGrade(int id,String grade, int studId) throws SQLException, GradeNotAddedException {
         Connection connection = DBConnection.getConnection();
 
         try {
@@ -199,20 +207,20 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             PreparedStatement statement2=connection.prepareStatement(sql);
             statement2.setInt(1,courseid);
             rs = statement2.executeQuery();
-            int studid = -1;
+//            int studid = -1;
             String studname = "datta";
             System.out.println("StudentID : StudentName");
             while (rs.next()){
-                studid = rs.getInt("student_id");
+                //studid = rs.getInt("student_id");
                 //System.out.println(studid+"hi");
                 String sql2 = SQLQueriesConstants.VIEW_STUDENT_LIST_STUDENTNAME;
                 PreparedStatement statement3=connection.prepareStatement(sql2);
-                statement3.setInt(1,studid);
+                statement3.setInt(1,studId);
                 ResultSet rs2 = statement3.executeQuery();
                 while (rs2.next()){
                     studname = rs2.getString("name");
                 }
-                System.out.println(studid+"     "+studname);
+                System.out.println(studId+"     "+studname);
                 //System.out.print("Enter Grade- ");
                 //Scanner sc = new Scanner(System.in);
                 //String grade = sc.nextLine();
@@ -221,11 +229,11 @@ public class ProfessorDAOoperation implements ProfessorDAO {
                 PreparedStatement statement4=connection.prepareStatement(sql3);
                 statement4.setString(1,grade);
                 statement4.setInt(2,courseid);
-                statement4.setInt(3,studid);
+                statement4.setInt(3,studId);
                 statement4.executeUpdate();
             }
 
-            if(studid == -1) {
+            if(studId == -1) {
                 GenericResponse res = new GenericResponse(false, "No Registered Student");
                 return res;
                 //throw new NoStudentRegisteredException(courseid);

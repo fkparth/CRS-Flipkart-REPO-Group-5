@@ -3,6 +3,7 @@ package com.flipkart.entity;
 public class ProfessorChooseCourseEntity {
     public int userId;
     public int courseId;
+
     public int studId;
     public String grade;
 

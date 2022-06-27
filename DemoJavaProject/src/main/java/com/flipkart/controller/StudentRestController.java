@@ -49,6 +49,7 @@ public class StudentRestController {
         return Response.status(200).entity("Course Registeration Succesful").build();
     }
 
+
     @PUT
     @Path("/addcourse")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -85,6 +86,7 @@ public class StudentRestController {
         }
 
     }
+
 
     @GET
     @Path("/viewgradesheet")
@@ -147,5 +149,6 @@ public class StudentRestController {
         ArrayList<CourseCatalogEntity> courses =student.viewCourseCatalogue();
 
         return Response.ok(courses,MediaType.APPLICATION_JSON).build();
+
     }
 }

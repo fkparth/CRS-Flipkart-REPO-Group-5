@@ -16,6 +16,6 @@ public interface ProfessorDAO {
 
     ArrayList<StudentListEntity> viewStudentsList (int id) throws SQLException, NoStudentRegisteredException;
 
-    GenericResponse assignGrade(int id, String grade) throws SQLException, GradeNotAddedException,NoStudentRegisteredException;
+    GenericResponse assignGrade(int id, String grade,int studId) throws SQLException, GradeNotAddedException,NoStudentRegisteredException;
 
 }
