@@ -6,7 +6,6 @@ import com.flipkart.constants.SQLQueriesConstants;
 import com.flipkart.entity.CourseCatalogEntity;
 import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
-import javafx.util.Pair;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -253,7 +252,7 @@ public class AdminDAOoperation implements AdminDAO {
         System.out.println("CourseID - Course-Name");
         while(rs.next()){
            // Pair<String,Integer> coursePair=new Pair<String,Integer>();
-            CourseCatalogEntity en = new CourseCatalogEntity(rs.getString("course_name"), rs.getInt("id"));
+            CourseCatalogEntity en = new CourseCatalogEntity();
 
             courseList.add(en);
             //System.out.println(+"    "+rs.getString("course_name"));//+"     "+rs.getInt("strength"));

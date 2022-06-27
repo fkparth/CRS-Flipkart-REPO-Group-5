@@ -2,17 +2,27 @@ package com.flipkart.dao;
 
 import com.flipkart.bean.Student;
 import com.flipkart.constants.SQLQueriesConstants;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import com.flipkart.entity.*;
+=======
+>>>>>>> 756eb04ad6c81c7792286df0e2dd952c95daf0b7
 
 import com.flipkart.entity.CourseCatalogEntity;
 
 import com.flipkart.entity.StudentViewGradesheetEntity;
 
+<<<<<<< HEAD
+=======
+>>>>>>> 6f36733e091f5566839659445a53cee8aede44a9
+>>>>>>> 756eb04ad6c81c7792286df0e2dd952c95daf0b7
 import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
 
+import java.net.URISyntaxException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
@@ -183,7 +193,7 @@ public class StudentDAOoperation implements StudentDAO{
      * @throws SQLException
      */
     @Override
-    public ArrayList<CourseCatalogEntity> viewCourseCatalogue() throws SQLException {
+    public ArrayList<CourseCatalogEntity> viewCourseCatalogue() throws URISyntaxException, UserNotFoundException, SQLException, NoRegisteredCoursesException, CourseNotAddedException, PaymentUnsuccessfulException, CourseNotDroppedException, RegistrationUnsuccessfulException, CourseNotFoundException,CourseAlreadyExistsException {
         Connection connection = DBConnection.getConnection();
         String sql = SQLQueriesConstants.GET_COURSE_CATALOG;
         Statement st = connection.createStatement();
@@ -193,7 +203,9 @@ public class StudentDAOoperation implements StudentDAO{
         ArrayList<CourseCatalogEntity> res = new ArrayList<CourseCatalogEntity>();
 
         while(rs.next()){
-            CourseCatalogEntity en = new CourseCatalogEntity(rs.getString("course_name"), rs.getInt("id"));
+            CourseCatalogEntity en = new CourseCatalogEntity();
+            en.setCourseId(rs.getInt("id"));
+            en.setCourseName(rs.getString("course_name"));
             res.add(en);
         }
 
@@ -291,17 +303,16 @@ public class StudentDAOoperation implements StudentDAO{
 //                throw new CourseNotDroppedException();
 //            }
             System.out.println("Course dropped");
-
-
-
-
-
-
     }
 
     /**
      * method to pay fee by student for the selected course from database
-     * @param stud: student object containing all fields
+<<<<<<< HEAD
+     * @param id: id of the student paying fees
+     * @param paymentMode: mode of payment(online/offline)
+=======
+
+>>>>>>> 6f36733e091f5566839659445a53cee8aede44a9
      * @return
      * @throws PaymentUnsuccessfulException
      */
@@ -352,16 +363,16 @@ public class StudentDAOoperation implements StudentDAO{
 
     /**
      * method to view selected course list
+     *
      * @param id: student id
      * @return
      * @throws NoRegisteredCoursesException
      */
     @Override
-    public void viewCourses(int id) throws SQLException, NoRegisteredCoursesException {
+    public ArrayList<StudentViewCourseEntity> viewCourses(int id) throws SQLException, NoRegisteredCoursesException {
         Connection connection = DBConnection.getConnection();
-        System.out.println("Done");
+        //System.out.println("Done");
 
-        try {
             String sql = SQLQueriesConstants.GET_REGISTERED_COURSE_STUDENT_ID;
             statement=connection.prepareStatement(sql);
             statement.setInt(1,id);
@@ -369,7 +380,7 @@ public class StudentDAOoperation implements StudentDAO{
             System.out.println("Course ID    Course Name");
 
             boolean flag = false;
-
+            ArrayList<StudentViewCourseEntity> viewc = new ArrayList<StudentViewCourseEntity>();
             while (rs.next()) {
                 flag = true;
                 int cid=rs.getInt("course_id");
@@ -379,17 +390,16 @@ public class StudentDAOoperation implements StudentDAO{
                 ResultSet rs2=st2.executeQuery();
 
                 while(rs2.next()){
+                    StudentViewCourseEntity svce = new StudentViewCourseEntity();
+                    svce.setCourseId(cid);
+                    svce.setCourseName(rs2.getString("course_name"));
+                    viewc.add(svce);
                     System.out.println(cid+"    "+rs2.getString("course_name"));
                 }
             }
-
             if (!flag) {
                 throw new NoRegisteredCoursesException(id);
             }
-        } catch (SQLException se) {
-            throw new NoRegisteredCoursesException(id);
-        }
-
-
+            return viewc;
     }
 }

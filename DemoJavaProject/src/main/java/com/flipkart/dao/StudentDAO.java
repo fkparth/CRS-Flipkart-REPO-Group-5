@@ -1,13 +1,23 @@
 package com.flipkart.dao;
 
 import com.flipkart.bean.*;
+<<<<<<< HEAD
 
 import com.flipkart.entity.CourseCatalogEntity;
 
+=======
+<<<<<<< HEAD
+import com.flipkart.entity.StudentViewCourseEntity;
+=======
+
+import com.flipkart.entity.CourseCatalogEntity;
+>>>>>>> 6f36733e091f5566839659445a53cee8aede44a9
+>>>>>>> 756eb04ad6c81c7792286df0e2dd952c95daf0b7
 import com.flipkart.entity.StudentViewGradesheetEntity;
 
 import com.flipkart.exceptions.*;
 
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -17,7 +27,6 @@ public interface StudentDAO {
     /**
      * Method to register student in a course from database
      * @param stud: student object containing all the fields
-     * @return
      * @throws RegistrationUnsuccessfulException
      */
     void register(int stud, ArrayList<Integer> preference) throws SQLException, RegistrationUnsuccessfulException;
@@ -42,16 +51,15 @@ public interface StudentDAO {
     //same goes with this function we show the course catalogue print it not return it
     /**
      * Method to view course course catalogue
-     * @return
+     * @return returns Coursecatalogue
      * @throws SQLException
      */
-    ArrayList<CourseCatalogEntity> viewCourseCatalogue() throws SQLException;
+    ArrayList<CourseCatalogEntity> viewCourseCatalogue() throws SQLException, URISyntaxException, UserNotFoundException, NoRegisteredCoursesException, CourseNotAddedException, PaymentUnsuccessfulException, CourseNotDroppedException, RegistrationUnsuccessfulException, CourseNotFoundException, CourseAlreadyExistsException;
 
     /**
      * method to add course in database from course catalogue
      * @param stdid: student object containing all fields
      * @param courseid: id of the course being added
-     * @return
      * @throws CourseNotAddedException
      */
     void addCourses(int stdid,int courseid) throws SQLException, CourseNotAddedException;
@@ -75,11 +83,12 @@ public interface StudentDAO {
 
     /**
      * method to view selected course list
+     *
      * @param stud: student object containing all fields
-     * @return
+     * @return ArrayList of courses student has registered
      * @throws NoRegisteredCoursesException
      */
-    void viewCourses(int stud) throws SQLException, NoRegisteredCoursesException;
+    ArrayList<StudentViewCourseEntity> viewCourses(int stud) throws SQLException, NoRegisteredCoursesException;
 
     void feePayment(int id, int paymentMode) throws SQLException, PaymentUnsuccessfulException;
 }

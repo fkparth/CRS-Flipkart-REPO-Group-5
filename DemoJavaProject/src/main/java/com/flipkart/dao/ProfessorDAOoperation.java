@@ -12,7 +12,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -27,7 +26,11 @@ public class ProfessorDAOoperation implements ProfessorDAO {
      * @throws SQLException
      */
     @Override
+<<<<<<< HEAD
     public GenericResponse chooseCourse(int id, int courseid) throws SQLException, CourseNotAssignedToProfException {
+=======
+    public Boolean chooseCourse(int id, int courseid) throws SQLException, CourseNotAssignedToProfException {
+>>>>>>> 756eb04ad6c81c7792286df0e2dd952c95daf0b7
         Connection connection = DBConnection.getConnection();
 
         try {
@@ -59,9 +62,19 @@ public class ProfessorDAOoperation implements ProfessorDAO {
         } catch(Exception se) {
             //throw new CourseNotAssignedToProfException();
             System.out.println(se.getMessage());
+<<<<<<< HEAD
             GenericResponse res = new GenericResponse(false, "Some error occurred!");
             return res;
         }
+=======
+
+        } catch (CourseAlreadyTakenException e) {
+            System.out.println(e.getMessage());
+
+        }
+
+        return false;
+>>>>>>> 756eb04ad6c81c7792286df0e2dd952c95daf0b7
     }
     /**
      * Function to fetch professor data when he logs into CRSApplication
