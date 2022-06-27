@@ -6,6 +6,7 @@ import com.flipkart.entity.GenericResponse;
 import com.flipkart.entity.StudentListEntity;
 import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
+import java.util.*;
 
 
 import java.sql.Connection;
@@ -26,56 +27,46 @@ public class ProfessorDAOoperation implements ProfessorDAO {
      * @throws SQLException
      */
     @Override
-<<<<<<< HEAD
-    public GenericResponse chooseCourse(int id, int courseid) throws SQLException, CourseNotAssignedToProfException {
-=======
-    public Boolean chooseCourse(int id, int courseid) throws SQLException, CourseNotAssignedToProfException {
->>>>>>> 756eb04ad6c81c7792286df0e2dd952c95daf0b7
+    public GenericResponse chooseCourse(int id, int courseid) throws SQLException, CourseNotAssignedToProfException, CourseAlreadyTakenException, CourseAlreadyAssignedException {
         Connection connection = DBConnection.getConnection();
-
-        try {
             String sql = SQLQueriesConstants.VIEW_STUDENT_LIST_COURSEID;
             statement=connection.prepareStatement(sql);
             statement.setInt(1,id);
             ResultSet rs = statement.executeQuery();
-            //System.out.println("Here are list of available Courses:");
 
             while (rs.next()) {
-                int checkCourseId = (rs.getInt("id"));
-                if(checkCourseId == courseid) {
-                    GenericResponse res = new GenericResponse(false, "Course already assigned!");
-                    return res;
+                throw new CourseAlreadyAssignedException(id);
+            }
+
+            String sql2 = SQLQueriesConstants.CHECK_COURSE_PROF_SELECT;
+            PreparedStatement stmt = connection.prepareStatement(sql2);
+            stmt.setInt(1,courseid);
+            ResultSet rs2 = stmt.executeQuery();
+            //System.out.println("Here are list of available Courses:");
+
+            while (rs2.next()) {
+                if (rs2.getInt("status") == 1){
+                    throw new CourseAlreadyTakenException(courseid);
                 }
             }
 
-            int ccode = courseid;
 
             sql = SQLQueriesConstants.CHOOSE_COURSE_PROF_SELECT;
             statement=connection.prepareStatement(sql);
             statement.setInt(1,id);
-            statement.setInt(2,ccode);
+            statement.setInt(2,courseid);
+            System.out.println("Executed once");
             statement.executeUpdate();
-            System.out.println("Chosen Course ID:"+ccode);
+            System.out.println("Chosen Course ID:"+courseid);
 
             GenericResponse res = new GenericResponse(true, "Course assigned successfully.");
             return res;
-        } catch(Exception se) {
-            //throw new CourseNotAssignedToProfException();
-            System.out.println(se.getMessage());
-<<<<<<< HEAD
-            GenericResponse res = new GenericResponse(false, "Some error occurred!");
-            return res;
-        }
-=======
 
-        } catch (CourseAlreadyTakenException e) {
-            System.out.println(e.getMessage());
-
-        }
-
-        return false;
->>>>>>> 756eb04ad6c81c7792286df0e2dd952c95daf0b7
     }
+
+
+
+
     /**
      * Function to fetch professor data when he logs into CRSApplication
      * @param id

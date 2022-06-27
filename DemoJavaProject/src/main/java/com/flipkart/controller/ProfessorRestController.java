@@ -4,15 +4,8 @@ import com.flipkart.dao.ProfessorDAO;
 import com.flipkart.dao.ProfessorDAOoperation;
 import com.flipkart.dao.StudentDAO;
 import com.flipkart.dao.StudentDAOoperation;
-<<<<<<< HEAD
 import com.flipkart.entity.*;
-import com.flipkart.exceptions.CourseNotAssignedToProfException;
-import com.flipkart.exceptions.GradeNotAddedException;
-import com.flipkart.exceptions.NoStudentRegisteredException;
-=======
-import com.flipkart.entity.CourseCatalogEntity;
 import com.flipkart.exceptions.*;
->>>>>>> 756eb04ad6c81c7792286df0e2dd952c95daf0b7
 
 import javax.validation.Valid;
 import javax.validation.Validator;
@@ -43,16 +36,21 @@ public class ProfessorRestController {
         return Response.status(200).entity(res).build();
     }
 
-<<<<<<< HEAD
     @POST
     @Path("/choose_course")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response chooseCourse(@Valid ProfessorChooseCourseEntity entity)  throws SQLException, CourseNotAssignedToProfException, NoStudentRegisteredException, GradeNotAddedException {
-        ProfessorDAO PI = new ProfessorDAOoperation();
-        GenericResponse res=PI.chooseCourse(entity.getUserId(), entity.getCourseId());
+        try {
+            ProfessorDAO PI = new ProfessorDAOoperation();
+            GenericResponse res = PI.chooseCourse(entity.getUserId(), entity.getCourseId());
+            return Response.status(200).entity(res).build();
 
-        return Response.status(200).entity(res).build();
+        }
+        catch (Exception e){
+            return Response.status(500).entity(e.getMessage()).build();
+
+        }
     }
 
 
@@ -78,8 +76,5 @@ public class ProfessorRestController {
 
         return Response.status(200).entity(res).build();
     }
-=======
->>>>>>> 756eb04ad6c81c7792286df0e2dd952c95daf0b7
-
 
 }

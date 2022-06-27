@@ -32,6 +32,10 @@ public class SQLQueriesConstants {
     public static final String CHOOSE_COURSE_PROF_LIST="select * from course where status =0;";
 
     public static final String CHOOSE_COURSE_PROF_SELECT = "update course set status=1,professor_id = ? where id=?;";
+
+
+
+    public static final String CHECK_COURSE_PROF_SELECT = "select * from course where id = ?;";
     public static final String VIEW_STUDENT_LIST_COURSEID = "select * from course where professor_id=?;";
 
     public static final String VIEW_STUDENT_LIST_STUDENTID = "select * from registeredcourses where course_id =?;";

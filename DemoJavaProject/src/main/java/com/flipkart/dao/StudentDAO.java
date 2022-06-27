@@ -1,20 +1,8 @@
 package com.flipkart.dao;
 
+
 import com.flipkart.bean.*;
-<<<<<<< HEAD
-
-import com.flipkart.entity.CourseCatalogEntity;
-
-=======
-<<<<<<< HEAD
-import com.flipkart.entity.StudentViewCourseEntity;
-=======
-
-import com.flipkart.entity.CourseCatalogEntity;
->>>>>>> 6f36733e091f5566839659445a53cee8aede44a9
->>>>>>> 756eb04ad6c81c7792286df0e2dd952c95daf0b7
-import com.flipkart.entity.StudentViewGradesheetEntity;
-
+import com.flipkart.entity.*;
 import com.flipkart.exceptions.*;
 
 import java.net.URISyntaxException;
