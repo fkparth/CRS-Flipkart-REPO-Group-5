@@ -43,10 +43,25 @@ public class UserRestController {
         // call the dao
         int userName = entity.getUserId();
         String password = entity.getPassword();
+        int reqRole = -1;
+        String truepass = "";
 
-        int reqRole = userName / 100;
+        Connection connection = DBConnection.getConnection();
+        String sql2 = SQLQueriesConstants.LOGIN_ROLE;
+        PreparedStatement stmt=connection.prepareStatement(sql2);
+        stmt.setInt(1,userName);
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()){
+            reqRole = rs.getInt("type");
+            truepass = rs.getString("password");
+        }
+        System.out.println(password);
+        System.out.println(truepass);
+        if (!password.equals(truepass)){
+            return Response.status(500).entity("Invalid login credentials").build();
+        }
+
         if (reqRole == 1) {
-
             StudentDAO SI = new StudentDAOoperation();
             Student s = SI.fetchStudentData((userName));
 
@@ -111,6 +126,26 @@ public class UserRestController {
         stmt2.executeUpdate();
 
         return Response.status(200).entity("Your User ID is "+newid).build();
+    }
+
+    @POST
+    @Path("/updatepassword")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response updatepassword(@Valid UserLoginEntity entity) throws URISyntaxException,SQLException {
+        try {
+            int userId = entity.getUserId();
+            String password = entity.getPassword();
+            Connection connection = DBConnection.getConnection();
+            String sql3 = SQLQueriesConstants.UPDATE_PASS;
+            PreparedStatement stmt = connection.prepareStatement(sql3);
+            stmt.setString(1, password);
+            stmt.setInt(2, userId);
+            stmt.executeUpdate();
+            return Response.status(200).entity("Password updated").build();
+        }
+        catch (Exception e){
+            return Response.status(500).entity(e.getMessage()).build();
+        }
     }
 
     @POST
