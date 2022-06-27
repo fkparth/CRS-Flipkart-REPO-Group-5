@@ -28,15 +28,13 @@ public class App extends Application<Configuration> {
         e.jersey().register(new EmployeeRestController(e.getValidator()));
         e.jersey().register(new UserRestController(e.getValidator()));
         e.jersey().register(new AdminRestController(e.getValidator()));
-<<<<<<< HEAD
-        e.jersey().register(new ProfessorRestController(e.getValidator()));
-=======
-        e.jersey().register(new StudentRestController(e.getValidator()));
-<<<<<<< HEAD
-=======
 
->>>>>>> ecd55c20350d8df7c7a8b0a5c30cd5c13994b82b
->>>>>>> bc6cbb1f630ba98f17d71add1e4d7b07e81197d5
+        e.jersey().register(new ProfessorRestController(e.getValidator()));
+
+        e.jersey().register(new StudentRestController(e.getValidator()));
+
+
+
     }
 
     public static void main(String[] args) throws Exception {

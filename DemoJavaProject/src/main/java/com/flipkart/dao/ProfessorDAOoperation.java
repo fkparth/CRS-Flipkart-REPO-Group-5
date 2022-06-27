@@ -1,6 +1,9 @@
 package com.flipkart.dao;
 import com.flipkart.bean.*;
 import com.flipkart.constants.SQLQueriesConstants;
+import com.flipkart.entity.CourseCatalogEntity;
+import com.flipkart.entity.GenericResponse;
+import com.flipkart.entity.StudentListEntity;
 import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
 
@@ -24,7 +27,7 @@ public class ProfessorDAOoperation implements ProfessorDAO {
      * @throws SQLException
      */
     @Override
-    public boolean chooseCourse(int id,int courseid) throws SQLException, CourseNotAssignedToProfException {
+    public GenericResponse chooseCourse(int id, int courseid) throws SQLException, CourseNotAssignedToProfException {
         Connection connection = DBConnection.getConnection();
 
         try {
@@ -33,27 +36,15 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             statement.setInt(1,id);
             ResultSet rs = statement.executeQuery();
             //System.out.println("Here are list of available Courses:");
-            //int courseid = -1;
-            //while (rs.next()) {
-               // courseid = (rs.getInt("id"));
-                //System.out.println(courseid+"c");
-           // }
-            if (courseid!=-1){
-                System.out.println("Already teaching course with id : "+ courseid);
-                throw new CourseAlreadyTakenException(courseid);
+
+            while (rs.next()) {
+                int checkCourseId = (rs.getInt("id"));
+                if(checkCourseId == courseid) {
+                    GenericResponse res = new GenericResponse(false, "Course already assigned!");
+                    return res;
+                }
             }
-//            sql = SQLQueriesConstants.CHOOSE_COURSE_PROF_LIST;
-//            statement=connection.prepareStatement(sql);
-//            rs = statement.executeQuery();
-//            System.out.println("Here are list of available Courses:");
-//            while (rs.next()) {
-//                Course course = new Course();
-//                course.setCourseId(rs.getInt("id"));
-//                course.setCourseName(rs.getString("course_name"));
-//                System.out.println(course.getCourseId()+" : "+course.getCourseName());
-//            }
-//            System.out.println("Enter Course Code :");
-//            Scanner sc = new Scanner(System.in);
+
             int ccode = courseid;
 
             sql = SQLQueriesConstants.CHOOSE_COURSE_PROF_SELECT;
@@ -62,16 +53,15 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             statement.setInt(2,ccode);
             statement.executeUpdate();
             System.out.println("Chosen Course ID:"+ccode);
-            return true;
-        } catch(SQLException se) {
+
+            GenericResponse res = new GenericResponse(true, "Course assigned successfully.");
+            return res;
+        } catch(Exception se) {
             //throw new CourseNotAssignedToProfException();
             System.out.println(se.getMessage());
-            return false;
-        } catch (CourseAlreadyTakenException e) {
-            System.out.println(e.getMessage());
-            return false;
+            GenericResponse res = new GenericResponse(false, "Some error occurred!");
+            return res;
         }
-        return false;
     }
     /**
      * Function to fetch professor data when he logs into CRSApplication
@@ -115,7 +105,7 @@ public class ProfessorDAOoperation implements ProfessorDAO {
      * @throws SQLException
      */
     @Override
-    public void viewStudentsList(int id) throws SQLException, NoStudentRegisteredException {
+    public ArrayList<StudentListEntity> viewStudentsList(int id) throws SQLException, NoStudentRegisteredException {
         Connection connection = DBConnection.getConnection();
 
         int courseid = -1;
@@ -143,6 +133,7 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             int studid = -1;
             String studname = "datta";
             System.out.println("StudentID : StudentName");
+            ArrayList<StudentListEntity> res = new ArrayList<StudentListEntity>();
             while (rs.next()){
                 studid = rs.getInt("student_id");
                 //System.out.println(studid+"hi");
@@ -153,12 +144,14 @@ public class ProfessorDAOoperation implements ProfessorDAO {
                 while (rs2.next()){
                     studname = rs2.getString("name");
                 }
+                StudentListEntity en = new StudentListEntity(studname, studid);
+                res.add(en);
                 System.out.println(studid+"     "+studname);
             }
-
             if(studid == -1) {
                 throw new NoStudentRegisteredException(courseid);
             }
+            return res;
         } catch (SQLException se) {
             throw new NoStudentRegisteredException(courseid);
         } catch (CourseNotAssignedToProfException e) {
@@ -167,7 +160,7 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             System.out.println(e.getMessage());
         }
 
-
+        return null;
     }
 
     /**
@@ -177,7 +170,7 @@ public class ProfessorDAOoperation implements ProfessorDAO {
      * @throws SQLException
      */
     @Override
-    public void assignGrade(int id) throws SQLException, GradeNotAddedException {
+    public GenericResponse assignGrade(int id,String grade) throws SQLException, GradeNotAddedException {
         Connection connection = DBConnection.getConnection();
 
         try {
@@ -188,12 +181,14 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             //System.out.println("Here are list of available Courses:");
             int courseid = -1;
             while (rs.next()) {
-                courseid = (rs.getInt("id"));
+                courseid  = (rs.getInt("id"));
                 //System.out.println(courseid+"c");
             }
 
-            if (courseid == -1) {
-                throw new CourseNotAssignedToProfException();
+            if (courseid   == -1) {
+                GenericResponse res = new GenericResponse(false, "Course not assigned to professor!");
+                return res;
+                //throw new CourseNotAssignedToProfException();
             }
 
             sql = SQLQueriesConstants.VIEW_STUDENT_LIST_STUDENTID;
@@ -214,9 +209,9 @@ public class ProfessorDAOoperation implements ProfessorDAO {
                     studname = rs2.getString("name");
                 }
                 System.out.println(studid+"     "+studname);
-                System.out.print("Enter Grade- ");
-                Scanner sc = new Scanner(System.in);
-                String grade = sc.nextLine();
+                //System.out.print("Enter Grade- ");
+                //Scanner sc = new Scanner(System.in);
+                //String grade = sc.nextLine();
 
                 String sql3 = SQLQueriesConstants.GIVE_GRADE;
                 PreparedStatement statement4=connection.prepareStatement(sql3);
@@ -227,16 +222,24 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             }
 
             if(studid == -1) {
-                throw new NoStudentRegisteredException(courseid);
+                GenericResponse res = new GenericResponse(false, "No Registered Student");
+                return res;
+                //throw new NoStudentRegisteredException(courseid);
             }
 
-        } catch (SQLException se) {
-            throw new GradeNotAddedException();
-        } catch (CourseNotAssignedToProfException e) {
-            throw new RuntimeException(e);
-        } catch (NoStudentRegisteredException e) {
-            throw new RuntimeException(e);
+            GenericResponse res = new GenericResponse(true, "Grade assigned!");
+            return res;
+
+        } catch (Exception se) {
+            GenericResponse res = new GenericResponse(false, "Error Occured!");
+            return res;
+            //throw new GradeNotAddedException();
         }
+//        catch (CourseNotAssignedToProfException e) {
+//            throw new RuntimeException(e);
+//        } catch (NoStudentRegisteredException e) {
+//            throw new RuntimeException(e);
+//        }
 
     }
 }

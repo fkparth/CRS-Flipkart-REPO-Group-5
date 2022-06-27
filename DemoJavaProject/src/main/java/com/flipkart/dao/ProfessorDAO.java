@@ -1,6 +1,8 @@
 package com.flipkart.dao;
 
 import com.flipkart.bean.*;
+import com.flipkart.entity.GenericResponse;
+import com.flipkart.entity.StudentListEntity;
 import com.flipkart.exceptions.CourseNotAssignedToProfException;
 import com.flipkart.exceptions.GradeNotAddedException;
 import com.flipkart.exceptions.NoStudentRegisteredException;
@@ -11,12 +13,12 @@ import java.util.ArrayList;
 
 public interface ProfessorDAO {
 
-    Boolean chooseCourse(int id,int courseid) throws SQLException, CourseNotAssignedToProfException;
+    GenericResponse chooseCourse(int id, int courseid) throws SQLException, CourseNotAssignedToProfException;
 
     Professor fetchProfessorData(int id) throws SQLException, UserNotFoundException;
 
-    void viewStudentsList (int id) throws SQLException, NoStudentRegisteredException;
+    ArrayList<StudentListEntity> viewStudentsList (int id) throws SQLException, NoStudentRegisteredException;
 
-    void assignGrade(int id) throws SQLException, GradeNotAddedException,NoStudentRegisteredException;
+    GenericResponse assignGrade(int id, String grade) throws SQLException, GradeNotAddedException,NoStudentRegisteredException;
 
 }

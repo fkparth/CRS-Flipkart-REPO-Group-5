@@ -5,9 +5,7 @@ import com.flipkart.dao.ProfessorDAO;
 import com.flipkart.dao.ProfessorDAOoperation;
 import com.flipkart.dao.StudentDAO;
 import com.flipkart.dao.StudentDAOoperation;
-import com.flipkart.entity.CourseCatalogEntity;
-import com.flipkart.entity.ProfessorChooseCourseEntity;
-import com.flipkart.entity.UserLoginEntity;
+import com.flipkart.entity.*;
 import com.flipkart.exceptions.CourseNotAssignedToProfException;
 import com.flipkart.exceptions.GradeNotAddedException;
 import com.flipkart.exceptions.NoStudentRegisteredException;
@@ -43,9 +41,35 @@ public class ProfessorRestController {
     @POST
     @Path("/choose_course")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response chooseCourse(@Valid ProfessorChooseCourseEntity entity, @Valid CourseCatalogEntity en)  throws SQLException, CourseNotAssignedToProfException, NoStudentRegisteredException, GradeNotAddedException {
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response chooseCourse(@Valid ProfessorChooseCourseEntity entity)  throws SQLException, CourseNotAssignedToProfException, NoStudentRegisteredException, GradeNotAddedException {
         ProfessorDAO PI = new ProfessorDAOoperation();
-        boolean res=PI.chooseCourse(entity.getUserId(),en.getCourseId());
+        GenericResponse res=PI.chooseCourse(entity.getUserId(), entity.getCourseId());
+
+        return Response.status(200).entity(res).build();
+    }
+
+
+    @GET
+    @Path("/view_student_list")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response viewStudentList(@Valid ProfessorChooseCourseEntity entity)  throws SQLException, CourseNotAssignedToProfException, NoStudentRegisteredException, GradeNotAddedException {
+        ProfessorDAO PI = new ProfessorDAOoperation();
+        ArrayList<StudentListEntity> res = PI.viewStudentsList(entity.getUserId());
+        for(int i = 0; i < res.size(); i++) {
+            System.out.println(res.get(i).getStudId() + " -> ash");
+        }
+        return Response.status(200).entity(res).build();
+    }
+
+    @POST
+    @Path("/assign_grade")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response assignGrade(@Valid ProfessorChooseCourseEntity entity)  throws SQLException, CourseNotAssignedToProfException, NoStudentRegisteredException, GradeNotAddedException {
+        ProfessorDAO PI = new ProfessorDAOoperation();
+        GenericResponse res=PI.assignGrade(entity.getUserId(), entity.getGrade());
+
         return Response.status(200).entity(res).build();
     }
 

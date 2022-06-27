@@ -2,14 +2,18 @@ package com.flipkart.entity;
 
 public class ProfessorChooseCourseEntity {
     public int userId;
-    public String password;
-
-    public ProfessorChooseCourseEntity(int userId, String password) {
-        this.userId = userId;
-        this.password = password;
-    }
+    public int courseId;
+    public int studId;
+    public String grade;
 
     public ProfessorChooseCourseEntity() {
+    }
+
+    public ProfessorChooseCourseEntity(int userId, int courseId, int studId, String grade) {
+        this.userId = userId;
+        this.courseId = courseId;
+        this.studId = studId;
+        this.grade = grade;
     }
 
     public int getUserId() {
@@ -20,7 +24,31 @@ public class ProfessorChooseCourseEntity {
         this.userId = userId;
     }
 
-    public String getPassword() {
-        return password;
+    public int getCourseId() {
+        return courseId;
     }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
+    }
+
+    public int getStudId() {
+        return studId;
+    }
+
+    public void setStudId(int studId) {
+        this.studId = studId;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+
+
+
 }

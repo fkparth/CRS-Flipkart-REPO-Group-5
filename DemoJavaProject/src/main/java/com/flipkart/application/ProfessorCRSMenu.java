@@ -34,7 +34,7 @@ public class ProfessorCRSMenu {
             switch (choice) {
                 case 1:
                     //choose course from catalogue which professor wants to teach
-                    PI.chooseCourse(professor.getUserId());
+//                    PI.chooseCourse(professor.getUserId());
                     break;
                 case 2:
                     //view list of students in respective course
@@ -42,7 +42,7 @@ public class ProfessorCRSMenu {
                     break;
                 case 3:
                     //assign grade to students
-                    PI.assignGrade(professor.getUserId());
+                      //PI.assignGrade(professor.getUserId());
                     break;
 
 

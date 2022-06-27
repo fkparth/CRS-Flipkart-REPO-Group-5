@@ -40,21 +40,20 @@ com/flipkart/dao/PaymentDAOoperation.class
 com/flipkart/entity/AdminAddProfessorEntity.class
 com/flipkart/bean/Employee.class
 com/flipkart/dao/MockData.class
-<<<<<<< HEAD
 com/flipkart/entity/StudentAddCourseEntity.class
-=======
 com/flipkart/entity/StudentRegisterCourseEntity.class
->>>>>>> ecd55c20350d8df7c7a8b0a5c30cd5c13994b82b
 com/flipkart/dao/UserDAO.class
 com/flipkart/dao/RegisteredCourseDAOoperation.class
 com/flipkart/application/StudentCRSMenu.class
 com/flipkart/controller/HelloRestController.class
 com/flipkart/service/NotificationInterface.class
 com/flipkart/dao/NotificationDAO.class
+com/flipkart/entity/GenericResponse.class
 com/flipkart/exceptions/CourseLimitExceededException.class
 com/flipkart/dao/AdminDAO.class
 com/flipkart/bean/Payment.class
 com/flipkart/bean/Notification.class
+com/flipkart/entity/StudentListEntity.class
 com/flipkart/service/AdminInterface.class
 com/flipkart/dao/RegisteredCourseDAO.class
 com/flipkart/exceptions/CourseNotAddedException.class

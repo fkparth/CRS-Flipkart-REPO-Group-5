@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.flipkart.AppTest
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
-=======
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
->>>>>>> bc6cbb1f630ba98f17d71add1e4d7b07e81197d5
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
