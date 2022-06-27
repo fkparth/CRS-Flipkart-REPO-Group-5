@@ -2,21 +2,16 @@ package com.flipkart.dao;
 
 import com.flipkart.bean.Student;
 import com.flipkart.constants.SQLQueriesConstants;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 import com.flipkart.entity.*;
-=======
->>>>>>> 756eb04ad6c81c7792286df0e2dd952c95daf0b7
+
+
 
 import com.flipkart.entity.CourseCatalogEntity;
 
 import com.flipkart.entity.StudentViewGradesheetEntity;
 
-<<<<<<< HEAD
-=======
->>>>>>> 6f36733e091f5566839659445a53cee8aede44a9
->>>>>>> 756eb04ad6c81c7792286df0e2dd952c95daf0b7
+
 import com.flipkart.exceptions.*;
 import com.flipkart.utils.DBConnection;
 

@@ -8,6 +8,7 @@ com/flipkart/entity/UserRegisterEntity.class
 com/flipkart/service/CourseCatalogInterface.class
 com/flipkart/entity/StudentViewCourseEntity.class
 com/flipkart/exceptions/CourseAlreadyTakenException.class
+com/flipkart/entity/ProfessorChooseCourseEntity.class
 com/flipkart/bean/User.class
 com/flipkart/dao/AdminDAOoperation.class
 com/flipkart/dao/ProfessorDAOoperation.class
