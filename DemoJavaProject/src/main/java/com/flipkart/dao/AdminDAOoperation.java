@@ -253,7 +253,8 @@ public class AdminDAOoperation implements AdminDAO {
         while(rs.next()){
            // Pair<String,Integer> coursePair=new Pair<String,Integer>();
             CourseCatalogEntity en = new CourseCatalogEntity();
-
+            en.setCourseName(rs.getString("course_name"));
+            en.setCourseId(rs.getInt("id"));
             courseList.add(en);
             //System.out.println(+"    "+rs.getString("course_name"));//+"     "+rs.getInt("strength"));
         }

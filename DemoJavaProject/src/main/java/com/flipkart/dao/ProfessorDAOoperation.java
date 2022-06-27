@@ -40,11 +40,11 @@ public class ProfessorDAOoperation implements ProfessorDAO {
             //System.out.println("Here are list of available Courses:");
 
             while (rs.next()) {
-                int checkCourseId = (rs.getInt("id"));
-                if(checkCourseId == courseid) {
+               // int checkCourseId = (rs.getInt("id"));
+               // if(checkCourseId == courseid) {
                     GenericResponse res = new GenericResponse(false, "Course already assigned!");
                     return res;
-                }
+               // }
             }
 
             int ccode = courseid;
