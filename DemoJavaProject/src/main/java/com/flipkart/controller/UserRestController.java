@@ -128,7 +128,7 @@ public class UserRestController {
         return Response.status(200).entity("Your User ID is "+newid).build();
     }
 
-    @POST
+    @PUT
     @Path("/updatepassword")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updatepassword(@Valid UserLoginEntity entity) throws URISyntaxException,SQLException {
